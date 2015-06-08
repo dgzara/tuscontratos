@@ -3,13 +3,369 @@
 {% block body -%}
     <h1>Crear contrato de "Arriendo"</h1>
 
-    {{ form(form) }}
+    <section id="arrendador" class="panel panel-primary">
+        <div class="panel-heading">Datos del Arrendador</div>
+        <div class="panel-body">
+            {{ form_row(form.arrendador_persona) }}
+            <div id="arrendador_natural" style="display: none;">
+                <h3>Persona natural</h3>
+                {{ form_row(form.arrendador_natural_sexo) }}
+                {{ form_row(form.arrendador_natural_nombres) }}
+                {{ form_row(form.arrendador_natural_apellido_paterno) }}
+                {{ form_row(form.arrendador_natural_apellido_materno) }}
+                {{ form_row(form.arrendador_natural_nacionalidad) }}
+                {{ form_row(form.arrendador_natural_estado_civil) }}
+                {{ form_row(form.arrendador_natural_profesion) }}
+                {{ form_row(form.arrendador_natural_rut) }}
+                {{ form_row(form.arrendador_natural_domicilio) }}
+                {{ form_row(form.arrendador_natural_comuna) }}
+                {{ form_row(form.arrendador_natural_region) }}
+            </div>
+            <div id="arrendador_juridica" style="display: none;">
+                <h3>Persona jurídica</h3>
+                {{ form_row(form.arrendador_juridica_razon) }}
+                {{ form_row(form.arrendador_juridica_giro) }}
+                {{ form_row(form.arrendador_juridica_rut) }}
+                {{ form_row(form.arrendador_juridica_domicilio) }}
+                {{ form_row(form.arrendador_juridica_comuna) }}
+                {{ form_row(form.arrendador_juridica_region) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="arrendatario" class="panel panel-primary">
+        <div class="panel-heading">Datos del Arrendatario</div>
+        <div class="panel-body">
+            {{ form_row(form.arrendatario_persona) }}
+            <div id="arrendatario_natural" style="display: none;">
+                <h3>Persona natural</h3>
+                {{ form_row(form.arrendatario_natural_sexo) }}
+                {{ form_row(form.arrendatario_natural_nombres) }}
+                {{ form_row(form.arrendatario_natural_apellido_paterno) }}
+                {{ form_row(form.arrendatario_natural_apellido_materno) }}
+                {{ form_row(form.arrendatario_natural_nacionalidad) }}
+                {{ form_row(form.arrendatario_natural_estado_civil) }}
+                {{ form_row(form.arrendatario_natural_profesion) }}
+                {{ form_row(form.arrendatario_natural_rut) }}
+                {{ form_row(form.arrendatario_natural_domicilio) }}
+                {{ form_row(form.arrendatario_natural_comuna) }}
+                {{ form_row(form.arrendatario_natural_region) }}
+            </div>
+            <div id="arrendatario_juridica" style="display: none;">
+                <h3>Persona jurídica</h3>
+                {{ form_row(form.arrendatario_juridica_razon) }}
+                {{ form_row(form.arrendatario_juridica_giro) }}
+                {{ form_row(form.arrendatario_juridica_rut) }}
+                {{ form_row(form.arrendatario_juridica_domicilio) }}
+                {{ form_row(form.arrendatario_juridica_comuna) }}
+                {{ form_row(form.arrendatario_juridica_region) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="propiedad" class="panel panel-primary">
+        <div class="panel-heading">Datos de la propiedad arrendada</div>
+        <div class="panel-body">
+            {{ form_row(form.propiedad_calle) }}
+            {{ form_row(form.propiedad_numero) }}
+            {{ form_row(form.propiedad_departamento) }}
+            {{ form_row(form.propiedad_villa) }}
+            {{ form_row(form.propiedad_region) }}
+            {{ form_row(form.propiedad_comuna) }}
+        </div>
+    </section>
+    
+    <section id="plazo" class="panel panel-primary">
+        <div class="panel-heading">Plazo del arriendo</div>
+        <div class="panel-body">
+            {{ form_row(form.plazo_unidad) }}
+            {{ form_row(form.plazo_momento) }}
+            {{ form_row(form.plazo_prorroga) }}
+            <div id="prorroga_datos" style="display: none;">>
+            {{ form_row(form.plazo_prorroga_tiempo) }}
+            </div>
+            {{ form_row(form.plazo_aviso) }}
+            {{ form_row(form.plazo_forma) }}
+            {{ form_row(form.plazo_unidad) }}
+            {{ form_row(form.plazo_carta) }}
+        </div>
+    </section>
+    
+    <section id="renta" class="panel panel-primary">
+        <div class="panel-heading">Renta del arrendamiento</div>
+        <div class="panel-body">
+            {{ form_row(form.renta_monto) }}
+            {{ form_row(form.renta_unidad) }}
+            {{ form_row(form.renta_periodo) }}
+            {{ form_row(form.renta_tiempo) }}
+            {{ form_row(form.renta_dias) }}
+            {{ form_row(form.renta_medio_pago) }}
+            <div id="efectivo" style="display: none;">
+            {{ form_row(form.renta_medio_efectivo) }}
+            </div>
+            <div id="cheque" style="display: none;">
+            {{ form_row(form.renta_medio_cheque) }}
+            </div>
+            <div id="deposito" style="display: none;">
+            {{ form_row(form.renta_medio_deposito_titular) }}
+            {{ form_row(form.renta_medio_deposito_tipo) }}
+            {{ form_row(form.renta_medio_deposito_numero) }}
+            {{ form_row(form.renta_medio_deposito_banco) }}
+            {{ form_row(form.renta_medio_deposito_envio) }}
+            </div>
+            {{ form_row(form.renta_medio_reajuste) }}
+            <div id="reajuste" style="display: none;">
+            {{ form_row(form.renta_reajuste_periodo) }}
+            {{ form_row(form.renta_reajuste_forma) }}
+            </div>
+            {{ form_row(form.renta_mora_sancion) }}
+            <div id="sancion" style="display: none;">
+            {{ form_row(form.renta_mora_periodo) }}
+            {{ form_row(form.renta_mora_valor) }}
+            </div>
+            {{ form_row(form.renta_cobranza) }}
+            <div id="cobranza_datos" style="display: none;">
+                {{ form_row(form.renta_cobranza_plazo) }}
+                {{ form_row(form.renta_cobranza_notificacion) }}
+                {{ form_row(form.renta_cobranza_avaluo) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="entrega" class="panel panel-primary">
+        <div class="panel-heading">Entrega del inmueble</div>
+        <div class="panel-body">
+            {{ form_row(form.entrega_fecha) }}
+            {{ form_row(form.entrega_inventario) }}
+        </div>
+    </section>
+    
+    <section id="restitucion" class="panel panel-primary">
+        <div class="panel-heading">Restitución del inmueble</div>
+        <div class="panel-body">
+            {{ form_row(form.restitucion_acreditacion) }}
+            {{ form_row(form.restitucion_visita_plazo) }}
+            {{ form_row(form.restitucion_visita_unidad) }}
+            {{ form_row(form.restitucion_inicio_plazo) }}
+            {{ form_row(form.restitucion_inicio_unidad) }}
+        </div>
+    </section>
+    
+    <section id="prohibiciones" class="panel panel-primary">
+        <div class="panel-heading">Prohibiciones al arrendador</div>
+        <div class="panel-body">
+            {{ form_row(form.prohibicion_subarriendo) }}
+            {{ form_row(form.prohibicion_variaciones) }}
+            {{ form_row(form.prohibicion_utilizacion) }}
+            {{ form_row(form.prohibicion_retraso) }}
+            {{ form_row(form.prohibicion_perturbacion) }}
+            {{ form_row(form.prohibicion_agujeros) }}
+            {{ form_row(form.prohibicion_normativa) }}
+            {{ form_row(form.prohibicion_accion_ilegal) }}
+        </div>
+    </section>
+    
+    <section id="recision" class="panel panel-primary">
+        <div class="panel-heading">Recisión unilateral del contrato</div>
+        <div class="panel-body">
+            {{ form_row(form.recision_pago) }}
+            {{ form_row(form.recision_unidad) }}
+            {{ form_row(form.recision_causal) }}
+            {{ form_row(form.recision_causal_descripcion) }}
+            {{ form_row(form.recision_causal) }}
+            {{ form_row(form.recision_unilateral) }}
+            <div id="recision_datos" style="display: none;">
+                {{ form_row(form.recision_unilateral_anticipacion) }}
+                {{ form_row(form.recision_unilateral_unidad) }}
+                {{ form_row(form.recision_unilateral_forma) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="garantia" class="panel panel-primary">
+        <div class="panel-heading">Garantía</div>
+        <div class="panel-body">
+            {{ form_row(form.garantia_deposito) }}
+            <div id="garantia_datos" style="display: none;">
+                {{ form_row(form.garantia_forma) }}
+                {{ form_row(form.garantia_monto) }}
+                {{ form_row(form.garantia_dias_terminado) }}
+                {{ form_row(form.garantia_dias_pagado) }}
+                {{ form_row(form.garantia_unidad) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="arrendador" class="panel panel-primary">
+        <div class="panel-heading">Aval</div>
+        <div class="panel-body">
+            {{ form_row(form.aval) }}
+            <div id="aval_datos" style="display: none;">>
+                {{ form_row(form.aval_sexo) }}
+                {{ form_row(form.aval_nombres) }}
+                {{ form_row(form.aval_apellido_paterno) }}
+                {{ form_row(form.aval_apellido_materno) }}
+                {{ form_row(form.aval_nacionalidad) }}
+                {{ form_row(form.aval_estado_civil) }}
+                {{ form_row(form.aval_profesion) }}
+                {{ form_row(form.aval_rut) }}
+                {{ form_row(form.aval_domicilio) }}
+                {{ form_row(form.aval_comuna) }}
+                {{ form_row(form.aval_region) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="jurisdiccion" class="panel panel-primary">
+        <div class="panel-heading">Jurisdicción</h2>
+    </section>
+    
+    <section id="correo" class="panel panel-primary">
+        <div class="panel-heading">Correo electrónico</div>
+        <div class="panel-body">
+            {{ form_row(form.correo) }}
+            <div id="correo_datos" style="display: none;">>
+                {{ form_row(form.correo_arrendador) }}
+                {{ form_row(form.correo_arrendatario) }}
+            </div>
+        </div>
+    </section>
+    
+    <section id="personeria" class="panel panel-primary">
+        <div class="panel-heading">Personería</div>
+        <div class="panel-body">
+            <div id="personeria_arrendador" style="display: none;">>
+            {{ form_row(form.personeria_arrendador_fecha) }}
+            {{ form_row(form.personeria_arrendador_notaria) }}
+            {{ form_row(form.personeria_arrendador_lugar) }}
+            <div id="personeria_arrendatario" style="display: none;">
+            {{ form_row(form.personeria_arrendatario_fecha) }}
+            {{ form_row(form.personeria_arrendatario_notaria) }}
+            {{ form_row(form.personeria_arrendatario_lugar) }}
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('arriendo') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('input[name$="[arrendador_persona]"]:radio').change(function(){
+            if($(this).val() == "Natural"){
+                $("#arrendador_natural").show();
+                $("#arrendador_juridica").hide();
+                $("#personeria_arrendador").hide();
+            }
+            else {
+                $("#arrendador_natural").hide();
+                $("#arrendador_juridica").show();
+                $("#personeria_arrendador").show();
+            }
+        });
+        
+        $('input[name$="[arrendatario_persona]"]:radio').change(function(){
+            if($(this).val() == "Natural"){
+                $("#arrendatario_natural").show();
+                $("#arrendatario_juridica").hide();
+                $("#personeria_arrendatario").hide();
+            }
+            else {
+                $("#arrendatario_natural").hide();
+                $("#arrendatario_juridica").show();
+                $("#personeria_arrendatario").show();
+            }
+        });
+        
+        $('input[name$="[plazo_prorroga]"]:radio').change(function(){
+            if($(this).val() == "Sí"){
+                $("#prorroga_datos").show();
+            }
+            else {
+                $("#prorroga_datos").hide();
+            }
+        });
+        
+        $('input[name$="[renta_medio_pago]"]:radio').change(function(){
+            if($(this).val() == "en efectivo"){
+                $("#efectivo").show();
+                $("#cheque").hide();
+                $("#deposito").hide();
+            }
+            else if($(this).val() == "con cheque"){
+                $("#efectivo").hide();
+                $("#cheque").show();
+                $("#deposito").hide();
+            }
+            else {
+                $("#efectivo").hide();
+                $("#cheque").hide();
+                $("#deposito").show();
+            }
+        });
+        
+        $('input[name$="[renta_medio_reajuste]"]:radio').change(function(){
+            if($(this).val() == "Si se reajustará"){
+                $("#reajuste").show();
+            }
+            else {
+                $("#reajuste").hide();
+            }
+        });
+        
+        $('input[name$="[renta_mora_sancion]"]:radio').change(function(){
+            if($(this).val() == "Si habrá sanción"){
+                $("#sancion").show();
+            }
+            else {
+                $("#sancion").hide();
+            }
+        });
+        
+        $('input[name$="[renta_cobranza]"]:radio').change(function(){
+            if($(this).val() == "Sí"){
+                $("#cobranza_datos").show();
+            }
+            else {
+                $("#cobranza_datos").hide();
+            }
+        });
+        
+        $('input[name$="[recision_unilateral]"]:radio').change(function(){
+            if($(this).val() == "Sí"){
+                $("#recision_datos").show();
+            }
+            else {
+                $("#recision_datos").hide();
+            }
+        });
+        
+        $('input[name$="[garantia_deposito]"]:radio').change(function(){
+            if($(this).val() == "Sí"){
+                $("#garantia_datos").show();
+            }
+            else {
+                $("#garantia_datos").hide();
+            }
+        });
+        
+        $('input[name$="[aval]"]:radio').change(function(){
+            if($(this).val() == "Sí"){
+                $("#aval_datos").show();
+            }
+            else {
+                $("#aval_datos").hide();
+            }
+        });
+        
+        $('input[name$="[correo]"]:radio').change(function(){
+            if($(this).val() == "Sí"){
+                $("#correo_datos").show();
+            }
+            else {
+                $("#correo_datos").hide();
+            }
+        });
+        
+    </script>
 {% endblock %}
