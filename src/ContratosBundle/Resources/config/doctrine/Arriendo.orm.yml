@@ -1,0 +1,371 @@
+ContratosBundle\Entity\Arriendo:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        arrendador_persona:
+            type: string
+            length: 20
+        arrendador_natural_sexo:
+            type: string
+            length: 20
+        arrendador_natural_nombres:
+            type: string
+            length: 100
+        arrendador_natural_apellido_paterno:
+            type: string
+            length: 100
+        arrendador_natural_apellido_materno:
+            type: string
+            length: 100
+        arrendador_natural_nacionalidad:
+            type: string
+            length: 100
+        arrendador_natural_estado_civil:
+            type: string
+            length: 100
+        arrendador_natural_profesion:
+            type: string
+            length: 100
+        arrendador_natural_rut:
+            type: string
+            length: 100
+        arrendador_natural_domicilio:
+            type: string
+            length: 100
+        arrendador_natural_comuna:
+            type: string
+            length: 100
+        arrendador_natural_region:
+            type: string
+            length: 100
+        arrendador_juridica_razon:
+            type: string
+            length: 100
+        arrendador_juridica_giro:
+            type: string
+            length: 100
+        arrendador_juridica_rut:
+            type: string
+            length: 100
+        arrendador_juridica_domicilio:
+            type: string
+            length: 100
+        arrendador_juridica_comuna:
+            type: string
+            length: 100
+        arrendador_juridica_region:
+            type: string
+            length: 100
+        arrendatario_persona:
+            type: string
+            length: 20
+        arrendatario_natural_sexo:
+            type: string
+            length: 20
+        arrendatario_natural_nombres:
+            type: string
+            length: 100
+        arrendatario_natural_apellido_paterno:
+            type: string
+            length: 100
+        arrendatario_natural_apellido_materno:
+            type: string
+            length: 100
+        arrendatario_natural_nacionalidad:
+            type: string
+            length: 100
+        arrendatario_natural_estado_civil:
+            type: string
+            length: 100
+        arrendatario_natural_profesion:
+            type: string
+            length: 100
+        arrendatario_natural_rut:
+            type: string
+            length: 100
+        arrendatario_natural_domicilio:
+            type: string
+            length: 100
+        arrendatario_natural_comuna:
+            type: string
+            length: 100
+        arrendatario_natural_region:
+            type: string
+            length: 100
+        arrendatario_juridica_razon:
+            type: string
+            length: 100
+        arrendatario_juridica_giro:
+            type: string
+            length: 100
+        arrendatario_juridica_rut:
+            type: string
+            length: 100
+        arrendatario_juridica_domicilio:
+            type: string
+            length: 100
+        arrendatario_juridica_comuna:
+            type: string
+            length: 100
+        arrendatario_juridica_region:
+            type: string
+            length: 100
+        propiedad_calle:
+            type: string
+            length: 100
+        propiedad_numero:
+            type: string
+            length: 100
+        propiedad_departamento:
+            type: string
+            length: 100
+        propiedad_villa:
+            type: string
+            length: 100
+        propiedad_region:
+            type: string
+            length: 100
+        propiedad_comuna:
+            type: string
+            length: 100
+        plazo_unidad:
+            type: string
+            length: 100
+        plazo_momento:
+            type: string
+            length: 100
+        plazo_prorroga:
+            type: string
+            length: 100
+        plazo_prorroga_tiempo:
+            type: string
+            length: 100
+        plazo_aviso:
+            type: string
+            length: 100
+        plazo_forma:
+            type: string
+            length: 100
+        plazo_unidad:
+            type: string
+            length: 100
+        plazo_carta:
+            type: string
+            length: 100
+        renta_monto:
+            type: decimal
+            scale: 2
+        renta_unidad:
+            type: string
+            length: 100
+        renta_periodo:
+            type: string
+            length: 100
+        renta_tiempo:
+            type: string
+            length: 100
+        renta_dias:
+            type: string
+            length: 100
+        renta_medio_pago:
+            type: string
+            length: 100
+        renta_medio_efectivo:
+            type: string
+            length: 100
+        renta_medio_cheque:
+            type: string
+            length: 100
+        renta_medio_deposito_titular:
+            type: string
+            length: 100
+        renta_medio_deposito_tipo:
+            type: string
+            length: 100
+        renta_medio_deposito_numero:
+            type: string
+            length: 100
+        renta_medio_deposito_banco:
+            type: string
+            length: 100
+        renta_medio_deposito_envio:
+            type: string
+            length: 100
+        renta_medio_reajuste:
+            type: string
+            length: 100
+        renta_reajuste_periodo:
+            type: string
+            length: 100
+        renta_reajuste_forma:
+            type: string
+            length: 100
+        renta_mora_sancion:
+            type: string
+            length: 100
+        renta_mora_periodo:
+            type: string
+            length: 100
+        renta_mora_valor:
+            type: string
+            length: 100
+        renta_cobranza:
+            type: string
+            length: 100
+        renta_cobranza_plazo:
+            type: string
+            length: 100
+        renta_cobranza_notificacion:
+            type: string
+            length: 100
+        renta_cobranza_avaluo:
+            type: string
+            length: 100
+        entrega_fecha:
+            type: string
+            length: 100
+        entrega_inventario:
+            type: string
+            length: 100
+        restitucion_forma:
+            type: string
+            length: 100
+        restitucion_acreditacion:
+            type: string
+            length: 100
+        restitucion_visita_plazo:
+            type: string
+            length: 100
+        restitucion_visita_unidad:
+            type: string
+            length: 100
+        restitucion_inicio_plazo:
+            type: string
+            length: 100
+        restitucion_inicio_unidad:
+            type: string
+            length: 100
+        prohibicion_subarriendo:
+            type: boolean
+        prohibicion_variaciones:
+            type: boolean
+        prohibicion_utilizacion:
+            type: boolean
+        prohibicion_retraso:
+            type: boolean
+        prohibicion_perturbacion:
+            type: boolean
+        prohibicion_agujeros:
+            type: boolean
+        prohibicion_normativa:
+            type: boolean
+        prohibicion_accion_ilegal:
+            type: boolean
+        recision_pago:
+            type: string
+            length: 100
+        recision_unidad:
+            type: string
+            length: 100
+        recision_causal:
+            type: boolean
+        recision_causal_descripcion:
+            type: string
+            length: 100
+        recision_causal:
+            type: string
+            length: 100
+        recision_unilateral:
+            type: boolean
+        recision_unilateral_anticipacion:
+            type: string
+            length: 100
+        recision_unilateral_unidad:
+            type: string
+            length: 100
+        recision_unilateral_forma:
+            type: string
+            length: 100
+        garantia_deposito:
+            type: boolean
+        garantia_forma:
+            type: string
+            length: 100
+        garantia_monto:
+            type: string
+            length: 100
+        garantia_dias_terminado:
+            type: string
+            length: 100
+        garantia_dias_pagado:
+            type: string
+            length: 100
+        garantia_unidad:
+            type: string
+            length: 100
+        aval:
+            type: boolean
+        aval_sexo:
+            type: string
+            length: 20
+        aval_nombres:
+            type: string
+            length: 100
+        aval_apellido_paterno:
+            type: string
+            length: 100
+        aval_apellido_materno:
+            type: string
+            length: 100
+        aval_nacionalidad:
+            type: string
+            length: 100
+        aval_estado_civil:
+            type: string
+            length: 100
+        aval_profesion:
+            type: string
+            length: 100
+        aval_rut:
+            type: string
+            length: 100
+        aval_domicilio:
+            type: string
+            length: 100
+        aval_comuna:
+            type: string
+            length: 100
+        aval_region:
+            type: string
+            length: 100
+        correo:
+            type: boolean
+        correo_arrendador:
+            type: string
+            length: 100
+        correo_arrendatario:
+            type: string
+            length: 100
+        personeria_arrendador_fecha:
+            type: datetime
+        personeria_arrendador_notaria:
+            type: string
+            length: 100
+        personeria_arrendador_lugar:
+            type: string
+            length: 100
+        personeria_arrendatario_fecha:
+            type: datetime
+        personeria_arrendatario_notaria:
+            type: string
+            length: 100
+        personeria_arrendatario_lugar:
+            type: string
+            length: 100
+    lifecycleCallbacks: {  }

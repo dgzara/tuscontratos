@@ -1,0 +1,3 @@
+contratos_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ContratosBundle:Default:index }

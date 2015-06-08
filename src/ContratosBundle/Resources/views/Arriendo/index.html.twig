@@ -1,0 +1,285 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Arriendo list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Arrendador_persona</th>
+                <th>Arrendador_natural_sexo</th>
+                <th>Arrendador_natural_nombres</th>
+                <th>Arrendador_natural_apellido_paterno</th>
+                <th>Arrendador_natural_apellido_materno</th>
+                <th>Arrendador_natural_nacionalidad</th>
+                <th>Arrendador_natural_estado_civil</th>
+                <th>Arrendador_natural_profesion</th>
+                <th>Arrendador_natural_rut</th>
+                <th>Arrendador_natural_domicilio</th>
+                <th>Arrendador_natural_comuna</th>
+                <th>Arrendador_natural_region</th>
+                <th>Arrendador_juridica_razon</th>
+                <th>Arrendador_juridica_giro</th>
+                <th>Arrendador_juridica_rut</th>
+                <th>Arrendador_juridica_domicilio</th>
+                <th>Arrendador_juridica_comuna</th>
+                <th>Arrendador_juridica_region</th>
+                <th>Arrendatario_persona</th>
+                <th>Arrendatario_natural_sexo</th>
+                <th>Arrendatario_natural_nombres</th>
+                <th>Arrendatario_natural_apellido_paterno</th>
+                <th>Arrendatario_natural_apellido_materno</th>
+                <th>Arrendatario_natural_nacionalidad</th>
+                <th>Arrendatario_natural_estado_civil</th>
+                <th>Arrendatario_natural_profesion</th>
+                <th>Arrendatario_natural_rut</th>
+                <th>Arrendatario_natural_domicilio</th>
+                <th>Arrendatario_natural_comuna</th>
+                <th>Arrendatario_natural_region</th>
+                <th>Arrendatario_juridica_razon</th>
+                <th>Arrendatario_juridica_giro</th>
+                <th>Arrendatario_juridica_rut</th>
+                <th>Arrendatario_juridica_domicilio</th>
+                <th>Arrendatario_juridica_comuna</th>
+                <th>Arrendatario_juridica_region</th>
+                <th>Propiedad_calle</th>
+                <th>Propiedad_numero</th>
+                <th>Propiedad_departamento</th>
+                <th>Propiedad_villa</th>
+                <th>Propiedad_region</th>
+                <th>Propiedad_comuna</th>
+                <th>Plazo_unidad</th>
+                <th>Plazo_momento</th>
+                <th>Plazo_prorroga</th>
+                <th>Plazo_prorroga_tiempo</th>
+                <th>Plazo_aviso</th>
+                <th>Plazo_forma</th>
+                <th>Plazo_carta</th>
+                <th>Renta_monto</th>
+                <th>Renta_unidad</th>
+                <th>Renta_periodo</th>
+                <th>Renta_tiempo</th>
+                <th>Renta_dias</th>
+                <th>Renta_medio_pago</th>
+                <th>Renta_medio_efectivo</th>
+                <th>Renta_medio_cheque</th>
+                <th>Renta_medio_deposito_titular</th>
+                <th>Renta_medio_deposito_tipo</th>
+                <th>Renta_medio_deposito_numero</th>
+                <th>Renta_medio_deposito_banco</th>
+                <th>Renta_medio_deposito_envio</th>
+                <th>Renta_medio_reajuste</th>
+                <th>Renta_reajuste_periodo</th>
+                <th>Renta_reajuste_forma</th>
+                <th>Renta_mora_sancion</th>
+                <th>Renta_mora_periodo</th>
+                <th>Renta_mora_valor</th>
+                <th>Renta_cobranza</th>
+                <th>Renta_cobranza_plazo</th>
+                <th>Renta_cobranza_notificacion</th>
+                <th>Renta_cobranza_avaluo</th>
+                <th>Entrega_fecha</th>
+                <th>Entrega_inventario</th>
+                <th>Restitucion_forma</th>
+                <th>Restitucion_acreditacion</th>
+                <th>Restitucion_visita_plazo</th>
+                <th>Restitucion_visita_unidad</th>
+                <th>Restitucion_inicio_plazo</th>
+                <th>Restitucion_inicio_unidad</th>
+                <th>Prohibicion_subarriendo</th>
+                <th>Prohibicion_variaciones</th>
+                <th>Prohibicion_utilizacion</th>
+                <th>Prohibicion_retraso</th>
+                <th>Prohibicion_perturbacion</th>
+                <th>Prohibicion_agujeros</th>
+                <th>Prohibicion_normativa</th>
+                <th>Prohibicion_accion_ilegal</th>
+                <th>Recision_pago</th>
+                <th>Recision_unidad</th>
+                <th>Recision_causal</th>
+                <th>Recision_causal_descripcion</th>
+                <th>Recision_unilateral</th>
+                <th>Recision_unilateral_anticipacion</th>
+                <th>Recision_unilateral_unidad</th>
+                <th>Recision_unilateral_forma</th>
+                <th>Garantia_deposito</th>
+                <th>Garantia_forma</th>
+                <th>Garantia_monto</th>
+                <th>Garantia_dias_terminado</th>
+                <th>Garantia_dias_pagado</th>
+                <th>Garantia_unidad</th>
+                <th>Aval</th>
+                <th>Aval_sexo</th>
+                <th>Aval_nombres</th>
+                <th>Aval_apellido_paterno</th>
+                <th>Aval_apellido_materno</th>
+                <th>Aval_nacionalidad</th>
+                <th>Aval_estado_civil</th>
+                <th>Aval_profesion</th>
+                <th>Aval_rut</th>
+                <th>Aval_domicilio</th>
+                <th>Aval_comuna</th>
+                <th>Aval_region</th>
+                <th>Correo</th>
+                <th>Correo_arrendador</th>
+                <th>Correo_arrendatario</th>
+                <th>Personeria_arrendador_fecha</th>
+                <th>Personeria_arrendador_notaria</th>
+                <th>Personeria_arrendador_lugar</th>
+                <th>Personeria_arrendatario_fecha</th>
+                <th>Personeria_arrendatario_notaria</th>
+                <th>Personeria_arrendatario_lugar</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('arriendo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.arrendadorpersona }}</td>
+                <td>{{ entity.arrendadornaturalsexo }}</td>
+                <td>{{ entity.arrendadornaturalnombres }}</td>
+                <td>{{ entity.arrendadornaturalapellidopaterno }}</td>
+                <td>{{ entity.arrendadornaturalapellidomaterno }}</td>
+                <td>{{ entity.arrendadornaturalnacionalidad }}</td>
+                <td>{{ entity.arrendadornaturalestadocivil }}</td>
+                <td>{{ entity.arrendadornaturalprofesion }}</td>
+                <td>{{ entity.arrendadornaturalrut }}</td>
+                <td>{{ entity.arrendadornaturaldomicilio }}</td>
+                <td>{{ entity.arrendadornaturalcomuna }}</td>
+                <td>{{ entity.arrendadornaturalregion }}</td>
+                <td>{{ entity.arrendadorjuridicarazon }}</td>
+                <td>{{ entity.arrendadorjuridicagiro }}</td>
+                <td>{{ entity.arrendadorjuridicarut }}</td>
+                <td>{{ entity.arrendadorjuridicadomicilio }}</td>
+                <td>{{ entity.arrendadorjuridicacomuna }}</td>
+                <td>{{ entity.arrendadorjuridicaregion }}</td>
+                <td>{{ entity.arrendatariopersona }}</td>
+                <td>{{ entity.arrendatarionaturalsexo }}</td>
+                <td>{{ entity.arrendatarionaturalnombres }}</td>
+                <td>{{ entity.arrendatarionaturalapellidopaterno }}</td>
+                <td>{{ entity.arrendatarionaturalapellidomaterno }}</td>
+                <td>{{ entity.arrendatarionaturalnacionalidad }}</td>
+                <td>{{ entity.arrendatarionaturalestadocivil }}</td>
+                <td>{{ entity.arrendatarionaturalprofesion }}</td>
+                <td>{{ entity.arrendatarionaturalrut }}</td>
+                <td>{{ entity.arrendatarionaturaldomicilio }}</td>
+                <td>{{ entity.arrendatarionaturalcomuna }}</td>
+                <td>{{ entity.arrendatarionaturalregion }}</td>
+                <td>{{ entity.arrendatariojuridicarazon }}</td>
+                <td>{{ entity.arrendatariojuridicagiro }}</td>
+                <td>{{ entity.arrendatariojuridicarut }}</td>
+                <td>{{ entity.arrendatariojuridicadomicilio }}</td>
+                <td>{{ entity.arrendatariojuridicacomuna }}</td>
+                <td>{{ entity.arrendatariojuridicaregion }}</td>
+                <td>{{ entity.propiedadcalle }}</td>
+                <td>{{ entity.propiedadnumero }}</td>
+                <td>{{ entity.propiedaddepartamento }}</td>
+                <td>{{ entity.propiedadvilla }}</td>
+                <td>{{ entity.propiedadregion }}</td>
+                <td>{{ entity.propiedadcomuna }}</td>
+                <td>{{ entity.plazounidad }}</td>
+                <td>{{ entity.plazomomento }}</td>
+                <td>{{ entity.plazoprorroga }}</td>
+                <td>{{ entity.plazoprorrogatiempo }}</td>
+                <td>{{ entity.plazoaviso }}</td>
+                <td>{{ entity.plazoforma }}</td>
+                <td>{{ entity.plazocarta }}</td>
+                <td>{{ entity.rentamonto }}</td>
+                <td>{{ entity.rentaunidad }}</td>
+                <td>{{ entity.rentaperiodo }}</td>
+                <td>{{ entity.rentatiempo }}</td>
+                <td>{{ entity.rentadias }}</td>
+                <td>{{ entity.rentamediopago }}</td>
+                <td>{{ entity.rentamedioefectivo }}</td>
+                <td>{{ entity.rentamediocheque }}</td>
+                <td>{{ entity.rentamediodepositotitular }}</td>
+                <td>{{ entity.rentamediodepositotipo }}</td>
+                <td>{{ entity.rentamediodepositonumero }}</td>
+                <td>{{ entity.rentamediodepositobanco }}</td>
+                <td>{{ entity.rentamediodepositoenvio }}</td>
+                <td>{{ entity.rentamedioreajuste }}</td>
+                <td>{{ entity.rentareajusteperiodo }}</td>
+                <td>{{ entity.rentareajusteforma }}</td>
+                <td>{{ entity.rentamorasancion }}</td>
+                <td>{{ entity.rentamoraperiodo }}</td>
+                <td>{{ entity.rentamoravalor }}</td>
+                <td>{{ entity.rentacobranza }}</td>
+                <td>{{ entity.rentacobranzaplazo }}</td>
+                <td>{{ entity.rentacobranzanotificacion }}</td>
+                <td>{{ entity.rentacobranzaavaluo }}</td>
+                <td>{{ entity.entregafecha }}</td>
+                <td>{{ entity.entregainventario }}</td>
+                <td>{{ entity.restitucionforma }}</td>
+                <td>{{ entity.restitucionacreditacion }}</td>
+                <td>{{ entity.restitucionvisitaplazo }}</td>
+                <td>{{ entity.restitucionvisitaunidad }}</td>
+                <td>{{ entity.restitucioninicioplazo }}</td>
+                <td>{{ entity.restitucioniniciounidad }}</td>
+                <td>{{ entity.prohibicionsubarriendo }}</td>
+                <td>{{ entity.prohibicionvariaciones }}</td>
+                <td>{{ entity.prohibicionutilizacion }}</td>
+                <td>{{ entity.prohibicionretraso }}</td>
+                <td>{{ entity.prohibicionperturbacion }}</td>
+                <td>{{ entity.prohibicionagujeros }}</td>
+                <td>{{ entity.prohibicionnormativa }}</td>
+                <td>{{ entity.prohibicionaccionilegal }}</td>
+                <td>{{ entity.recisionpago }}</td>
+                <td>{{ entity.recisionunidad }}</td>
+                <td>{{ entity.recisioncausal }}</td>
+                <td>{{ entity.recisioncausaldescripcion }}</td>
+                <td>{{ entity.recisionunilateral }}</td>
+                <td>{{ entity.recisionunilateralanticipacion }}</td>
+                <td>{{ entity.recisionunilateralunidad }}</td>
+                <td>{{ entity.recisionunilateralforma }}</td>
+                <td>{{ entity.garantiadeposito }}</td>
+                <td>{{ entity.garantiaforma }}</td>
+                <td>{{ entity.garantiamonto }}</td>
+                <td>{{ entity.garantiadiasterminado }}</td>
+                <td>{{ entity.garantiadiaspagado }}</td>
+                <td>{{ entity.garantiaunidad }}</td>
+                <td>{{ entity.aval }}</td>
+                <td>{{ entity.avalsexo }}</td>
+                <td>{{ entity.avalnombres }}</td>
+                <td>{{ entity.avalapellidopaterno }}</td>
+                <td>{{ entity.avalapellidomaterno }}</td>
+                <td>{{ entity.avalnacionalidad }}</td>
+                <td>{{ entity.avalestadocivil }}</td>
+                <td>{{ entity.avalprofesion }}</td>
+                <td>{{ entity.avalrut }}</td>
+                <td>{{ entity.avaldomicilio }}</td>
+                <td>{{ entity.avalcomuna }}</td>
+                <td>{{ entity.avalregion }}</td>
+                <td>{{ entity.correo }}</td>
+                <td>{{ entity.correoarrendador }}</td>
+                <td>{{ entity.correoarrendatario }}</td>
+                <td>{% if entity.personeriaarrendadorfecha %}{{ entity.personeriaarrendadorfecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.personeriaarrendadornotaria }}</td>
+                <td>{{ entity.personeriaarrendadorlugar }}</td>
+                <td>{% if entity.personeriaarrendatariofecha %}{{ entity.personeriaarrendatariofecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.personeriaarrendatarionotaria }}</td>
+                <td>{{ entity.personeriaarrendatariolugar }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('arriendo_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('arriendo_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('arriendo_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

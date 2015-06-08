@@ -1,0 +1,7 @@
+contratos:
+    resource: "@ContratosBundle/Controller/"
+    type:     annotation
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

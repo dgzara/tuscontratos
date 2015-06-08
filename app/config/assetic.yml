@@ -1,0 +1,54 @@
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        ["ContratosBundle" ]
+    java: /usr/bin/java
+    filters:
+        lessphp:
+            file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
+            apply_to: "\.less$"
+        cssembed:
+            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
+            #apply_to: "\.css$|\.less$"
+        cssrewrite:
+            apply_to: "\.(css|less)$"
+        yui_css:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
+            apply_to: "\.css$"
+        yui_js:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
+    assets:
+        bootstrap_css:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
+            filters: [lessphp, cssembed]
+        docs_css:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/docs/assets/css/docs.min.css'
+            filters: [cssembed]
+        signin_css:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/docs/examples/signin/signin.css'
+            filters: [cssembed]
+        navbar-static-top-css:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/docs/examples/navbar-static-top/navbar-static-top.css'
+            filters: [cssembed]
+        jquery_js:
+            inputs:
+                - '%kernel.root_dir%/../vendor/components/jquery/jquery.js'
+            filters: [yui_js]
+        bootstrap_js:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js'
+            filters: [yui_js]
