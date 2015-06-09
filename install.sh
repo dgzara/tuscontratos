@@ -1,3 +1,8 @@
+# Instalamos los assets
+php app/console assets:install web --symlink
+php app/console assetic:dump --env=dev --no-debug
+php app/console assetic:dump --env=prod --no-debug
+
 # Limpiamos el cache
 php app/console cache:clear
 php app/console cache:clear --env=prod

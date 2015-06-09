@@ -2,33 +2,36 @@
 
 {% block body -%}
     <h1>Crear contrato de "Arriendo"</h1>
-
     <section id="arrendador" class="panel panel-primary">
         <div class="panel-heading">Datos del Arrendador</div>
-        <div class="panel-body">
-            {{ form_row(form.arrendador_persona) }}
-            <div id="arrendador_natural" style="display: none;">
-                <h3>Persona natural</h3>
-                {{ form_row(form.arrendador_natural_sexo) }}
-                {{ form_row(form.arrendador_natural_nombres) }}
-                {{ form_row(form.arrendador_natural_apellido_paterno) }}
-                {{ form_row(form.arrendador_natural_apellido_materno) }}
-                {{ form_row(form.arrendador_natural_nacionalidad) }}
-                {{ form_row(form.arrendador_natural_estado_civil) }}
-                {{ form_row(form.arrendador_natural_profesion) }}
-                {{ form_row(form.arrendador_natural_rut) }}
-                {{ form_row(form.arrendador_natural_domicilio) }}
-                {{ form_row(form.arrendador_natural_comuna) }}
-                {{ form_row(form.arrendador_natural_region) }}
+        <div class="panel-body row">
+            <div class="col-md-2">
+                {{ form_row(form.arrendador_persona) }}
             </div>
-            <div id="arrendador_juridica" style="display: none;">
-                <h3>Persona jurídica</h3>
-                {{ form_row(form.arrendador_juridica_razon) }}
-                {{ form_row(form.arrendador_juridica_giro) }}
-                {{ form_row(form.arrendador_juridica_rut) }}
-                {{ form_row(form.arrendador_juridica_domicilio) }}
-                {{ form_row(form.arrendador_juridica_comuna) }}
-                {{ form_row(form.arrendador_juridica_region) }}
+            <div class="col-md-10">
+                <div id="arrendador_natural" style="display: none;">
+                    <h3>Persona natural</h3>
+                    {{ form_row(form.arrendador_natural_sexo) }}
+                    {{ form_row(form.arrendador_natural_nombres) }}
+                    {{ form_row(form.arrendador_natural_apellido_paterno) }}
+                    {{ form_row(form.arrendador_natural_apellido_materno) }}
+                    {{ form_row(form.arrendador_natural_nacionalidad) }}
+                    {{ form_row(form.arrendador_natural_estado_civil) }}
+                    {{ form_row(form.arrendador_natural_profesion) }}
+                    {{ form_row(form.arrendador_natural_rut) }}
+                    {{ form_row(form.arrendador_natural_domicilio) }}
+                    {{ form_row(form.arrendador_natural_comuna) }}
+                    {{ form_row(form.arrendador_natural_region) }}
+                </div>
+                <div id="arrendador_juridica" style="display: none;">
+                    <h3>Persona jurídica</h3>
+                    {{ form_row(form.arrendador_juridica_razon) }}
+                    {{ form_row(form.arrendador_juridica_giro) }}
+                    {{ form_row(form.arrendador_juridica_rut) }}
+                    {{ form_row(form.arrendador_juridica_domicilio) }}
+                    {{ form_row(form.arrendador_juridica_comuna) }}
+                    {{ form_row(form.arrendador_juridica_region) }}
+                </div>
             </div>
         </div>
     </section>
@@ -81,7 +84,7 @@
             {{ form_row(form.plazo_unidad) }}
             {{ form_row(form.plazo_momento) }}
             {{ form_row(form.plazo_prorroga) }}
-            <div id="prorroga_datos" style="display: none;">>
+            <div id="prorroga_datos" style="display: none;">
             {{ form_row(form.plazo_prorroga_tiempo) }}
             </div>
             {{ form_row(form.plazo_aviso) }}
@@ -200,7 +203,7 @@
         <div class="panel-heading">Aval</div>
         <div class="panel-body">
             {{ form_row(form.aval) }}
-            <div id="aval_datos" style="display: none;">>
+            <div id="aval_datos" style="display: none;">
                 {{ form_row(form.aval_sexo) }}
                 {{ form_row(form.aval_nombres) }}
                 {{ form_row(form.aval_apellido_paterno) }}
@@ -224,7 +227,7 @@
         <div class="panel-heading">Correo electrónico</div>
         <div class="panel-body">
             {{ form_row(form.correo) }}
-            <div id="correo_datos" style="display: none;">>
+            <div id="correo_datos" style="display: none;">
                 {{ form_row(form.correo_arrendador) }}
                 {{ form_row(form.correo_arrendatario) }}
             </div>
@@ -234,7 +237,7 @@
     <section id="personeria" class="panel panel-primary">
         <div class="panel-heading">Personería</div>
         <div class="panel-body">
-            <div id="personeria_arrendador" style="display: none;">>
+            <div id="personeria_arrendador" style="display: none;">
             {{ form_row(form.personeria_arrendador_fecha) }}
             {{ form_row(form.personeria_arrendador_notaria) }}
             {{ form_row(form.personeria_arrendador_lugar) }}
