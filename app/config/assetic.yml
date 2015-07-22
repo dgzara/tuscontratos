@@ -31,6 +31,18 @@ assetic:
             inputs:
                 - '%kernel.root_dir%/../vendor/twbs/bootstrap/docs/examples/signin/signin.css'
             filters: [cssembed]
+        freelancer_css:
+            inputs:
+                - '%kernel.root_dir%/../web/freelancer/css/freelancer.css'
+            filters: [cssembed]
+        font_awesome_css:
+            inputs:
+                - '%kernel.root_dir%/../web/freelancer/font-awesome/css/font-awesome.css'
+            filters: [cssembed]
+        acc_wizard_css:
+            inputs:
+                - '%kernel.root_dir%/../web/acc-wizard/acc-wizard.less'
+            filters: [lessphp, cssembed]
         navbar-static-top-css:
             inputs:
                 - '%kernel.root_dir%/../vendor/twbs/bootstrap/docs/examples/navbar-static-top/navbar-static-top.css'
@@ -51,4 +63,12 @@ assetic:
                 - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js'
                 - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js'
                 - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js'
+            filters: [yui_js]
+        freelancer_js:
+            inputs:
+                - '%kernel.root_dir%/../web/freelancer/js/freelancer.js'
+            filters: [yui_js]
+        acc_wizard_js:
+            inputs:
+                - '%kernel.root_dir%/../web/acc-wizard/acc-wizard.js'
             filters: [yui_js]

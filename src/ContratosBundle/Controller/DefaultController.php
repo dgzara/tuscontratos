@@ -3,11 +3,26 @@
 namespace ContratosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+/**
+ * Arriendo controller.
+ *
+ * @Route("/")
+ */
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * Lists all Arriendo entities.
+     *
+     * @Route("/", name="default")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
     {
-        return $this->render('ContratosBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('ContratosBundle:Default:index.html.twig', array());
     }
 }
