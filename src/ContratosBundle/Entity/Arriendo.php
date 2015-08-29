@@ -14,7 +14,6 @@ class Arriendo
      */
     private $id;
 
-
     /**
      * Get id
      *
@@ -32,7 +31,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $arrendador_natural_sexo;
+    private $arrendador_natural_sexo = "Hombre";
 
     /**
      * @var string
@@ -122,7 +121,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $arrendatario_natural_sexo;
+    private $arrendatario_natural_sexo = "Hombre";
 
     /**
      * @var string
@@ -247,7 +246,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $plazo_prorroga;
+    private $plazo_prorroga = "No";
 
     /**
      * @var string
@@ -337,7 +336,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $renta_medio_reajuste;
+    private $renta_medio_reajuste = "No";
 
     /**
      * @var string
@@ -352,7 +351,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $renta_mora_sancion;
+    private $renta_mora_sancion = "No";
 
     /**
      * @var string
@@ -367,7 +366,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $renta_cobranza;
+    private $renta_cobranza = "No";
 
     /**
      * @var string
@@ -392,7 +391,7 @@ class Arriendo
     /**
      * @var string
      */
-    private $entrega_inventario;
+    private $entrega_inventario = "No";
 
     /**
      * @var string
@@ -487,7 +486,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $recision_unilateral;
+    private $recision_unilateral = "No";
 
     /**
      * @var string
@@ -507,7 +506,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $garantia_deposito;
+    private $garantia_deposito = "No";
 
     /**
      * @var string
@@ -537,12 +536,12 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $aval;
+    private $aval = "No";
 
     /**
      * @var string
      */
-    private $aval_sexo;
+    private $aval_sexo = "Hombre";
 
     /**
      * @var string
@@ -597,7 +596,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $correo;
+    private $correo = "No";
 
     /**
      * @var string

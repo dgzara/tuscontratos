@@ -11,8 +11,7 @@
 
 {% block content -%}
     <h1>Crear contrato de "Arriendo"</h1>
-    <form action="" method="">
-    <form action="{{ path('arriendo_create') }}" method="post" {{ form_enctype(form) }}>
+    <form name="contratosbundle_arriendo" action="{{ path('arriendo_create') }}" method="post" {{ form_enctype(form) }}>
         <div class="row acc-wizard">
             <div style="padding-left: 2em;" class="col-md-2">
                 <p style="margin-bottom: 2em;">
@@ -392,12 +391,14 @@
                       </div>
                     </div>
                   </div>
+                  {{ form_rest(form) }}
                 </div> 
                 <hr>
                 <button class="btn btn-primary pull-right" type="submit">Guardar</button>
             </div>
         </div>
     </form>
+    {#{{ form(form) }}#}
 {% endblock %}
 
 {% block javascripts %}

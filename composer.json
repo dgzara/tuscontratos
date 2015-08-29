@@ -23,7 +23,8 @@
         "twbs/bootstrap": "3.2.*@dev",
         "components/jquery": "1.11.2",
         "liip/imagine-bundle": "dev-master",
-        "oyejorge/less.php": "dev-master"
+        "oyejorge/less.php": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "^2.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
