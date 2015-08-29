@@ -15,7 +15,8 @@ ContratosBundle\Entity\Arriendo:
         arrendador_natural_sexo:
             type: string
             length: 20
-            nullable: true
+            options:
+                default: Hombre
         arrendador_natural_nombres:
             type: string
             length: 100
@@ -79,7 +80,8 @@ ContratosBundle\Entity\Arriendo:
         arrendatario_natural_sexo:
             type: string
             length: 20
-            nullable: true
+            options:
+                default: Hombre
         arrendatario_natural_nombres:
             type: string
             length: 100
@@ -156,6 +158,10 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
+        plazo_cantidad:
+            type: integer
+            length: 11
+            nullable: true
         plazo_unidad:
             type: string
             length: 100
@@ -165,9 +171,9 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         plazo_prorroga:
-            type: string
-            length: 100
-            nullable: true
+            type: boolean
+            options:
+                default: 0
         plazo_prorroga_tiempo:
             type: string
             length: 100
@@ -177,10 +183,6 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         plazo_forma:
-            type: string
-            length: 100
-            nullable: true
-        plazo_unidad:
             type: string
             length: 100
             nullable: true
@@ -240,9 +242,9 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         renta_medio_reajuste:
-            type: string
-            length: 100
-            nullable: true
+            type: boolean
+            options:
+                default: 0
         renta_reajuste_periodo:
             type: string
             length: 100
@@ -252,9 +254,9 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         renta_mora_sancion:
-            type: string
-            length: 100
-            nullable: true
+            type: boolean
+            options:
+                default: 0
         renta_mora_periodo:
             type: string
             length: 100
@@ -264,9 +266,9 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         renta_cobranza:
-            type: string
-            length: 100
-            nullable: true
+            type: boolean
+            options:
+                default: 0
         renta_cobranza_plazo:
             type: string
             length: 100
@@ -284,17 +286,18 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         entrega_inventario:
-            type: string
-            length: 100
-            nullable: true
+            type: boolean
+            options:
+                default: 0
         restitucion_forma:
             type: string
             length: 100
             nullable: true
         restitucion_acreditacion:
-            type: string
-            length: 100
+            type: boolean
             nullable: true
+            options:
+                default: 0
         restitucion_visita_plazo:
             type: string
             length: 100
@@ -313,44 +316,36 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         prohibicion_subarriendo:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_variaciones:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_utilizacion:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_retraso:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_perturbacion:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_agujeros:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_normativa:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         prohibicion_accion_ilegal:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         recision_pago:
             type: string
             length: 100
@@ -361,9 +356,8 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         recision_causal:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         recision_causal_descripcion:
             type: string
             length: 100
@@ -374,9 +368,8 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         recision_unilateral:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         recision_unilateral_anticipacion:
             type: string
             length: 100
@@ -391,9 +384,8 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         garantia_deposito:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         garantia_forma:
             type: string
             length: 100
@@ -416,13 +408,13 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         aval:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         aval_sexo:
             type: string
             length: 20
-            nullable: true
+            options:
+                default: Hombre
         aval_nombres:
             type: string
             length: 100
@@ -461,9 +453,8 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         correo:
             type: boolean
-            required: false
             options:
-                default: false
+                default: 0
         correo_arrendador:
             type: string
             length: 100

@@ -9,20 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Arriendo
 {
+    
     /**
      * @var integer
      */
     private $id;
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     /**
      * @var string
      */
@@ -76,11 +68,6 @@ class Arriendo
     /**
      * @var string
      */
-    private $arrendador_natural_comuna;
-
-    /**
-     * @var string
-     */
     private $arrendador_natural_region;
 
     /**
@@ -102,11 +89,6 @@ class Arriendo
      * @var string
      */
     private $arrendador_juridica_domicilio;
-
-    /**
-     * @var string
-     */
-    private $arrendador_juridica_comuna;
 
     /**
      * @var string
@@ -166,11 +148,6 @@ class Arriendo
     /**
      * @var string
      */
-    private $arrendatario_natural_comuna;
-
-    /**
-     * @var string
-     */
     private $arrendatario_natural_region;
 
     /**
@@ -192,11 +169,6 @@ class Arriendo
      * @var string
      */
     private $arrendatario_juridica_domicilio;
-
-    /**
-     * @var string
-     */
-    private $arrendatario_juridica_comuna;
 
     /**
      * @var string
@@ -229,9 +201,9 @@ class Arriendo
     private $propiedad_region;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $propiedad_comuna;
+    private $plazo_cantidad;
 
     /**
      * @var string
@@ -244,9 +216,9 @@ class Arriendo
     private $plazo_momento;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $plazo_prorroga = "No";
+    private $plazo_prorroga = 0;
 
     /**
      * @var string
@@ -334,9 +306,9 @@ class Arriendo
     private $renta_medio_deposito_envio;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $renta_medio_reajuste = "No";
+    private $renta_medio_reajuste = 0;
 
     /**
      * @var string
@@ -349,9 +321,9 @@ class Arriendo
     private $renta_reajuste_forma;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $renta_mora_sancion = "No";
+    private $renta_mora_sancion = 0;
 
     /**
      * @var string
@@ -364,9 +336,9 @@ class Arriendo
     private $renta_mora_valor;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $renta_cobranza = "No";
+    private $renta_cobranza = 0;
 
     /**
      * @var string
@@ -389,9 +361,9 @@ class Arriendo
     private $entrega_fecha;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $entrega_inventario = "No";
+    private $entrega_inventario = 0;
 
     /**
      * @var string
@@ -399,9 +371,9 @@ class Arriendo
     private $restitucion_forma;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $restitucion_acreditacion;
+    private $restitucion_acreditacion = 0;
 
     /**
      * @var string
@@ -476,7 +448,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $recision_causal;
+    private $recision_causal = 0;
 
     /**
      * @var string
@@ -486,7 +458,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $recision_unilateral = "No";
+    private $recision_unilateral = 0;
 
     /**
      * @var string
@@ -506,7 +478,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $garantia_deposito = "No";
+    private $garantia_deposito = 0;
 
     /**
      * @var string
@@ -536,7 +508,7 @@ class Arriendo
     /**
      * @var boolean
      */
-    private $aval = "No";
+    private $aval = 0;
 
     /**
      * @var string
@@ -586,17 +558,12 @@ class Arriendo
     /**
      * @var string
      */
-    private $aval_comuna;
-
-    /**
-     * @var string
-     */
     private $aval_region;
 
     /**
      * @var boolean
      */
-    private $correo = "No";
+    private $correo = 0;
 
     /**
      * @var string
@@ -638,6 +605,46 @@ class Arriendo
      */
     private $personeria_arrendatario_lugar;
 
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $arrendador_natural_comuna;
+
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $arrendador_juridica_comuna;
+
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $arrendatario_juridica_comuna;
+
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $arrendatario_natural_comuna;
+
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $propiedad_comuna;
+
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $aval_comuna;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set arrendador_persona
@@ -684,7 +691,17 @@ class Arriendo
     {
         return $this->arrendador_natural_sexo;
     }
-
+    
+    /**
+     * Get arrendador_natural_nombres
+     *
+     * @return string 
+     */
+    public function getArrendadorNatural()
+    {
+        return $this->arrendador_natural_nombres.' '.$this->arrendador_natural_apellido_paterno.' '.$this->arrendador_natural_apellido_materno;
+    }
+    
     /**
      * Set arrendador_natural_nombres
      *
@@ -698,16 +715,6 @@ class Arriendo
         return $this;
     }
 
-    /**
-     * Get arrendador_natural_nombres
-     *
-     * @return string 
-     */
-    public function getArrendadorNatural()
-    {
-        return $this->arrendador_natural_nombres.' '.$this->arrendador_natural_apellido_paterno.' '.$this->arrendador_natural_apellido_materno;
-    }
-    
     /**
      * Get arrendador_natural_nombres
      *
@@ -880,29 +887,6 @@ class Arriendo
     }
 
     /**
-     * Set arrendador_natural_comuna
-     *
-     * @param string $arrendadorNaturalComuna
-     * @return Arriendo
-     */
-    public function setArrendadorNaturalComuna($arrendadorNaturalComuna)
-    {
-        $this->arrendador_natural_comuna = $arrendadorNaturalComuna;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_natural_comuna
-     *
-     * @return string 
-     */
-    public function getArrendadorNaturalComuna()
-    {
-        return $this->arrendador_natural_comuna;
-    }
-
-    /**
      * Set arrendador_natural_region
      *
      * @param string $arrendadorNaturalRegion
@@ -1018,29 +1002,6 @@ class Arriendo
     }
 
     /**
-     * Set arrendador_juridica_comuna
-     *
-     * @param string $arrendadorJuridicaComuna
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaComuna($arrendadorJuridicaComuna)
-    {
-        $this->arrendador_juridica_comuna = $arrendadorJuridicaComuna;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_comuna
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaComuna()
-    {
-        return $this->arrendador_juridica_comuna;
-    }
-
-    /**
      * Set arrendador_juridica_region
      *
      * @param string $arrendadorJuridicaRegion
@@ -1110,7 +1071,7 @@ class Arriendo
     }
 
     /**
-     * Get arrendador_natural_nombres
+     * Get arrendatario_natural_nombres
      *
      * @return string 
      */
@@ -1304,29 +1265,6 @@ class Arriendo
     }
 
     /**
-     * Set arrendatario_natural_comuna
-     *
-     * @param string $arrendatarioNaturalComuna
-     * @return Arriendo
-     */
-    public function setArrendatarioNaturalComuna($arrendatarioNaturalComuna)
-    {
-        $this->arrendatario_natural_comuna = $arrendatarioNaturalComuna;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_natural_comuna
-     *
-     * @return string 
-     */
-    public function getArrendatarioNaturalComuna()
-    {
-        return $this->arrendatario_natural_comuna;
-    }
-
-    /**
      * Set arrendatario_natural_region
      *
      * @param string $arrendatarioNaturalRegion
@@ -1439,29 +1377,6 @@ class Arriendo
     public function getArrendatarioJuridicaDomicilio()
     {
         return $this->arrendatario_juridica_domicilio;
-    }
-
-    /**
-     * Set arrendatario_juridica_comuna
-     *
-     * @param string $arrendatarioJuridicaComuna
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaComuna($arrendatarioJuridicaComuna)
-    {
-        $this->arrendatario_juridica_comuna = $arrendatarioJuridicaComuna;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_comuna
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaComuna()
-    {
-        return $this->arrendatario_juridica_comuna;
     }
 
     /**
@@ -1603,26 +1518,26 @@ class Arriendo
     }
 
     /**
-     * Set propiedad_comuna
+     * Set plazo_cantidad
      *
-     * @param string $propiedadComuna
+     * @param integer $plazoCantidad
      * @return Arriendo
      */
-    public function setPropiedadComuna($propiedadComuna)
+    public function setPlazoCantidad($plazoCantidad)
     {
-        $this->propiedad_comuna = $propiedadComuna;
+        $this->plazo_cantidad = $plazoCantidad;
 
         return $this;
     }
 
     /**
-     * Get propiedad_comuna
+     * Get plazo_cantidad
      *
-     * @return string 
+     * @return integer 
      */
-    public function getPropiedadComuna()
+    public function getPlazoCantidad()
     {
-        return $this->propiedad_comuna;
+        return $this->plazo_cantidad;
     }
 
     /**
@@ -1674,7 +1589,7 @@ class Arriendo
     /**
      * Set plazo_prorroga
      *
-     * @param string $plazoProrroga
+     * @param boolean $plazoProrroga
      * @return Arriendo
      */
     public function setPlazoProrroga($plazoProrroga)
@@ -1687,7 +1602,7 @@ class Arriendo
     /**
      * Get plazo_prorroga
      *
-     * @return string 
+     * @return boolean 
      */
     public function getPlazoProrroga()
     {
@@ -2088,7 +2003,7 @@ class Arriendo
     /**
      * Set renta_medio_reajuste
      *
-     * @param string $rentaMedioReajuste
+     * @param boolean $rentaMedioReajuste
      * @return Arriendo
      */
     public function setRentaMedioReajuste($rentaMedioReajuste)
@@ -2101,7 +2016,7 @@ class Arriendo
     /**
      * Get renta_medio_reajuste
      *
-     * @return string 
+     * @return boolean 
      */
     public function getRentaMedioReajuste()
     {
@@ -2157,7 +2072,7 @@ class Arriendo
     /**
      * Set renta_mora_sancion
      *
-     * @param string $rentaMoraSancion
+     * @param boolean $rentaMoraSancion
      * @return Arriendo
      */
     public function setRentaMoraSancion($rentaMoraSancion)
@@ -2170,7 +2085,7 @@ class Arriendo
     /**
      * Get renta_mora_sancion
      *
-     * @return string 
+     * @return boolean 
      */
     public function getRentaMoraSancion()
     {
@@ -2226,7 +2141,7 @@ class Arriendo
     /**
      * Set renta_cobranza
      *
-     * @param string $rentaCobranza
+     * @param boolean $rentaCobranza
      * @return Arriendo
      */
     public function setRentaCobranza($rentaCobranza)
@@ -2239,7 +2154,7 @@ class Arriendo
     /**
      * Get renta_cobranza
      *
-     * @return string 
+     * @return boolean 
      */
     public function getRentaCobranza()
     {
@@ -2341,7 +2256,7 @@ class Arriendo
     /**
      * Set entrega_inventario
      *
-     * @param string $entregaInventario
+     * @param boolean $entregaInventario
      * @return Arriendo
      */
     public function setEntregaInventario($entregaInventario)
@@ -2354,7 +2269,7 @@ class Arriendo
     /**
      * Get entrega_inventario
      *
-     * @return string 
+     * @return boolean 
      */
     public function getEntregaInventario()
     {
@@ -2387,7 +2302,7 @@ class Arriendo
     /**
      * Set restitucion_acreditacion
      *
-     * @param string $restitucionAcreditacion
+     * @param boolean $restitucionAcreditacion
      * @return Arriendo
      */
     public function setRestitucionAcreditacion($restitucionAcreditacion)
@@ -2400,7 +2315,7 @@ class Arriendo
     /**
      * Get restitucion_acreditacion
      *
-     * @return string 
+     * @return boolean 
      */
     public function getRestitucionAcreditacion()
     {
@@ -3236,29 +3151,6 @@ class Arriendo
     }
 
     /**
-     * Set aval_comuna
-     *
-     * @param string $avalComuna
-     * @return Arriendo
-     */
-    public function setAvalComuna($avalComuna)
-    {
-        $this->aval_comuna = $avalComuna;
-
-        return $this;
-    }
-
-    /**
-     * Get aval_comuna
-     *
-     * @return string 
-     */
-    public function getAvalComuna()
-    {
-        return $this->aval_comuna;
-    }
-
-    /**
      * Set aval_region
      *
      * @param string $avalRegion
@@ -3486,5 +3378,143 @@ class Arriendo
     public function getPersoneriaArrendatarioLugar()
     {
         return $this->personeria_arrendatario_lugar;
+    }
+
+    /**
+     * Set arrendador_natural_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $arrendadorNaturalComuna
+     * @return Arriendo
+     */
+    public function setArrendadorNaturalComuna(\ContratosBundle\Entity\Comuna $arrendadorNaturalComuna = null)
+    {
+        $this->arrendador_natural_comuna = $arrendadorNaturalComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get arrendador_natural_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getArrendadorNaturalComuna()
+    {
+        return $this->arrendador_natural_comuna;
+    }
+
+    /**
+     * Set arrendador_juridica_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $arrendadorJuridicaComuna
+     * @return Arriendo
+     */
+    public function setArrendadorJuridicaComuna(\ContratosBundle\Entity\Comuna $arrendadorJuridicaComuna = null)
+    {
+        $this->arrendador_juridica_comuna = $arrendadorJuridicaComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get arrendador_juridica_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getArrendadorJuridicaComuna()
+    {
+        return $this->arrendador_juridica_comuna;
+    }
+
+    /**
+     * Set arrendatario_juridica_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $arrendatarioJuridicaComuna
+     * @return Arriendo
+     */
+    public function setArrendatarioJuridicaComuna(\ContratosBundle\Entity\Comuna $arrendatarioJuridicaComuna = null)
+    {
+        $this->arrendatario_juridica_comuna = $arrendatarioJuridicaComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get arrendatario_juridica_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getArrendatarioJuridicaComuna()
+    {
+        return $this->arrendatario_juridica_comuna;
+    }
+
+    /**
+     * Set arrendatario_natural_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $arrendatarioNaturalComuna
+     * @return Arriendo
+     */
+    public function setArrendatarioNaturalComuna(\ContratosBundle\Entity\Comuna $arrendatarioNaturalComuna = null)
+    {
+        $this->arrendatario_natural_comuna = $arrendatarioNaturalComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get arrendatario_natural_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getArrendatarioNaturalComuna()
+    {
+        return $this->arrendatario_natural_comuna;
+    }
+
+    /**
+     * Set propiedad_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $propiedadComuna
+     * @return Arriendo
+     */
+    public function setPropiedadComuna(\ContratosBundle\Entity\Comuna $propiedadComuna = null)
+    {
+        $this->propiedad_comuna = $propiedadComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get propiedad_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getPropiedadComuna()
+    {
+        return $this->propiedad_comuna;
+    }
+
+    /**
+     * Set aval_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $avalComuna
+     * @return Arriendo
+     */
+    public function setAvalComuna(\ContratosBundle\Entity\Comuna $avalComuna = null)
+    {
+        $this->aval_comuna = $avalComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get aval_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getAvalComuna()
+    {
+        return $this->aval_comuna;
     }
 }

@@ -4,30 +4,35 @@
     <h1>Contrato de Arrendamiento
 Entre
 {{ entity.arrendadornatural }}
-Y
+y
 {{ entity.arrendatarionatural }}</h1>
 
     En Santiago, a 9 de abril de 2015
     
     {% if entity.arrendadorpersona == "Natural" %}
-    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.arrendadornatural }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} domiciliado en {{ entity.arrendadornaturaldomicilio }}, comuna de {{ entity.arrendadornaturalcomuna }}, {{ entity.arrendadornaturalregion }}
+    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.arrendadornatural }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} 
+    {% if entity.arrendadornaturalsexo == 'Hombre' %}domiciliado{% else %}domiciliada{%endif %}
+    en {{ entity.arrendadornaturaldomicilio }}, comuna de {{ entity.arrendadornaturalcomuna }}, Región {{ entity.arrendadornaturalregion }}
     {% else %}
-    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.arrendadornaturalnombres }} {{ entity.arrendadornaturalapellidopaterno }} {{ entity.arrendadornaturalapellidomaterno }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} en representación de {{ entity.arrendadorjuridicarazon }}, de giro de {{ entity.arrendadorjuridicagiro }}, rol único tributario número {{ entity.arrendadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.arrendadorjuridicadomicilio }}, comuna de {{ entity.arrendadorjuridicacomuna }}, {{ entity.arrendadorjuridicaregion }}, 
+    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.arrendadornaturalnombres }} {{ entity.arrendadornaturalapellidopaterno }} {{ entity.arrendadornaturalapellidomaterno }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} en representación de {{ entity.arrendadorjuridicarazon }}, de giro de {{ entity.arrendadorjuridicagiro }}, rol único tributario número {{ entity.arrendadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.arrendadorjuridicadomicilio }}, comuna de {{ entity.arrendadorjuridicacomuna }}, Región {{ entity.arrendadorjuridicaregion }}, 
     {% endif %}
     en adelante e indistintamente, EL ARRENDADOR, por una parte, y por la otra,
+    {% if entity.arrendatarionaturalsexo == 'Hombre' %}don{% else %}doña{%endif %}
     {% if entity.arrendatariopersona == "Natural" %}
-    {{ entity.arrendatarionaturalnombres }} {{ entity.arrendatarionaturalapellidopaterno }} {{ entity.arrendatarionaturalapellidomaterno }}, {{ entity.arrendatarionaturalnacionalidad }}, {{ entity.arrendatarionaturalestadocivil }}, {{ entity.arrendatarionaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendatarionaturalrut }} domiciliado/a en {{ entity.arrendatarionaturaldomicilio }}, comuna de {{ entity.arrendatarionaturalcomuna }}, {{ entity.arrendatarionaturalregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
+    {{ entity.arrendatarionaturalnombres }} {{ entity.arrendatarionaturalapellidopaterno }} {{ entity.arrendatarionaturalapellidomaterno }}, {{ entity.arrendatarionaturalnacionalidad }}, {{ entity.arrendatarionaturalestadocivil }}, {{ entity.arrendatarionaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendatarionaturalrut }} 
+    {% if entity.arrendatarionaturalsexo == 'Hombre' %}domiciliado{% else %}domiciliada{%endif %} 
+    en {{ entity.arrendatarionaturaldomicilio }}, comuna de {{ entity.arrendatarionaturalcomuna }}, Región {{ entity.arrendatarionaturalregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% else %}
-    {% if entity.arrendatarionaturalsexo == "Hombre" %}Don{% else %}Doña{% endif %} {{ entity.arrendatarionaturalnombres }} {{ entity.arrendatarionaturalapellidopaterno }} {{ entity.arrendatarionaturalapellidomaterno }}, {{ entity.arrendatarionaturalnacionalidad }}, {{ entity.arrendatarionaturalestadocivil }}, {{ entity.arrendatarionaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendatarionaturalrut }} en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
+    {% if entity.arrendatarionaturalsexo == "Hombre" %}Don{% else %}Doña{% endif %} {{ entity.arrendatarionaturalnombres }} {{ entity.arrendatarionaturalapellidopaterno }} {{ entity.arrendatarionaturalapellidomaterno }}, {{ entity.arrendatarionaturalnacionalidad }}, {{ entity.arrendatarionaturalestadocivil }}, {{ entity.arrendatarionaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendatarionaturalrut }} en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, Región {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% endif %}
     
-    <p>PRIMERO: {{ entity.arrendatarionaturalnombres }} declara bajo juramento que es dueño de la propiedad raíz ubicada en {{ entity.propiedadcalle }} {{ entity.propiedadnumero }} {{ entity.propiedaddepartamento is empty ? '' : entity.propiedaddepartamento }}, {% if entity.propiedadvilla %}{{ entity.propiedadvilla }}, {%endif %}comuna de {{ entity.propiedadcomuna }}, {{ entity.propiedadregion }}., el adelante, el BIEN ARRENDADO.</p>
+    <p>PRIMERO: {% if entity.arrendadornaturalsexo == 'Hombre' %}Don{% else %}Doña{%endif %} {{ entity.arrendadornatural }} declara bajo juramento que es dueño de la propiedad raíz ubicada en {{ entity.propiedadcalle }} {{ entity.propiedadnumero }} {{ entity.propiedaddepartamento is empty ? '' : entity.propiedaddepartamento }}, {% if entity.propiedadvilla %}{{ entity.propiedadvilla }}, {%endif %}comuna de {{ entity.propiedadcomuna }}, Región {{ entity.propiedadregion }}., el adelante, el BIEN ARRENDADO.</p>
     
     <p>SEGUNDO: Por el presente instrumento EL ARRENDADOR, entrega en arriendo a EL ARRENDATARIO, quien acepta, el inmueble singularizado en la cláusula precedente por los plazos y en las condiciones que en el presente contrato se establecen.</p>
     
-    <p>TERCERO: El plazo de duración del presente contrato de arrendamiento será de {{ entity.plazomomento }} {{ entity.plazounidad }} contados desde la fecha del presente contrato.
+    <p>TERCERO: El plazo de duración del presente contrato de arrendamiento será de {{ entity.plazocantidad }} {{ entity.plazounidad }} contados desde la fecha del presente contrato.
     
-    {% if entity.plazoprorroga == "Sí" %}
+    {% if entity.plazoprorroga %}
     Sin perjuicio de lo anterior, el contrato se entenderá prorrogado automáticamente por períodos de {{ entity.plazoprorrogatiempo }} si ninguna de las partes manifiesta su intención de terminar el contrato con a lo menos {{ entity.plazoaviso }} de anticipación a la fecha de término del mismo o de alguna de sus prórrogas, mediante {% if entity.plazoforma %}{{ entity.plazoforma }}{% else %}{{ entity.plazocarta }}{% endif %} ARRENDADOR señalada en el presente contrato. 
     {% endif %}
     </p>
@@ -42,7 +47,7 @@ Y
     depositando en la cuenta {{ entity.rentamediodepositotipo }} número {{ entity.rentamediodepositonumero }} del Banco {{ entity.rentamediodepositobanco }} a nombre de {{ entity.rentamediodepositotitular }}. Luego deberá enviar el comprobante de pago {{ entity.rentamediodepositoenvio }} señalado en la comparecencia. 
     {% endif %}
     
-    {% if entity.rentamedioreajuste == "Si" %}
+    {% if entity.rentamedioreajuste %}
     Dicha renta se reajustará {{ entity.rentareajusteperiodo }} por {{ entity.rentareajusteforma }}, durante dicho período.
 
 El período de reajuste se iniciará en el primer mes de contrato, o el mes en que se haya efectuado el último reajuste de la renta, y se hará efectivo en la renta que corresponda al mes siguiente a aquel en que hubiere expirado el período de reajuste señalado en el párrafo anterior.
@@ -51,7 +56,7 @@ El período de reajuste se iniciará en el primer mes de contrato, o el mes en q
     Dicha renta no se reajustará.
     {% endif %}
     
-    {% if entity.rentamorasancion == "Si" %}
+    {% if entity.rentamorasancion %}
     Luego de {{ entity.rentamoraperiodo }} desde que el ARRENDATARIO se hubiera constituido en mora en el pago de la renta de arrendamiento, este deberá pagar, como multa por dicho retraso, {{ entity.rentamoravalor }} por día de atraso. Estas multas deberán ser pagadas junto con la renta del mes siguiente a aquel en que se hubieren generado.
     {% endif %}
     
@@ -133,11 +138,11 @@ b) La Arrendataria infringiere  cualesquiera de las obligaciones contraídas por
 
 c) Las demás causas establecidas en la ley.
 
-{% if entity.recisioncausal == "Sí" %}
+{% if entity.recisioncausal %}
 d) Por su parte, la arrendadora podrá poner término inmediato al contrato, sin necesidad de una declaración judicial, cuando fuere perturbado en el goce del inmueble. {{ entity.recisioncausaldescripcion }}
 {% endif %}
 
-{% if entity.recisionunilateral == "Sí" %}
+{% if entity.recisionunilateral %}
 11.4 (Si la opción elegida es si, se agrega lo siguiente: Asimismo, cualquiera de las partes podrá rescindir el contrato mediante un aviso a la contraparte con a lo menos {{ entity.recisionunilateralanticipacion }} {{ entity.recisionunilateralunidad }}. de anticipación a la fecha en que quisiera darlo por terminado.
 
 En cualquiera de los casos anteriores, la parte que quiera dar por terminado el contrato deber avisar a la otra a través de {{ entity.recisionunilateralforma }} de su voluntad de rescindir el contrato.{% endif %}
@@ -148,10 +153,10 @@ En cualquiera de los casos anteriores, la parte que quiera dar por terminado el 
 
 La entrega que deberá hacer sin ocupantes y colocando a disposición del ARRENDADOR las llaves del inmueble arrendado en {{ entity.restitucionforma }}. 
 
-{% if entity.restitucionacreditacion == "Sí" %}Deberá acreditar que están pagados los servicios básicos (agua, energía eléctrica y gas), con las cuentas y los recibos que acrediten su pago, del mes inmediatamente anterior al que hace abandono del inmueble.{% endif %}
+{% if entity.restitucionacreditacion %}Deberá acreditar que están pagados los servicios básicos (agua, energía eléctrica y gas), con las cuentas y los recibos que acrediten su pago, del mes inmediatamente anterior al que hace abandono del inmueble.{% endif %}
     </p>
     
-    {% if entity.garantiadeposito == "Sí" %}
+    {% if entity.garantiadeposito %}
     <p>
         DECIMO SEGUNDO: Con el fin de garantizar la conservación del inmueble arrendado, el ARRENDATARIO entrega en garantía y contra el respectivo recibo, en este acto al ARRENDADOR, {{ entity.garantiaforma }}, la suma {{ entity.garantiamonto }}, que éste se obliga a devolverle dentro de los {{ entity.garantiadiasterminado }} {{ entity.garantiaunidad }}  siguientes a la restitución de la propiedad arrendada, quedando desde luego el ARRENDADOR, autorizado para descontar de la cantidad indicada, la suma de dinero que corresponda a los gastos en que incurra para realizar, una vez que se le haya restituido la propiedad, las mantenciones que se requieran para que la propiedad vuelva al estado en que se encontraba al momento de ser entregada al ARRENDATARIO, y que deban ser de cargo del mismo. 
 Lo anterior incluye, por ejemplo, la pintura de muros interiores, el tapado de orificios, reparación de válvulas y baldosas, entre otros.  
@@ -162,9 +167,9 @@ Si existen gastos  por reparaciones que fueren de cuenta del arrendatario que su
     </p>
     {% endif %}
     
-    {% if entity.aval == "Sí" %}
+    {% if entity.aval %}
     <p>
-    DECIMO TERCERO: Como garantía de cumplimiento del contrato {% if entity.avalsexo == "Hombre" %}don{% else %}doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}, {{ entity.avalnacionalidad }}, {{ entity.avalestadocivil }}, de profesión {{ entity.avalprofesion }} cédula de identidad número {{ entity.avalrut }}, con domicilio en {{ entity.avaldomicilio }}, {{ entity.avalcomuna }}, {{ entity.avalregion }} se constituye como codeudor del arrendatario –en adelante en indistintamente, el Aval-, obligándose solidariamente a asumir como propias todas las obligaciones de {{ entity.arrendadornatural }} que emanen del presente contrato de arrendamiento. El aval firma el presente instrumento en señal de aceptación. 
+    DECIMO TERCERO: Como garantía de cumplimiento del contrato {% if entity.avalsexo == "Hombre" %}don{% else %}doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}, {{ entity.avalnacionalidad }}, {{ entity.avalestadocivil }}, de profesión {{ entity.avalprofesion }} cédula de identidad número {{ entity.avalrut }}, con domicilio en {{ entity.avaldomicilio }}, comuna de {{ entity.avalcomuna }}, Región {{ entity.avalregion }} se constituye como codeudor del arrendatario –en adelante en indistintamente, el Aval-, obligándose solidariamente a asumir como propias todas las obligaciones de {{ entity.arrendadornatural }} que emanen del presente contrato de arrendamiento. El aval firma el presente instrumento en señal de aceptación. 
     </p>
     <p>
     DECIMO CUARTO: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna de 15, y se someten a la jurisdicción y competencia de sus tribunales de justicia.

@@ -151,6 +151,7 @@
                     </div>
                     <div id="collapsePlazo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPlazo">
                       <div class="panel-body">
+                        {{ form_row(form.plazo_cantidad) }}
                         {{ form_row(form.plazo_unidad) }}
                         {{ form_row(form.plazo_momento) }}
                         {{ form_row(form.plazo_prorroga) }}
@@ -159,8 +160,9 @@
                         </div>
                         {{ form_row(form.plazo_aviso) }}
                         {{ form_row(form.plazo_forma) }}
-                        {{ form_row(form.plazo_unidad) }}
+                        <div id="plazo_otro" style="display: none;">
                         {{ form_row(form.plazo_carta) }}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -242,6 +244,7 @@
                         {{ form_row(form.restitucion_visita_unidad) }}
                         {{ form_row(form.restitucion_inicio_plazo) }}
                         {{ form_row(form.restitucion_inicio_unidad) }}
+                        {{ form_row(form.restitucion_forma) }}
                       </div>
                     </div>
                   </div>
@@ -391,10 +394,10 @@
                       </div>
                     </div>
                   </div>
-                  {{ form_rest(form) }}
                 </div> 
                 <hr>
                 <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <div class="hide">{{ form_rest(form) }}</div>
             </div>
         </div>
     </form>
@@ -436,7 +439,7 @@
         });
         
         $('input[name$="[plazo_prorroga]"]:radio').change(function(){
-            if($(this).val() == "Sí"){
+            if($(this).val() == 1){
                 $("#prorroga_datos").show();
             }
             else {
@@ -444,26 +447,40 @@
             }
         });
         
-        $('input[name$="[renta_medio_pago]"]:radio').change(function(){
-            if($(this).val() == "en efectivo"){
+        $('select[name$="[plazo_forma]"]').on('change', function() {
+            if($(this).val() == "Otro"){
+                $("#plazo_otro").show();
+            }
+            else {
+                $("#plazo_otro").hide();
+            }
+        });
+
+        $('select[name$="[renta_medio_pago]"]').on('change', function() {
+            if($(this).val() == "efectivo"){
                 $("#efectivo").show();
                 $("#cheque").hide();
                 $("#deposito").hide();
             }
-            else if($(this).val() == "con cheque"){
+            else if($(this).val() == "cheque"){
                 $("#efectivo").hide();
                 $("#cheque").show();
                 $("#deposito").hide();
             }
-            else {
+            else if($(this).val() == "deposito"){
                 $("#efectivo").hide();
                 $("#cheque").hide();
                 $("#deposito").show();
             }
+            else {
+                $("#efectivo").hide();
+                $("#cheque").hide();
+                $("#deposito").hide();
+            }
         });
         
         $('input[name$="[renta_medio_reajuste]"]:radio').change(function(){
-            if($(this).val() == "Si se reajustará"){
+            if($(this).val() == 1){
                 $("#reajuste").show();
             }
             else {
@@ -472,7 +489,7 @@
         });
         
         $('input[name$="[renta_mora_sancion]"]:radio').change(function(){
-            if($(this).val() == "Si habrá sanción"){
+            if($(this).val() == 1){
                 $("#sancion").show();
             }
             else {
@@ -481,7 +498,7 @@
         });
         
         $('input[name$="[renta_cobranza]"]:radio').change(function(){
-            if($(this).val() == "Sí"){
+            if($(this).val() == 1){
                 $("#cobranza_datos").show();
             }
             else {
@@ -499,7 +516,7 @@
         });
         
         $('input[name$="[garantia_deposito]"]:radio').change(function(){
-            if($(this).val() == "Sí"){
+            if($(this).val() == 1){
                 $("#garantia_datos").show();
             }
             else {
@@ -508,7 +525,7 @@
         });
         
         $('input[name$="[aval]"]:radio').change(function(){
-            if($(this).val() == "Sí"){
+            if($(this).val() == 1){
                 $("#aval_datos").show();
             }
             else {
@@ -517,7 +534,7 @@
         });
         
         $('input[name$="[correo]"]:radio').change(function(){
-            if($(this).val() == "Sí"){
+            if($(this).val() == 1){
                 $("#correo_datos").show();
             }
             else {
