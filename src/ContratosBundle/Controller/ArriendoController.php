@@ -117,11 +117,8 @@ class ArriendoController extends Controller
             throw $this->createNotFoundException('Unable to find Arriendo entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
         );
     }
 

@@ -11,388 +11,393 @@
 
 {% block content -%}
     <h1>Crear contrato de "Arriendo"</h1>
-    <div class="row acc-wizard">
-        <div style="padding-left: 2em;" class="col-md-2">
-            <p style="margin-bottom: 2em;">
-              Siga los siguientes pasos para completar el formulario.
-            </p>
-            <ol class="acc-wizard-sidebar">
-              <li class="acc-wizard-todo acc-wizard-active"><a href="#collapseArrendador">Datos del Arrendador</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseArrendatario">Datos del Arrendatario</a></li>
-              <li class="acc-wizard-todo"><a href="#collapsePropiedad">Datos de la propiedad</a></li>
-              <li class="acc-wizard-todo"><a href="#collapsePlazo">Plazo del arriendo</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseRenta">Renta del arrendamiento</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseEntrega">Entrega del inmueble</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseRestitucion">Restitución del inmueble</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseProhibiciones">Prohibiciones al arrendador</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseRecision">Recisión unilateral del contrato</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseGarantia">Garantía</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseAval">Aval</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseJursidiccion">Jurisdicción</a></li>
-              <li class="acc-wizard-todo"><a href="#collapseCorreo">Correo electrónico</a></li>
-              <li class="acc-wizard-todo"><a href="#collapsePersoneria">Personería</a></li>
-            </ol>
+    <form action="" method="">
+    <form action="{{ path('arriendo_create') }}" method="post" {{ form_enctype(form) }}>
+        <div class="row acc-wizard">
+            <div style="padding-left: 2em;" class="col-md-2">
+                <p style="margin-bottom: 2em;">
+                  Siga los siguientes pasos para completar el formulario.
+                </p>
+                <ol class="acc-wizard-sidebar">
+                  <li class="acc-wizard-todo acc-wizard-active"><a href="#collapseArrendador">Datos del Arrendador</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseArrendatario">Datos del Arrendatario</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapsePropiedad">Datos de la propiedad</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapsePlazo">Plazo del arriendo</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseRenta">Renta del arrendamiento</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseEntrega">Entrega del inmueble</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseRestitucion">Restitución del inmueble</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseProhibiciones">Prohibiciones al arrendador</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseRecision">Recisión unilateral del contrato</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseGarantia">Garantía</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseAval">Aval</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseJursidiccion">Jurisdicción</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapseCorreo">Correo electrónico</a></li>
+                  <li class="acc-wizard-todo"><a href="#collapsePersoneria">Personería</a></li>
+                </ol>
+            </div>
+            <div class="col-md-10" style="padding-right: 2em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingArrendador">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseArrendador" aria-expanded="true" aria-controls="collapseArrendador">
+                          Datos del Arrendador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseArrendador" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingArrendador">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                {{ form_row(form.arrendador_persona) }}
+                            </div>
+                            <div class="col-md-10">
+                                <div id="arrendador_natural" style="display: none;">
+                                    <h3>Persona natural</h3>
+                                    {{ form_row(form.arrendador_natural_sexo) }}
+                                    {{ form_row(form.arrendador_natural_nombres) }}
+                                    {{ form_row(form.arrendador_natural_apellido_paterno) }}
+                                    {{ form_row(form.arrendador_natural_apellido_materno) }}
+                                    {{ form_row(form.arrendador_natural_nacionalidad) }}
+                                    {{ form_row(form.arrendador_natural_estado_civil) }}
+                                    {{ form_row(form.arrendador_natural_profesion) }}
+                                    {{ form_row(form.arrendador_natural_rut) }}
+                                    {{ form_row(form.arrendador_natural_domicilio) }}
+                                    {{ form_row(form.arrendador_natural_region) }}
+                                    {{ form_row(form.arrendador_natural_comuna) }}
+                                </div>
+                                <div id="arrendador_juridica" style="display: none;">
+                                    <h3>Persona jurídica</h3>
+                                    {{ form_row(form.arrendador_juridica_razon) }}
+                                    {{ form_row(form.arrendador_juridica_giro) }}
+                                    {{ form_row(form.arrendador_juridica_rut) }}
+                                    {{ form_row(form.arrendador_juridica_domicilio) }}
+                                    {{ form_row(form.arrendador_juridica_region) }}
+                                    {{ form_row(form.arrendador_juridica_comuna) }}
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingArrendatario">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseArrendatario" aria-expanded="false" aria-controls="collapseArrendatario">
+                          Datos del Arrendatario
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseArrendatario" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingArrendatario">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                {{ form_row(form.arrendatario_persona) }}
+                            </div>
+                            <div class="col-md-10">
+                                <div id="arrendatario_natural" style="display: none;">
+                                    <h3>Persona natural</h3>
+                                    {{ form_row(form.arrendatario_natural_sexo) }}
+                                    {{ form_row(form.arrendatario_natural_nombres) }}
+                                    {{ form_row(form.arrendatario_natural_apellido_paterno) }}
+                                    {{ form_row(form.arrendatario_natural_apellido_materno) }}
+                                    {{ form_row(form.arrendatario_natural_nacionalidad) }}
+                                    {{ form_row(form.arrendatario_natural_estado_civil) }}
+                                    {{ form_row(form.arrendatario_natural_profesion) }}
+                                    {{ form_row(form.arrendatario_natural_rut) }}
+                                    {{ form_row(form.arrendatario_natural_domicilio) }}
+                                    {{ form_row(form.arrendatario_natural_region) }}
+                                    {{ form_row(form.arrendatario_natural_comuna) }}
+                                </div>
+                                <div id="arrendatario_juridica" style="display: none;">
+                                    <h3>Persona jurídica</h3>
+                                    {{ form_row(form.arrendatario_juridica_razon) }}
+                                    {{ form_row(form.arrendatario_juridica_giro) }}
+                                    {{ form_row(form.arrendatario_juridica_rut) }}
+                                    {{ form_row(form.arrendatario_juridica_domicilio) }}
+                                    {{ form_row(form.arrendatario_juridica_region) }}
+                                    {{ form_row(form.arrendatario_juridica_comuna) }}
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingPropiedad">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePropiedad" aria-expanded="false" aria-controls="collapsePropiedad">
+                          Datos de la propiedad arrendada
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapsePropiedad" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPropiedad">
+                      <div class="panel-body">
+                        {{ form_row(form.propiedad_calle) }}
+                        {{ form_row(form.propiedad_numero) }}
+                        {{ form_row(form.propiedad_departamento) }}
+                        {{ form_row(form.propiedad_villa) }}
+                        {{ form_row(form.propiedad_region) }}
+                        {{ form_row(form.propiedad_comuna) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingPlazo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePlazo" aria-expanded="false" aria-controls="collapsePlazo">
+                          Plazo del arriendo
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapsePlazo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPlazo">
+                      <div class="panel-body">
+                        {{ form_row(form.plazo_unidad) }}
+                        {{ form_row(form.plazo_momento) }}
+                        {{ form_row(form.plazo_prorroga) }}
+                        <div id="prorroga_datos" style="display: none;">
+                        {{ form_row(form.plazo_prorroga_tiempo) }}
+                        </div>
+                        {{ form_row(form.plazo_aviso) }}
+                        {{ form_row(form.plazo_forma) }}
+                        {{ form_row(form.plazo_unidad) }}
+                        {{ form_row(form.plazo_carta) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingRenta">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRenta" aria-expanded="false" aria-controls="collapseRenta">
+                          Renta del arrendamiento
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseRenta" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRenta">
+                      <div class="panel-body">
+                        {{ form_row(form.renta_monto) }}
+                        {{ form_row(form.renta_unidad) }}
+                        {{ form_row(form.renta_periodo) }}
+                        {{ form_row(form.renta_tiempo) }}
+                        {{ form_row(form.renta_dias) }}
+                        {{ form_row(form.renta_medio_pago) }}
+                        <div id="efectivo" style="display: none;">
+                        {{ form_row(form.renta_medio_efectivo) }}
+                        </div>
+                        <div id="cheque" style="display: none;">
+                        {{ form_row(form.renta_medio_cheque) }}
+                        </div>
+                        <div id="deposito" style="display: none;">
+                        {{ form_row(form.renta_medio_deposito_titular) }}
+                        {{ form_row(form.renta_medio_deposito_tipo) }}
+                        {{ form_row(form.renta_medio_deposito_numero) }}
+                        {{ form_row(form.renta_medio_deposito_banco) }}
+                        {{ form_row(form.renta_medio_deposito_envio) }}
+                        </div>
+                        {{ form_row(form.renta_medio_reajuste) }}
+                        <div id="reajuste" style="display: none;">
+                        {{ form_row(form.renta_reajuste_periodo) }}
+                        {{ form_row(form.renta_reajuste_forma) }}
+                        </div>
+                        {{ form_row(form.renta_mora_sancion) }}
+                        <div id="sancion" style="display: none;">
+                        {{ form_row(form.renta_mora_periodo) }}
+                        {{ form_row(form.renta_mora_valor) }}
+                        </div>
+                        {{ form_row(form.renta_cobranza) }}
+                        <div id="cobranza_datos" style="display: none;">
+                            {{ form_row(form.renta_cobranza_plazo) }}
+                            {{ form_row(form.renta_cobranza_notificacion) }}
+                            {{ form_row(form.renta_cobranza_avaluo) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingEntrega">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEntrega" aria-expanded="false" aria-controls="collapseEntrega">
+                          Entrega del inmueble
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseEntrega" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEntrega">
+                      <div class="panel-body">
+                        {{ form_row(form.entrega_fecha) }}
+                        {{ form_row(form.entrega_inventario) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingRestitucion">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRestitucion" aria-expanded="false" aria-controls="collapseRestitucion">
+                          Restitución del inmueble
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseRestitucion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRestitucion">
+                      <div class="panel-body">
+                        {{ form_row(form.restitucion_acreditacion) }}
+                        {{ form_row(form.restitucion_visita_plazo) }}
+                        {{ form_row(form.restitucion_visita_unidad) }}
+                        {{ form_row(form.restitucion_inicio_plazo) }}
+                        {{ form_row(form.restitucion_inicio_unidad) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingProhibiciones">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseProhibiciones" aria-expanded="false" aria-controls="collapseProhibiciones">
+                          Prohibiciones al arrendador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseProhibiciones" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingProhibiciones">
+                      <div class="panel-body">
+                        {{ form_row(form.prohibicion_subarriendo) }}
+                        {{ form_row(form.prohibicion_variaciones) }}
+                        {{ form_row(form.prohibicion_utilizacion) }}
+                        {{ form_row(form.prohibicion_retraso) }}
+                        {{ form_row(form.prohibicion_perturbacion) }}
+                        {{ form_row(form.prohibicion_agujeros) }}
+                        {{ form_row(form.prohibicion_normativa) }}
+                        {{ form_row(form.prohibicion_accion_ilegal) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingRecision">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRecision" aria-expanded="false" aria-controls="collapseRecision">
+                          Recisión unilateral del contrato
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseRecision" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRecision">
+                      <div class="panel-body">
+                        {{ form_row(form.recision_pago) }}
+                        {{ form_row(form.recision_unidad) }}
+                        {{ form_row(form.recision_causal) }}
+                        {{ form_row(form.recision_causal_descripcion) }}
+                        {{ form_row(form.recision_causal) }}
+                        {{ form_row(form.recision_unilateral) }}
+                        <div id="recision_datos" style="display: none;">
+                            {{ form_row(form.recision_unilateral_anticipacion) }}
+                            {{ form_row(form.recision_unilateral_unidad) }}
+                            {{ form_row(form.recision_unilateral_forma) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingGarantia">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGarantia" aria-expanded="false" aria-controls="collapseGarantia">
+                          Garantía
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseGarantia" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGarantia">
+                      <div class="panel-body">
+                        {{ form_row(form.garantia_deposito) }}
+                        <div id="garantia_datos" style="display: none;">
+                            {{ form_row(form.garantia_forma) }}
+                            {{ form_row(form.garantia_monto) }}
+                            {{ form_row(form.garantia_dias_terminado) }}
+                            {{ form_row(form.garantia_dias_pagado) }}
+                            {{ form_row(form.garantia_unidad) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingAval">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAval" aria-expanded="false" aria-controls="collapseAval">
+                          Aval
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseAval" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAval">
+                      <div class="panel-body">
+                        {{ form_row(form.aval) }}
+                        <div id="aval_datos" style="display: none;">
+                            {{ form_row(form.aval_sexo) }}
+                            {{ form_row(form.aval_nombres) }}
+                            {{ form_row(form.aval_apellido_paterno) }}
+                            {{ form_row(form.aval_apellido_materno) }}
+                            {{ form_row(form.aval_nacionalidad) }}
+                            {{ form_row(form.aval_estado_civil) }}
+                            {{ form_row(form.aval_profesion) }}
+                            {{ form_row(form.aval_rut) }}
+                            {{ form_row(form.aval_domicilio) }}
+                            {{ form_row(form.aval_comuna) }}
+                            {{ form_row(form.aval_region) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingJurisdiccion">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJurisdiccion" aria-expanded="false" aria-controls="collapseJurisdiccion">
+                          Jurisdicción
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseJurisdiccion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJurisdiccion">
+                      <div class="panel-body">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingCorreo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCorreo" aria-expanded="false" aria-controls="collapseCorreo">
+                          Correo electrónico
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseCorreo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCorreo">
+                      <div class="panel-body">
+                        {{ form_row(form.correo) }}
+                        <div id="correo_datos" style="display: none;">
+                            {{ form_row(form.correo_arrendador) }}
+                            {{ form_row(form.correo_arrendatario) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingPersoneria">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePersoneria" aria-expanded="false" aria-controls="collapsePersoneria">
+                          Personería
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapsePersoneria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPersoneria">
+                      <div class="panel-body">
+                        <div id="personeria_arrendador" style="display: none;">
+                            {{ form_row(form.personeria_arrendador_fecha) }}
+                            {{ form_row(form.personeria_arrendador_notaria) }}
+                            {{ form_row(form.personeria_arrendador_lugar) }}
+                        <div id="personeria_arrendatario" style="display: none;">
+                            {{ form_row(form.personeria_arrendatario_fecha) }}
+                            {{ form_row(form.personeria_arrendatario_notaria) }}
+                            {{ form_row(form.personeria_arrendatario_lugar) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                <hr>
+                <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+            </div>
         </div>
-        <div class="col-md-10" style="padding-right: 2em;">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingArrendador">
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseArrendador" aria-expanded="true" aria-controls="collapseArrendador">
-                      Datos del Arrendador
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseArrendador" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingArrendador">
-                  <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            {{ form_row(form.arrendador_persona) }}
-                        </div>
-                        <div class="col-md-10">
-                            <div id="arrendador_natural" style="display: none;">
-                                <h3>Persona natural</h3>
-                                {{ form_row(form.arrendador_natural_sexo) }}
-                                {{ form_row(form.arrendador_natural_nombres) }}
-                                {{ form_row(form.arrendador_natural_apellido_paterno) }}
-                                {{ form_row(form.arrendador_natural_apellido_materno) }}
-                                {{ form_row(form.arrendador_natural_nacionalidad) }}
-                                {{ form_row(form.arrendador_natural_estado_civil) }}
-                                {{ form_row(form.arrendador_natural_profesion) }}
-                                {{ form_row(form.arrendador_natural_rut) }}
-                                {{ form_row(form.arrendador_natural_domicilio) }}
-                                {{ form_row(form.arrendador_natural_region) }}
-                                {{ form_row(form.arrendador_natural_comuna) }}
-                            </div>
-                            <div id="arrendador_juridica" style="display: none;">
-                                <h3>Persona jurídica</h3>
-                                {{ form_row(form.arrendador_juridica_razon) }}
-                                {{ form_row(form.arrendador_juridica_giro) }}
-                                {{ form_row(form.arrendador_juridica_rut) }}
-                                {{ form_row(form.arrendador_juridica_domicilio) }}
-                                {{ form_row(form.arrendador_juridica_region) }}
-                                {{ form_row(form.arrendador_juridica_comuna) }}
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingArrendatario">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseArrendatario" aria-expanded="false" aria-controls="collapseArrendatario">
-                      Datos del Arrendatario
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseArrendatario" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingArrendatario">
-                  <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            {{ form_row(form.arrendatario_persona) }}
-                        </div>
-                        <div class="col-md-10">
-                            <div id="arrendatario_natural" style="display: none;">
-                                <h3>Persona natural</h3>
-                                {{ form_row(form.arrendatario_natural_sexo) }}
-                                {{ form_row(form.arrendatario_natural_nombres) }}
-                                {{ form_row(form.arrendatario_natural_apellido_paterno) }}
-                                {{ form_row(form.arrendatario_natural_apellido_materno) }}
-                                {{ form_row(form.arrendatario_natural_nacionalidad) }}
-                                {{ form_row(form.arrendatario_natural_estado_civil) }}
-                                {{ form_row(form.arrendatario_natural_profesion) }}
-                                {{ form_row(form.arrendatario_natural_rut) }}
-                                {{ form_row(form.arrendatario_natural_domicilio) }}
-                                {{ form_row(form.arrendatario_natural_region) }}
-                                {{ form_row(form.arrendatario_natural_comuna) }}
-                            </div>
-                            <div id="arrendatario_juridica" style="display: none;">
-                                <h3>Persona jurídica</h3>
-                                {{ form_row(form.arrendatario_juridica_razon) }}
-                                {{ form_row(form.arrendatario_juridica_giro) }}
-                                {{ form_row(form.arrendatario_juridica_rut) }}
-                                {{ form_row(form.arrendatario_juridica_domicilio) }}
-                                {{ form_row(form.arrendatario_juridica_region) }}
-                                {{ form_row(form.arrendatario_juridica_comuna) }}
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingPropiedad">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePropiedad" aria-expanded="false" aria-controls="collapsePropiedad">
-                      Datos de la propiedad arrendada
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapsePropiedad" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPropiedad">
-                  <div class="panel-body">
-                    {{ form_row(form.propiedad_calle) }}
-                    {{ form_row(form.propiedad_numero) }}
-                    {{ form_row(form.propiedad_departamento) }}
-                    {{ form_row(form.propiedad_villa) }}
-                    {{ form_row(form.propiedad_region) }}
-                    {{ form_row(form.propiedad_comuna) }}
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingPlazo">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePlazo" aria-expanded="false" aria-controls="collapsePlazo">
-                      Plazo del arriendo
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapsePlazo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPlazo">
-                  <div class="panel-body">
-                    {{ form_row(form.plazo_unidad) }}
-                    {{ form_row(form.plazo_momento) }}
-                    {{ form_row(form.plazo_prorroga) }}
-                    <div id="prorroga_datos" style="display: none;">
-                    {{ form_row(form.plazo_prorroga_tiempo) }}
-                    </div>
-                    {{ form_row(form.plazo_aviso) }}
-                    {{ form_row(form.plazo_forma) }}
-                    {{ form_row(form.plazo_unidad) }}
-                    {{ form_row(form.plazo_carta) }}
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingRenta">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRenta" aria-expanded="false" aria-controls="collapseRenta">
-                      Renta del arrendamiento
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseRenta" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRenta">
-                  <div class="panel-body">
-                    {{ form_row(form.renta_monto) }}
-                    {{ form_row(form.renta_unidad) }}
-                    {{ form_row(form.renta_periodo) }}
-                    {{ form_row(form.renta_tiempo) }}
-                    {{ form_row(form.renta_dias) }}
-                    {{ form_row(form.renta_medio_pago) }}
-                    <div id="efectivo" style="display: none;">
-                    {{ form_row(form.renta_medio_efectivo) }}
-                    </div>
-                    <div id="cheque" style="display: none;">
-                    {{ form_row(form.renta_medio_cheque) }}
-                    </div>
-                    <div id="deposito" style="display: none;">
-                    {{ form_row(form.renta_medio_deposito_titular) }}
-                    {{ form_row(form.renta_medio_deposito_tipo) }}
-                    {{ form_row(form.renta_medio_deposito_numero) }}
-                    {{ form_row(form.renta_medio_deposito_banco) }}
-                    {{ form_row(form.renta_medio_deposito_envio) }}
-                    </div>
-                    {{ form_row(form.renta_medio_reajuste) }}
-                    <div id="reajuste" style="display: none;">
-                    {{ form_row(form.renta_reajuste_periodo) }}
-                    {{ form_row(form.renta_reajuste_forma) }}
-                    </div>
-                    {{ form_row(form.renta_mora_sancion) }}
-                    <div id="sancion" style="display: none;">
-                    {{ form_row(form.renta_mora_periodo) }}
-                    {{ form_row(form.renta_mora_valor) }}
-                    </div>
-                    {{ form_row(form.renta_cobranza) }}
-                    <div id="cobranza_datos" style="display: none;">
-                        {{ form_row(form.renta_cobranza_plazo) }}
-                        {{ form_row(form.renta_cobranza_notificacion) }}
-                        {{ form_row(form.renta_cobranza_avaluo) }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingEntrega">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEntrega" aria-expanded="false" aria-controls="collapseEntrega">
-                      Entrega del inmueble
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseEntrega" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEntrega">
-                  <div class="panel-body">
-                    {{ form_row(form.entrega_fecha) }}
-                    {{ form_row(form.entrega_inventario) }}
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingRestitucion">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRestitucion" aria-expanded="false" aria-controls="collapseRestitucion">
-                      Restitución del inmueble
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseRestitucion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRestitucion">
-                  <div class="panel-body">
-                    {{ form_row(form.restitucion_acreditacion) }}
-                    {{ form_row(form.restitucion_visita_plazo) }}
-                    {{ form_row(form.restitucion_visita_unidad) }}
-                    {{ form_row(form.restitucion_inicio_plazo) }}
-                    {{ form_row(form.restitucion_inicio_unidad) }}
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingProhibiciones">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseProhibiciones" aria-expanded="false" aria-controls="collapseProhibiciones">
-                      Prohibiciones al arrendador
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseProhibiciones" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingProhibiciones">
-                  <div class="panel-body">
-                    {{ form_row(form.prohibicion_subarriendo) }}
-                    {{ form_row(form.prohibicion_variaciones) }}
-                    {{ form_row(form.prohibicion_utilizacion) }}
-                    {{ form_row(form.prohibicion_retraso) }}
-                    {{ form_row(form.prohibicion_perturbacion) }}
-                    {{ form_row(form.prohibicion_agujeros) }}
-                    {{ form_row(form.prohibicion_normativa) }}
-                    {{ form_row(form.prohibicion_accion_ilegal) }}
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingRecision">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRecision" aria-expanded="false" aria-controls="collapseRecision">
-                      Recisión unilateral del contrato
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseRecision" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRecision">
-                  <div class="panel-body">
-                    {{ form_row(form.recision_pago) }}
-                    {{ form_row(form.recision_unidad) }}
-                    {{ form_row(form.recision_causal) }}
-                    {{ form_row(form.recision_causal_descripcion) }}
-                    {{ form_row(form.recision_causal) }}
-                    {{ form_row(form.recision_unilateral) }}
-                    <div id="recision_datos" style="display: none;">
-                        {{ form_row(form.recision_unilateral_anticipacion) }}
-                        {{ form_row(form.recision_unilateral_unidad) }}
-                        {{ form_row(form.recision_unilateral_forma) }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingGarantia">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGarantia" aria-expanded="false" aria-controls="collapseGarantia">
-                      Garantía
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseGarantia" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGarantia">
-                  <div class="panel-body">
-                    {{ form_row(form.garantia_deposito) }}
-                    <div id="garantia_datos" style="display: none;">
-                        {{ form_row(form.garantia_forma) }}
-                        {{ form_row(form.garantia_monto) }}
-                        {{ form_row(form.garantia_dias_terminado) }}
-                        {{ form_row(form.garantia_dias_pagado) }}
-                        {{ form_row(form.garantia_unidad) }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingAval">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAval" aria-expanded="false" aria-controls="collapseAval">
-                      Aval
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseAval" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAval">
-                  <div class="panel-body">
-                    {{ form_row(form.aval) }}
-                    <div id="aval_datos" style="display: none;">
-                        {{ form_row(form.aval_sexo) }}
-                        {{ form_row(form.aval_nombres) }}
-                        {{ form_row(form.aval_apellido_paterno) }}
-                        {{ form_row(form.aval_apellido_materno) }}
-                        {{ form_row(form.aval_nacionalidad) }}
-                        {{ form_row(form.aval_estado_civil) }}
-                        {{ form_row(form.aval_profesion) }}
-                        {{ form_row(form.aval_rut) }}
-                        {{ form_row(form.aval_domicilio) }}
-                        {{ form_row(form.aval_comuna) }}
-                        {{ form_row(form.aval_region) }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingJurisdiccion">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJurisdiccion" aria-expanded="false" aria-controls="collapseJurisdiccion">
-                      Jurisdicción
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseJurisdiccion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJurisdiccion">
-                  <div class="panel-body">
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingCorreo">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCorreo" aria-expanded="false" aria-controls="collapseCorreo">
-                      Correo electrónico
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseCorreo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCorreo">
-                  <div class="panel-body">
-                    {{ form_row(form.correo) }}
-                    <div id="correo_datos" style="display: none;">
-                        {{ form_row(form.correo_arrendador) }}
-                        {{ form_row(form.correo_arrendatario) }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingPersoneria">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePersoneria" aria-expanded="false" aria-controls="collapsePersoneria">
-                      Personería
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapsePersoneria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPersoneria">
-                  <div class="panel-body">
-                    <div id="personeria_arrendador" style="display: none;">
-                        {{ form_row(form.personeria_arrendador_fecha) }}
-                        {{ form_row(form.personeria_arrendador_notaria) }}
-                        {{ form_row(form.personeria_arrendador_lugar) }}
-                    <div id="personeria_arrendatario" style="display: none;">
-                        {{ form_row(form.personeria_arrendatario_fecha) }}
-                        {{ form_row(form.personeria_arrendatario_notaria) }}
-                        {{ form_row(form.personeria_arrendatario_lugar) }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> 
-        </div>
-    </div>
+    </form>
 {% endblock %}
 
 {% block javascripts %}

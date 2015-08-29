@@ -704,6 +704,16 @@ class Arriendo
      *
      * @return string 
      */
+    public function getArrendadorNatural()
+    {
+        return $this->arrendador_natural_nombres.' '.$this->arrendador_natural_apellido_paterno.' '.$this->arrendador_natural_apellido_materno;
+    }
+    
+    /**
+     * Get arrendador_natural_nombres
+     *
+     * @return string 
+     */
     public function getArrendadorNaturalNombres()
     {
         return $this->arrendador_natural_nombres;
@@ -1100,6 +1110,16 @@ class Arriendo
         return $this->arrendatario_natural_sexo;
     }
 
+    /**
+     * Get arrendador_natural_nombres
+     *
+     * @return string 
+     */
+    public function getArrendatarioNatural()
+    {
+        return $this->arrendatario_natural_nombres.' '.$this->arrendatario_natural_apellido_paterno.' '.$this->arrendatario_natural_apellido_materno;
+    }
+    
     /**
      * Set arrendatario_natural_nombres
      *
