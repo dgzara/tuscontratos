@@ -68,33 +68,29 @@ El ARRENDADOR deberá costear los honorarios de los abogados que tramiten dichos
 Las multas u honorarios señalados en los párrafos anteriores deberán ser pagados por el ARRENDATARIO junto con la renta del mes siguiente a aquel en que dichas multas u honorarios se hubieren generado, y para todos los efectos, pasarán a formar parte de las rentas adeudadas por el ARRENDATARIO al ARRENDADOR.
     {% endif %}
     </p>
-    
-    {% if entity.entregafecha %}
     <p>
-    QUINTO: La entrega material del inmueble arrendado se realiza el {{ entity.entregafecha }}. El ARRENDATARIO declara conocer y aceptar el estado de mantención y conservación del INMUEBLE ARRENDADO, obligándose a restituirlo al término del contrato de arrendamiento, en el mismo estado que lo recibió, habida consideración del tiempo y su uso legítimo. {% if entity.entregainventario %}Junto al inmueble, se entregan los bienes que se detallan en el inventario que se acompaña al presente contrato, el que debidamente firmado por las partes forma parte del mismo. Dichos bienes deberán ser restituidos al momento en que el inmueble se restituya” Además debe crearse una nueva página que denominada “Inventario Solemne de Bienes”{% endif %}
+    QUINTO: {% if entity.entregafecha %}La entrega material del inmueble arrendado se realiza el {{ entity.entregafecha }}.{% endif %} El ARRENDATARIO declara conocer y aceptar el estado de mantención y conservación del INMUEBLE ARRENDADO, obligándose a restituirlo al término del contrato de arrendamiento, en el mismo estado que lo recibió, con el desgaste natural por el uso normal y el paso del tiempo. {% if entity.entregainventario %}Junto al inmueble, se entregan los bienes que se detallan en el inventario que se acompaña al presente contrato, el que debidamente firmado por las partes forma parte del mismo. Dichos bienes deberán ser restituidos al momento en que el inmueble se restituya.{% endif %}
     </p>
-    {% endif %}
-    
     <p>
-    SEXTO: {% if entity.restitucionacreditacion %}La ARRENDATARIA está obligada a pagar oportunamente los consumos de agua, energía eléctrica, y gas del inmueble.{% endif %}
-
-Asimismo, el ARRENDATARIO se obliga a mantener en buen estado de conservación las instalaciones eléctricas, paredes, cielos, pisos, y artefactos sanitarios, entre otros, debiendo repararlos o cambiarlos a su costo si estos se destruyen o deterioran por el uso del ARRENDATARIO. 
-
-En el caso que por acción del ARRENDATARIO o la de alguno de sus dependientes se produzcan daños en las propiedades vecinas o en los bienes comunes si existieren, deberá reparar a su cuenta el daño.
-
-El ARRENDATARIO se compromete a dar todas las facilidades necesarias para que el ARRENDADOR pueda visitar el inmueble durante la vigencia del contrato para verificar su estado. También deberá permitir que, previa coordinación con el ARRENDADOR o sus representantes, el inmueble sea visitado por interesados en habitar el inmueble durante los últimos {{ entity.restitucionvisitaplazo }} {{ entity.restitucionvisitaunidad }} de vigencia del contrato.
-
-Si se producen desperfectos en el inmueble que, según lo establecido en el presente contrato o en su defecto, en las leyes que regulan esta materia, deban ser reparados por el ARRENDADOR, el ARRENDATARIO deberá dar aviso al mismo.
-
-Si el ARRENDATARIO o sus representantes no inician dentro los {{ entity.restitucioninicioplazo }} {{ entity.restitucioniniciounidad }} siguientes al aviso señalado en el párrafo anterior, las acciones destinadas a reparar dichos desperfectos, el ARRENDATARIO podrá realizarlas, descontando el costo de ellas de la renta de arrendamiento siguiente a la fecha en que se hubieren realizado dichos gastos.
-
-SEPTIMO: Las mejoras que ejecutare el ARRENDATARIO, quedaran a beneficio de la propiedad, salvo que pueda retirarlas del inmueble arrendado sin detrimento o daño en el mismo.
-
+    SEXTO: En virtud del presente contrato, EL ARRENDATARIO se obliga a: 
+    <ol type="a">
+        <li>Pagar oportunamente los consumos de agua, energía eléctrica, y gas del inmueble.</li>
+        <li>Mantener en buen estado de conservación las instalaciones eléctricas, paredes, cielos, pisos, y artefactos sanitarios, entre otros, debiendo repararlos o cambiarlos a su costo si estos se destruyen o deterioran por su uso.</li>
+        <li>En el caso que por acción del ARRENDATARIO o la de alguno de sus dependientes se produzcan daños en las propiedades vecinas o en los bienes comunes si existieren, deberá reparar a su cuenta el daño. </li>
+        <li>Dar todas las facilidades necesarias para que el ARRENDADOR pueda visitar el inmueble durante la vigencia del contrato para verificar su estado. 
+</li>
+<li>Permitir que el inmueble sea visitado por interesados en habitar el inmueble durante los últimos {{ entity.restitucionvisitaplazo }} {{ entity.restitucionvisitaunidad }} de vigencia del contrato, coordinándose previamente con el ARRENDADOR.
+</li>
+<li>Avisar al ARRENDADOR cuando se produzcan desperfectos en el inmueble que, según lo establecido en el presente contrato o en las leyes que regulan esta materia, deban ser reparados por el, dentro de las 72 horas siguientes al momento en que ARRENDATARIO se hubiese dado cuenta de esos desperfectos. Si el ARRENDATARIO o sus representantes no inician dentro los {{ entity.restitucioninicioplazo }} {{ entity.restitucioniniciounidad }} siguientes al aviso señalado en el párrafo anterior, las acciones destinadas a reparar dichos desperfectos, el ARRENDATARIO podrá realizarlas, descontando el costo de ellas de la renta de arrendamiento siguiente a la fecha en que se hubieren realizado dichos gastos.</li>
+    <li>Avisar al ARRENDADOR y/o reenviarle a la dirección señalada en el primer párrafo de este contrato cualquier notificación o comunicación de la Tesorería General de la República, el Servicio de Impuestos Internos, cualquier organismo de la administración del estado o un tercero que hubiese sido remitida, a su nombre, al INMUEBLE ARRENDADO, dentro de las 72 horas siguientes al momento en que hubiese recibido esa comunicación.</li>
+    </ol>
     </p>
-    
     <p>
-    OCTAVO: Queda prohibida a al ARRENDATARIO lo siguiente (Incluir opciones de 10.2): 
-    <ul>
+        SEPTIMO: Las mejoras que ejecutare el ARRENDATARIO, quedarán a beneficio de la propiedad, salvo que pueda retirarlas del inmueble arrendado sin detrimento o daño en el mismo.
+    </p>    
+    <p>
+        OCTAVO: Queda prohibida a al ARRENDATARIO lo siguiente: 
+    <ol type="a">
     {% if entity.prohibicionsubarriendo %}
         <li>Subarrendar o transferir a cualquier título el inmueble arrendado.</li>
     {% endif %}
@@ -119,76 +115,65 @@ SEPTIMO: Las mejoras que ejecutare el ARRENDATARIO, quedaran a beneficio de la p
     {% if entity.prohibicionaccionilegal %}
         <li>Ejecutar cualquier acción ilegal, o contraria al orden público, en el interior del inmueble.</li>
     {% endif %}
-        </ul>
+        </ol>
     </p>
     
     <p>
-        NOVENO: Por su parte, el ARRENDADOR estará obligado al pago de las contribuciones  de bienes raíces que afecten a la propiedad arrendada, y a garantizar al ARRENDATARIO el goce, libre de toda turbación, durante todo el tiempo que dure el presente contrato. 
-
-Para efectos de lo anterior, la ARRENDATARIA deberá remitir prontamente {{ entity.recisionunilateralforma }} cualquier comunicación de la Tesorería General de la República, o de cualquier organismo de la administración del estado, referente al impuesto territorial, o a cualquier materia relacionada con el inmueble arrendado. 
-
-Asimismo, el ARRENDADOR estará obligado a realizar a su costo las reparaciones de los deterioros producidos en el inmueble por el paso del tiempo, o por fuerza mayor, tales como daños estructurales en la propiedad a causa de terremotos, reparación de ascensores o reemplazo de calefones viejos, con el fin de que la propiedad siga sirviendo al fin por el que fue arrendada, sin que pueda, a causa de estos gastos, subir la renta mensual de arriendo.
+        NOVENO: Por su parte, EL ARRENDADOR estará obligado a: 1) Pagar oportunamente las contribuciones de bienes raíces. 2) Garantizar al ARRENDATARIO el goce, libre de toda turbación, durante el tiempo que dure el presente contrato. 3) Realizar a su costo las reparaciones de los deterioros producidos en el INMUEBLE ARRENDADO por el paso del tiempo, o por fuerza mayor, tales como daños estructurales producidos por terremotos o inundaciones. También deberá costear las reparaciones en los ascensores, el reemplazo o la reparación de calefones, y la reparación o reemplazo de cañerías viejas o rotas, con el fin de que el INMUEBLE ARRENDADO siga siendo útil para el fin señalado en la clausula primera, sin que pueda a causa de estos gastos, subir la renta mensual de arriendo.
     </p>
     
     <p>
     DECIMO: La ARRENDADORA estará facultada para poner término inmediato al presente contrato, sin necesidad de declaración judicial, si:
-a) La Arrendataria se atrasare más de {{ entity.recisionpago }} {{ entity.recisionunidad }} en el pago de la renta de arrendamiento establecida en la cláusula cuarta de este contrato.
-
-b) La Arrendataria infringiere  cualesquiera de las obligaciones contraídas por ella en este contrato, en especial las establecidas en la clausulas sexta, séptima o octava del mismo.
-
-c) Las demás causas establecidas en la ley.
-
-{% if entity.recisioncausal %}
-d) Por su parte, la arrendadora podrá poner término inmediato al contrato, sin necesidad de una declaración judicial, cuando fuere perturbado en el goce del inmueble. {{ entity.recisioncausaldescripcion }}
-{% endif %}
-
-{% if entity.recisionunilateral %}
-11.4 (Si la opción elegida es si, se agrega lo siguiente: Asimismo, cualquiera de las partes podrá rescindir el contrato mediante un aviso a la contraparte con a lo menos {{ entity.recisionunilateralanticipacion }} {{ entity.recisionunilateralunidad }}. de anticipación a la fecha en que quisiera darlo por terminado.
-
-En cualquiera de los casos anteriores, la parte que quiera dar por terminado el contrato deber avisar a la otra a través de {{ entity.recisionunilateralforma }} de su voluntad de rescindir el contrato.{% endif %}
+        a) La Arrendataria se atrasare más de {{ entity.recisionpago }} {{ entity.recisionunidad }} en el pago de la renta de arrendamiento establecida en la cláusula cuarta de este contrato.
+        b) La Arrendataria infringiere cualesquiera de las obligaciones contraídas por ella en este contrato, en especial las establecidas en la clausulas sexta, séptima o octava del mismo.
+        c) Las demás causas establecidas en la ley.
+    </p>
+    <p>
+        DECIMO PRIMERO: A su vez, el ARRENDATARIO podrá poner término al presente contrato sin necesidad de declaración judicial, si:
+        <ol>
+            <li>Se produce un daño o desperfecto en el INMUEBLE ARRENDADO que no permita seguir utilizándolo para el fin por el que fue arrendado, y que, debiendo ser reparado por el ARRENDADOR, este no hubiese iniciado las labores de reparación dentro de XXX</li>
+            <li>Se incumpla gravemente cualquiera de las obligaciones establecidas por el presente contrato al ARRENDADOR, en especial, las señaladas en la clausula novena.</li> 
+            <li>Las demás causales que señale la ley.</li>
+        </ol>
     </p>
     
     <p>
-    DECIMO PRIMERO: La Arrendataria se obliga a restituir el inmueble arrendado al término del presente contrato, junto con los demás objetos descritos en el inventario, si ello corresponde. 
-
-La entrega que deberá hacer sin ocupantes y colocando a disposición del ARRENDADOR las llaves del inmueble arrendado en {{ entity.restitucionforma }}. 
-
-{% if entity.restitucionacreditacion %}Deberá acreditar que están pagados los servicios básicos (agua, energía eléctrica y gas), con las cuentas y los recibos que acrediten su pago, del mes inmediatamente anterior al que hace abandono del inmueble.{% endif %}
+        DECIMOSEGUNDO: Al término del presente contrato, EL ARRENDATARIO se obliga a restituir el inmueble arrendado al ARRENDADOR, con los gastos comunes al día, desocupado y limpio, poniendo a su disposición las llaves en un lugar previamente acordado, o en el domicilio que el hubiere señalado en el presente contrato. 
+        Asimismo, el ARRENDATARIO deberá entregar, junto con las llaves del inmueble, una copia de las cuentas y sus respectivos recibos de pago, que acrediten la cancelación de los servicios básicos (agua potable, luz y gas) del mes inmediatamente anterior al que hace abandono del inmueble.
     </p>
     
     {% if entity.garantiadeposito %}
     <p>
-        DECIMO SEGUNDO: Con el fin de garantizar la conservación del inmueble arrendado, el ARRENDATARIO entrega en garantía y contra el respectivo recibo, en este acto al ARRENDADOR, {{ entity.garantiaforma }}, la suma {{ entity.garantiamonto }}, que éste se obliga a devolverle dentro de los {{ entity.garantiadiasterminado }} {{ entity.garantiaunidad }}  siguientes a la restitución de la propiedad arrendada, quedando desde luego el ARRENDADOR, autorizado para descontar de la cantidad indicada, la suma de dinero que corresponda a los gastos en que incurra para realizar, una vez que se le haya restituido la propiedad, las mantenciones que se requieran para que la propiedad vuelva al estado en que se encontraba al momento de ser entregada al ARRENDATARIO, y que deban ser de cargo del mismo. 
+        DECIMO TERCERO: Con el fin de garantizar la conservación del inmueble arrendado, el ARRENDATARIO entrega en garantía y contra el respectivo recibo, en este acto al ARRENDADOR, la suma {{ entity.garantiamonto }}, que éste se obliga a devolverle dentro de los {{ entity.garantiadiasterminado }} {{ entity.garantiaunidad }} siguientes a la restitución de la propiedad arrendada, quedando desde luego el ARRENDADOR, autorizado para descontar de la cantidad indicada, la suma de dinero que corresponda a los gastos en que incurra para realizar, una vez que se le haya restituido la propiedad, las mantenciones que se requieran para que la propiedad vuelva al estado en que se encontraba al momento de ser entregada al ARRENDATARIO, y que deban ser de cargo del mismo. 
 Lo anterior incluye, por ejemplo, la pintura de muros interiores, el tapado de orificios, reparación de válvulas y baldosas, entre otros.  
 
 El ARRENDATARIO no podrá en ningún caso imputar la garantía al pago de rentas impagas, ni al arriendo del último mes ni al valor de cuentas pendientes de agua y luz. 
 
-Si existen gastos  por reparaciones que fueren de cuenta del arrendatario que superen el monto de la garantía, o en el caso en que el arrendador no hubiere dejado un depósito en garantía, este se obliga a pagarlos dentro de los siguientes {{ entity.garantiadiaspagado }} {{ entity.garantiaunidad }} a la fecha en la que se le requiera, en la forma señalada en último párrafo de la clausula décima.
+Si existen gastos por reparaciones que fueren de cuenta del arrendatario que superen el monto de la garantía, o en el caso en que el arrendador no hubiere dejado un depósito en garantía, este se obliga a pagarlos dentro de los siguientes {{ entity.garantiadiaspagado }} {{ entity.garantiaunidad }} a la fecha en la que se le requiera.
     </p>
     {% endif %}
     
-    {% if entity.aval %}
+{% if entity.aval %}
     <p>
-    DECIMO TERCERO: Como garantía de cumplimiento del contrato {% if entity.avalsexo == "Hombre" %}don{% else %}doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}, {{ entity.avalnacionalidad }}, {{ entity.avalestadocivil }}, de profesión {{ entity.avalprofesion }} cédula de identidad número {{ entity.avalrut }}, con domicilio en {{ entity.avaldomicilio }}, comuna de {{ entity.avalcomuna }}, Región {{ entity.avalregion }} se constituye como codeudor del arrendatario –en adelante en indistintamente, el Aval-, obligándose solidariamente a asumir como propias todas las obligaciones de {{ entity.arrendadornatural }} que emanen del presente contrato de arrendamiento. El aval firma el presente instrumento en señal de aceptación. 
+    DECIMO CUARTO: Como garantía de cumplimiento del contrato {% if entity.avalsexo == "Hombre" %}don{% else %}doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}, {{ entity.avalnacionalidad }}, {{ entity.avalestadocivil }}, de profesión {{ entity.avalprofesion }} cédula de identidad número {{ entity.avalrut }}, con domicilio en {{ entity.avaldomicilio }}, comuna de {{ entity.avalcomuna }}, Región {{ entity.avalregion }} se constituye como codeudor del arrendatario –en adelante en indistintamente, el AVAL-, obligándose solidariamente a asumir como propias todas las obligaciones de {{ entity.arrendadornatural }} que emanen del presente contrato de arrendamiento. El AVAL firma el presente instrumento en señal de aceptación. 
     </p>
     <p>
-    DECIMO CUARTO: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna de 15, y se someten a la jurisdicción y competencia de sus tribunales de justicia.
+    DECIMO QUINTO: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna de XXX, y se someten a la jurisdicción y competencia de sus tribunales de justicia.
     </p>
-    
-    {% if entity.correo %}
+{% endif %}
+
+{% if entity.correo %}
     <p>
-DECIMO QUINTO: Para todos los efectos del presente contrato, el ARRENDADOR señala que su correo electrónico es {{ entity.correoarrendador }} y el ARRENDATARIO señala que su correo electrónico es {{ entity.correoarrendatario }}.
+DECIMO SEXTO: Para todos los efectos del presente contrato, el ARRENDADOR señala que su correo electrónico es {{ entity.correoarrendador }} y el ARRENDATARIO señala que su correo electrónico es {{ entity.correoarrendatario }}.
 
 Cualquier cambio de correo electrónico o de domicilio de las partes, deberá ser avisado a la contraparte por cualquiera de estos dos medios. Mientras ello no ocurra, seguirán siendo válidos para todos los efectos, los datos señalados en el presente contrato.
 </p>
-    {% endif %}
 {% endif %}
 <p>
-DECIMO QUINTO: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha; quedando uno en poder de cada parte contratante.
+DECIMO SÉPTIMO: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha; quedando uno en poder de cada parte contratante.
 {% if true %}
 Si 3 = Persona Jurídica agregar: La personería de 3.2.2.2/3.2.2.3/3.2.2.4 para representar a 3.2.1.1 consta por escritura pública de fecha {{ entity.personeriaarrendadorfecha|date('Y-m-d') }} otorgada en la notaría de {{ entity.personeriaarrendadornotaria }} de {{ entity.personeriaarrendadorlugar }}.
 {% endif %}
-
 {% if true %}
 Si 4 = Persona Jurídica agregar: La personería de 4.2.2.2/4.2.2.3/4.2.2.4 para representar a 4.2.1.1 consta por escritura pública de fecha {{ entity.personeriaarrendatariofecha|date('Y-m-d H:i:s') }} en la notaría de {{ entity.personeriaarrendatarionotaria }} de {{ entity.personeriaarrendatariolugar }}.
 {% endif %}
