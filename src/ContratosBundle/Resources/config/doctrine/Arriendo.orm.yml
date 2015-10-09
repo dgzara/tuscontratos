@@ -193,6 +193,7 @@ ContratosBundle\Entity\Arriendo:
         renta_monto:
             type: decimal
             scale: 2
+            nullable: true
         renta_unidad:
             type: string
             length: 100
