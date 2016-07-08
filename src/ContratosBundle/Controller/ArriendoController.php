@@ -3,6 +3,7 @@
 namespace ContratosBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -54,7 +55,7 @@ class ArriendoController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('arriendo_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('arriendo_doc', array('id' => $entity->getId())));
         }
 
         return array(
@@ -120,6 +121,59 @@ class ArriendoController extends Controller
         return array(
             'entity'      => $entity,
         );
+    }
+    
+    /**
+     * Finds and displays a Arriendo entity.
+     *
+     * @Route("/doc/{id}", name="arriendo_doc")
+     * @Method("GET")
+     * @Template()
+     */
+    public function docAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ContratosBundle:Arriendo')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Arriendo entity.');
+        }
+        
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        
+        // Adding an empty Section to the document...
+        $section = $phpWord->addSection();
+        
+        // Obtenemos el documento hecho html
+        $html = $this->renderView('ContratosBundle:Arriendo:show.html.twig', array(
+	        'entity' => $entity,
+	    ));
+	    
+        // Agregamos el HTML
+        \PhpOffice\PhpWord\Shared\Html::addHtml($section, $html);
+        
+        $filename = sprintf(
+            '%s%s%s.%s',
+            sys_get_temp_dir(),
+            DIRECTORY_SEPARATOR,
+            uniqid(),
+            'docx'
+        );
+
+        // Saving the document as OOXML file...
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save($filename);
+        
+        // Carpeta
+        $content = file_get_contents($filename);
+    
+        // Respuesta
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+        $response->headers->set('Content-Disposition', 'attachment;filename="document.docx"');
+        $response->setContent($content);
+        return $response;
     }
 
     /**

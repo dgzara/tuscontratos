@@ -1,0 +1,122 @@
+ContratosBundle\Entity\PoderSimple:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fecha:
+            type: datetime
+        ciudad:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_persona:
+            type: string
+            length: 20
+            nullable: true
+        otorgante_natural_sexo:
+            type: string
+            length: 20
+            options:
+                default: Hombre
+        otorgante_natural_nombres:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_apellido_paterno:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_apellido_materno:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_nacionalidad:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_estado_civil:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_profesion:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_rut:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_domicilio:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_natural_region:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_juridica_razon:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_juridica_giro:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_juridica_rut:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_juridica_domicilio:
+            type: string
+            length: 100
+            nullable: true
+        otorgante_juridica_region:
+            type: string
+            length: 100
+            nullable: true
+        recibido_persona:
+            type: string
+            length: 20
+            nullable: true
+        recibido_natural_sexo:
+            type: string
+            length: 20
+            options:
+                default: Hombre
+        recibido_natural_nombres:
+            type: string
+            length: 100
+            nullable: true
+        recibido_natural_apellido_paterno:
+            type: string
+            length: 100
+            nullable: true
+        recibido_natural_apellido_materno:
+            type: string
+            length: 100
+            nullable: true
+        recibido_natural_rut:
+            type: string
+            length: 100
+            nullable: true
+        propiedad_calle:
+            type: string
+            length: 100
+            nullable: true
+    manyToOne:
+        otorgante_natural_comuna:
+            targetEntity: Comuna
+            joinColumn:
+                name: comuna_otorgante_natural_id
+                referencedColumnName: id
+        otorgante_juridica_comuna:
+            targetEntity: Comuna
+            joinColumn:
+                name: comuna_otorgante_juridica_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
