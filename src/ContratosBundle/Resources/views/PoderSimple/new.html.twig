@@ -1,0 +1,195 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 
+        '@acc_wizard_css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Poder Simple</h1>
+    <form name="contratosbundle_podersimple" action="{{ path('podersimple_create') }}" method="post" {{ form_enctype(form) }}>
+        <div class="row acc-wizard">
+            <div style="padding-left: 2em;" class="col-md-2">
+                <p style="margin-bottom: 2em;">
+                  Siga los siguientes pasos para completar el formulario.
+                </p>
+                <ol class="acc-wizard-sidebar">
+                    <li class="acc-wizard-todo acc-wizard-active"><a href="#collapseOne">Fecha y Ciudad</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseTwo">Datos del otorgante del poder</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseThree">Datos del que recibe el poder</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseFour">Objeto del poder</a></li>
+                </ol>
+            </div>
+            <div class="col-md-10" style="padding-right: 2em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Fecha y ciudad
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        {{ form_row(form.fecha) }}
+                        {{ form_row(form.ciudad) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseArrendatario">
+                          Datos de otorgante del poder
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                {{ form_row(form.otorgante_persona) }}
+                            </div>
+                            <div class="col-md-10">
+                                <div id="otorgante_natural" style="display: none;">
+                                    <h3>Persona natural</h3>
+                                    {{ form_row(form.otorgante_natural_sexo) }}
+                                    {{ form_row(form.otorgante_natural_nombres) }}
+                                    {{ form_row(form.otorgante_natural_apellido_paterno) }}
+                                    {{ form_row(form.otorgante_natural_apellido_materno) }}
+                                    {{ form_row(form.otorgante_natural_nacionalidad) }}
+                                    {{ form_row(form.otorgante_natural_estado_civil) }}
+                                    {{ form_row(form.otorgante_natural_profesion) }}
+                                    {{ form_row(form.otorgante_natural_rut) }}
+                                    {{ form_row(form.otorgante_natural_domicilio) }}
+                                    {{ form_row(form.otorgante_natural_region) }}
+                                    {{ form_row(form.otorgante_natural_comuna) }}
+                                </div>
+                                <div id="otorgante_juridica" style="display: none;">
+                                    <h3>Persona jurídica</h3>
+                                    {{ form_row(form.otorgante_juridica_razon) }}
+                                    {{ form_row(form.otorgante_juridica_giro) }}
+                                    {{ form_row(form.otorgante_juridica_rut) }}
+                                    {{ form_row(form.otorgante_juridica_domicilio) }}
+                                    {{ form_row(form.otorgante_juridica_region) }}
+                                    {{ form_row(form.otorgante_juridica_comuna) }}
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                      Agregar representante legal
+                                    </button>
+
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Representante legal</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            {{ form_row(form.otorgante_juridica_sexo) }}
+                                            {{ form_row(form.otorgante_juridica_nombres) }}
+                                            {{ form_row(form.otorgante_juridica_apellido_paterno) }}
+                                            {{ form_row(form.otorgante_juridica_apellido_materno) }}
+                                            {{ form_row(form.otorgante_juridica_nacionalidad) }}
+                                            {{ form_row(form.otorgante_juridica_persona_rut) }}
+                                            {{ form_row(form.otorgante_juridica_cargo) }}
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapsePropiedad">
+                          Datos del que recibe el poder
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            {{ form_row(form.recibido_natural_sexo) }}
+                            {{ form_row(form.recibido_natural_nombres) }}
+                            {{ form_row(form.recibido_natural_apellido_paterno) }}
+                            {{ form_row(form.recibido_natural_apellido_materno) }}
+                            {{ form_row(form.recibido_natural_rut) }}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapsePlazo">
+                          Objeto del poder
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                      <div class="panel-body">
+                        {{ form_row(form.motivo) }}
+                      </div>
+                    </div>
+                  </div>
+                <hr>
+                <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <div class="hide">{{ form_rest(form) }}</div>
+            </div>
+        </div>
+    </form>
+    {#{{ form(form) }}#}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts filter='yui_js' combine=true
+        '@acc_wizard_js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        $('input[name$="[otorgante_persona]"]:radio').change(function(){
+            if($(this).val() == "Natural"){
+                $("#otorgante_natural").show();
+                $("#otorgante_juridica").hide();
+                $("#personeria_otorgante").hide();
+            }
+            else {
+                $("#otorgante_natural").hide();
+                $("#otorgante_juridica").show();
+                $("#personeria_otorgante").show();
+            }
+        });
+        
+        function onNext(parent, panel) {
+        hash = "#" + panel.id;
+            $(".acc-wizard-sidebar",$(parent))
+            .children("li")
+            .children("a[href='" + hash + "']")
+            .parent("li")
+            .removeClass("acc-wizard-todo")
+            .addClass("acc-wizard-completed");
+        }
+        
+        $(window).load(function() {
+            $(".acc-wizard").accwizard({
+                backText: "Anterior",
+                nextText: "Siguiente",
+                onNext: onNext
+            });
+        })
+    
+    </script>
+{% endblock %}

@@ -141,6 +141,30 @@ class ArriendoController extends Controller
         }
         
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $phpWord->setDefaultFontName('Times New Roman');
+        $phpWord->setDefaultFontSize(12);
+        $phpWord->addTitleStyle(1, array(
+            'name' => 'Times New Roman', 
+            'size' => 18, 
+            'bold' => true,
+        ), array(
+            'align' => 'center',
+            'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
+        ));
+        $phpWord->addTitleStyle(2, array(
+            'name' => 'Times New Roman', 
+            'size' => 12, 
+            'bold' => false,
+        ), array(
+            'align' => 'center',
+            'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(3),
+        ));
+        $phpWord->setDefaultParagraphStyle(array(
+            'align'      => 'both',
+            'spacing'    => 120,
+            'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
+            'lineHeight'     => 1.5
+        ));
         
         // Adding an empty Section to the document...
         $section = $phpWord->addSection();
@@ -149,6 +173,7 @@ class ArriendoController extends Controller
         $html = $this->renderView('ContratosBundle:Arriendo:show.html.twig', array(
 	        'entity' => $entity,
 	    ));
+	    $html = preg_replace('/\s+/', ' ', $html);
 	    
         // Agregamos el HTML
         \PhpOffice\PhpWord\Shared\Html::addHtml($section, $html);

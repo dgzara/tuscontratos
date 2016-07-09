@@ -1,0 +1,89 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PoderSimple list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Ciudad</th>
+                <th>Otorgante_persona</th>
+                <th>Otorgante_natural_sexo</th>
+                <th>Otorgante_natural_nombres</th>
+                <th>Otorgante_natural_apellido_paterno</th>
+                <th>Otorgante_natural_apellido_materno</th>
+                <th>Otorgante_natural_nacionalidad</th>
+                <th>Otorgante_natural_estado_civil</th>
+                <th>Otorgante_natural_profesion</th>
+                <th>Otorgante_natural_rut</th>
+                <th>Otorgante_natural_domicilio</th>
+                <th>Otorgante_natural_region</th>
+                <th>Otorgante_juridica_razon</th>
+                <th>Otorgante_juridica_giro</th>
+                <th>Otorgante_juridica_rut</th>
+                <th>Otorgante_juridica_domicilio</th>
+                <th>Otorgante_juridica_region</th>
+                <th>Recibido_persona</th>
+                <th>Recibido_natural_sexo</th>
+                <th>Recibido_natural_nombres</th>
+                <th>Recibido_natural_apellido_paterno</th>
+                <th>Recibido_natural_apellido_materno</th>
+                <th>Recibido_natural_rut</th>
+                <th>Propiedad_calle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('podersimple_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.ciudad }}</td>
+                <td>{{ entity.otorgantepersona }}</td>
+                <td>{{ entity.otorgantenaturalsexo }}</td>
+                <td>{{ entity.otorgantenaturalnombres }}</td>
+                <td>{{ entity.otorgantenaturalapellidopaterno }}</td>
+                <td>{{ entity.otorgantenaturalapellidomaterno }}</td>
+                <td>{{ entity.otorgantenaturalnacionalidad }}</td>
+                <td>{{ entity.otorgantenaturalestadocivil }}</td>
+                <td>{{ entity.otorgantenaturalprofesion }}</td>
+                <td>{{ entity.otorgantenaturalrut }}</td>
+                <td>{{ entity.otorgantenaturaldomicilio }}</td>
+                <td>{{ entity.otorgantenaturalregion }}</td>
+                <td>{{ entity.otorgantejuridicarazon }}</td>
+                <td>{{ entity.otorgantejuridicagiro }}</td>
+                <td>{{ entity.otorgantejuridicarut }}</td>
+                <td>{{ entity.otorgantejuridicadomicilio }}</td>
+                <td>{{ entity.otorgantejuridicaregion }}</td>
+                <td>{{ entity.recibidopersona }}</td>
+                <td>{{ entity.recibidonaturalsexo }}</td>
+                <td>{{ entity.recibidonaturalnombres }}</td>
+                <td>{{ entity.recibidonaturalapellidopaterno }}</td>
+                <td>{{ entity.recibidonaturalapellidomaterno }}</td>
+                <td>{{ entity.recibidonaturalrut }}</td>
+                <td>{{ entity.propiedadcalle }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('podersimple_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('podersimple_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('podersimple_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

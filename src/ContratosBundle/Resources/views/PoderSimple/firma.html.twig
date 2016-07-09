@@ -1,0 +1,10 @@
+{% extends '::word.html.twig' %}
+
+{% block body -%}
+    <p>________________________</p>
+    {% if entity.otorgantepersona == "Natural" %}
+    <p>{{ entity.otorgantenatural }}</p>RUT: {{ entity.otorgantenaturalrut }}
+    {% else %}
+    <p>{{ entity.otorgantejuridicanombres }} {{ entity.otorgantejuridicaapellidopaterno }} {{ entity.otorgantejuridicaapellidomaterno }}</p>RUT: {{ entity.otorgantejuridicapersonarut }}
+    {% endif %}
+{% endblock %}

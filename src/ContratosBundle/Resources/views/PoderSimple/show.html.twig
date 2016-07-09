@@ -1,0 +1,13 @@
+{% extends '::word.html.twig' %}
+
+{% block body -%}
+    {% spaceless %}
+    <p>En {{ entity.ciudad }}, a {{ entity.fecha|date('d') }} de {{ entity.fecha|date('m') }} de {{ entity.fecha|date('Y') }}, yo,{% if entity.otorgantepersona == "Natural" %}{% if entity.otorgantenaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.otorgantenatural }}, {{ entity.otorgantenaturalnacionalidad }}, {{ entity.otorgantenaturalestadocivil }}, {{ entity.otorgantenaturalprofesion }}, cédula nacional de identidad o pasaporte número {{ entity.otorganteNaturalRut }} con domicilio en {{ entity.otorgantenaturaldomicilio }}, comuna de {{ entity.otorgantenaturalcomuna }}, Región {{ entity.otorgantenaturalregion }},{% else %} {% if entity.otorgantejuridicasexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.otorgantejuridicanombres }} {{ entity.otorgantejuridicaapellidopaterno }} {{ entity.otorgantejuridicaapellidomaterno }}, {{ entity.otorgantejuridicanacionalidad }}, {{ entity.otorgantejuridicacargo }}, cédula nacional de identidad número {{ entity.otorgantejuridicapersonarut }} en representación de {{ entity.otorgantejuridicarazon }}, de giro de {{ entity.otorgantejuridicagiro }}, rol único tributario número {{ entity.otorgantejuridicarut }}, todos domiciliados para estos efectos en {{ entity.otorgantejuridicadomicilio }}, comuna de {{ entity.otorgantejuridicacomuna }}, Región {{ entity.otorgantejuridicaregion }}, {% endif %}vengo en otorgar poder a {% if entity.recibidonaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.recibidonaturalnombres }} {{ entity.recibidonaturalapellidopaterno }} {{ entity.recibidonaturalapellidomaterno }}, cédula nacional de identidad o pasaporte número {{ entity.recibidonaturalrut }} para que, en mi nombre y representación, {{ entity.motivo }}.</p>
+    {% endspaceless %}
+    
+    {% if entity.otorgantepersona == "Natural" %}
+    <h2>________________________</h2><h2>{{ entity.otorgantenatural }}</h2><h2>RUT: {{ entity.otorgantenaturalrut }}</h2>
+    {% else %}
+    <h2>________________________</h2><h2>{{ entity.otorgantejuridicanombres }} {{ entity.otorgantejuridicaapellidopaterno }} {{ entity.otorgantejuridicaapellidomaterno }}</h2><h2>RUT: {{ entity.otorgantejuridicapersonarut }}</h2>
+    {% endif %}
+{% endblock %}
