@@ -1,4 +1,5 @@
 services:
-#    contratos.example:
-#        class: ContratosBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    contratos.twig.dateinwords_extension:
+        class: ContratosBundle\Twig\DateInWordsExtension
+        tags:
+        -  { name: twig.extension }

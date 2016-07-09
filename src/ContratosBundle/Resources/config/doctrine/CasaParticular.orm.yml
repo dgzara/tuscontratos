@@ -1,0 +1,223 @@
+ContratosBundle\Entity\CasaParticular:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fecha:
+            type: datetime
+        ciudad:
+            type: string
+            length: 100
+            nullable: true
+        empleador_sexo:
+            type: string
+            length: 20
+            options:
+                default: Hombre
+        empleador_nombres:
+            type: string
+            length: 100
+            nullable: true
+        empleador_apellido_paterno:
+            type: string
+            length: 100
+            nullable: true
+        empleador_apellido_materno:
+            type: string
+            length: 100
+            nullable: true
+        empleador_nacionalidad:
+            type: string
+            length: 100
+            nullable: true
+        empleador_estado_civil:
+            type: string
+            length: 100
+            nullable: true
+        empleador_profesion:
+            type: string
+            length: 100
+            nullable: true
+        empleador_rut:
+            type: string
+            length: 100
+            nullable: true
+        empleador_domicilio:
+            type: string
+            length: 100
+            nullable: true
+        empleador_region:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_sexo:
+            type: string
+            length: 20
+            options:
+                default: Hombre
+        trabajador_nombres:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_apellido_paterno:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_apellido_materno:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_extranjero:
+            type: boolean
+            options:
+                default: 0
+        trabajador_nacionalidad:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_procedencia:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_estado_civil:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_profesion:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_rut:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_nacimiento:
+            type: datetime
+        trabajador_domicilio:
+            type: string
+            length: 100
+            nullable: true
+        trabajador_region:
+            type: string
+            length: 100
+            nullable: true
+        obligacion_funcion:
+            type: string
+            length: 100
+            nullable: true
+        obligacion_puertas_adentro:
+            type: boolean
+            options:
+                default: 0
+        obligacion_puertas_adentro_horas:
+            type: integer
+            length: 11
+            nullable: true
+        obligacion_puertas_adentro_colacion:
+            type: decimal
+            scale: 2
+            nullable: true
+        obligacion_condicion_cumplir:
+            type: boolean
+            options:
+                default: 1
+        obligacion_condicion_lealtad:
+            type: boolean
+            options:
+                default: 1
+        obligacion_condicion_aseo:
+            type: boolean
+            options:
+                default: 1
+        obligacion_condicion_jardin:
+            type: boolean
+            options:
+                default: 1
+        obligacion_condicion_chofer:
+            type: boolean
+            options:
+                default: 1
+        obligacion_condicion_otro:
+            type: boolean
+            options:
+                default: 0
+        obligacion_condicion_otro_descripcion:
+            type: string
+            length: 100
+            nullable: true
+        obligacion_requerimientos_especiales:
+            type: boolean
+            options:
+                default: 0
+        obligacion_requerimientos_especiales_nombre:
+            type: string
+            length: 100
+            nullable: true
+        obligacion_requerimientos_especiales_motivo:
+            type: string
+            length: 100
+            nullable: true
+        sueldo_monto:
+            type: decimal
+            scale: 2
+            nullable: true
+        sueldo_unidad:
+            type: string
+            length: 100
+            nullable: true
+        sueldo_frecuencia:
+            type: string
+            length: 100
+            nullable: true
+        sueldo_periodo:
+            type: string
+            length: 100
+            nullable: true
+        sueldo_afp:
+            type: string
+            length: 100
+            nullable: true
+        sueldo_salud:
+            type: string
+            length: 100
+            nullable: true
+        sueldo_otra_remuneracion:
+            type: boolean
+            options:
+                default: 0
+        sueldo_otra_remuneracion_descripcion:
+            type: string
+            length: 500
+            nullable: true
+        sueldo_otra_beneficios:
+            type: boolean
+            options:
+                default: 0
+        sueldo_otra_beneficios_descripcion:
+            type: string
+            length: 500
+            nullable: true
+        prestacion_fecha:
+            type: datetime
+    manyToOne:
+        empleador_comuna:
+            targetEntity: Comuna
+            joinColumn:
+                name: comuna_empleador_id
+                referencedColumnName: id
+        trabajador_comuna:
+            targetEntity: Comuna
+            joinColumn:
+                name: comuna_trabajador_id
+                referencedColumnName: id
+        jurisdiccion_comuna:
+            targetEntity: Comuna
+            joinColumn:
+                name: comuna_jurisdiccion_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

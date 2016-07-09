@@ -1,0 +1,326 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 
+        '@acc_wizard_css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Contrato Trabajadorde Casa Particular</h1>
+    <form name="contratosbundle_casaparticular" action="{{ path('casaparticular_create') }}" method="post" {{ form_enctype(form) }}>
+        <div class="row acc-wizard">
+            <div style="padding-left: 2em;" class="col-md-2">
+                <p style="margin-bottom: 2em;">
+                  Siga los siguientes pasos para completar el formulario.
+                </p>
+                <ol class="acc-wizard-sidebar">
+                    <li class="acc-wizard-todo acc-wizard-active"><a href="#collapseOne">Fecha y Ciudad</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseTwo">Datos del empleador</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseThree">Datos del trabajo</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseFour">Obligaciones y resposabilidades del trabajor</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseFifth">Sueldo del trabajador</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseSixth">Fecha en el que trabajador empezó a prestar sus servicios</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseSeventh">Jurisidicción</a></li>
+                </ol>
+            </div>
+            <div class="col-md-10" style="padding-right: 2em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Fecha y ciudad
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        {{ form_row(form.fecha) }}
+                        {{ form_row(form.ciudad) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseArrendatario">
+                          Datos del empleador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            {{ form_row(form.empleador_sexo) }}
+                            {{ form_row(form.empleador_nombres) }}
+                            {{ form_row(form.empleador_apellido_paterno) }}
+                            {{ form_row(form.empleador_apellido_materno) }}
+                            {{ form_row(form.empleador_nacionalidad) }}
+                            {{ form_row(form.empleador_estado_civil) }}
+                            {{ form_row(form.empleador_profesion) }}
+                            {{ form_row(form.empleador_rut) }}
+                            {{ form_row(form.empleador_domicilio) }}
+                            {{ form_row(form.empleador_region) }}
+                            {{ form_row(form.empleador_comuna) }}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Datos del trabajador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            {{ form_row(form.trabajador_sexo) }}
+                            {{ form_row(form.trabajador_nombres) }}
+                            {{ form_row(form.trabajador_apellido_paterno) }}
+                            {{ form_row(form.trabajador_apellido_materno) }}
+                            {{ form_row(form.trabajador_nacimiento) }}
+                            {{ form_row(form.trabajador_extranjero) }}
+                            
+                            <div id="extranjero" style="display: none;">
+                            {{ form_row(form.trabajador_nacionalidad) }}
+                            {{ form_row(form.trabajador_procedencia) }}
+                            </div>
+                            
+                            {{ form_row(form.trabajador_estado_civil) }}
+                            {{ form_row(form.trabajador_profesion) }}
+                            {{ form_row(form.trabajador_rut) }}
+                            {{ form_row(form.trabajador_domicilio) }}
+                            {{ form_row(form.trabajador_region) }}
+                            {{ form_row(form.trabajador_comuna) }}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFourth">
+                          Obligaciones y resposabilidades del trabajor
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                      <div class="panel-body">
+                        {{ form_row(form.obligacion_funcion) }}
+                        
+                        {{ form_row(form.obligacion_puertas_adentro) }}
+                        <div id="puertas_adentro_datos" style="display: none;">
+                        {{ form_row(form.obligacion_puertas_adentro_horas) }}
+                        {{ form_row(form.obligacion_puertas_adentro_colacion) }}
+                        </div>
+                        
+                        Las principales obligaciones y responsabilidades del TRABAJADOR son:
+                        {{ form_row(form.obligacion_condicion_cumplir) }}
+                        {{ form_row(form.obligacion_condicion_lealtad) }}
+                        
+                        <div id="obligacion_condicion_aseo" style="display: none;">
+                        {{ form_row(form.obligacion_condicion_aseo) }}
+                        </div>
+                        
+                        <div id="obligacion_condicion_jardin" style="display: none;">
+                        {{ form_row(form.obligacion_condicion_jardin) }}
+                        </div>
+                        
+                        <div id="obligacion_condicion_chofer" style="display: none;">
+                        {{ form_row(form.obligacion_condicion_chofer) }}
+                        </div>
+                        
+                        {{ form_row(form.obligacion_condicion_otro) }}
+                        <div id="obligacion_condicion_otro" style="display: none;">
+                        {{ form_row(form.obligacion_condicion_otro_descripcion) }}
+                        </div>
+                        
+                        {{ form_row(form.obligacion_requerimientos_especiales) }}
+                        <div id="obligacion_requerimientos_especiales" style="display: none;">
+                        {{ form_row(form.obligacion_requerimientos_especiales_nombre) }}
+                        {{ form_row(form.obligacion_requerimientos_especiales_motivo) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFifth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFifth" aria-expanded="true" aria-controls="collapseFifth">
+                          Sueldo del trabajador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFifth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFifth">
+                      <div class="panel-body">
+                        {{ form_row(form.sueldo_monto) }}
+                        {{ form_row(form.sueldo_unidad) }}
+                        {{ form_row(form.sueldo_frecuencia) }}
+                        {{ form_row(form.sueldo_periodo) }}
+                        {{ form_row(form.sueldo_afp) }}
+                        {{ form_row(form.sueldo_salud) }}
+                        {{ form_row(form.sueldo_otra_remuneracion) }}
+                        <div id="sueldo_otra_remuneracion" style="display: none;">
+                        {{ form_row(form.sueldo_otra_remuneracion_descripcion) }}
+                        </div>
+                        {{ form_row(form.sueldo_otra_beneficios) }}
+                        <div id="sueldo_otra_beneficios" style="display: none;">
+                        {{ form_row(form.sueldo_otra_beneficios_descripcion) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSixth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSixth" aria-expanded="true" aria-controls="collapseSixth">
+                          Fecha en el que trabajador empezó a prestar sus servicios
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSixth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSixth">
+                      <div class="panel-body">
+                      {{ form_row(form.prestacion_fecha) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSeventh">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeventh" aria-expanded="true" aria-controls="collapseSeventh">
+                          Jurisidicción
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSeventh" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeventh">
+                      <div class="panel-body">
+                        {{ form_row(form.jurisdiccion_comuna) }}
+                      </div>
+                    </div>
+                  </div>
+                <hr>
+                <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <div class="hide">{{ form_rest(form) }}</div>
+            </div>
+        </div>
+    </form>
+    {#{{ form(form) }}#}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts filter='yui_js' combine=true
+        '@acc_wizard_js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        $('input[name$="[trabajador_extranjero]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#extranjero").show();
+            }
+            else {
+                $("#extranjero").hide();
+            }
+        });
+        
+        $('input[name$="[obligacion_puertas_adentro]"]:radio').change(function(){
+            if($(this).val() == 0){
+                $("#puertas_adentro_datos").show();
+            }
+            else {
+                $("#puertas_adentro_datos").hide();
+            }
+        });
+        
+        $('select[name$="[obligacion_funcion]"]').on('change', function() {
+            if($(this).val() == "asesora"){
+                $("#obligacion_condicion_aseo").show();
+                $("#obligacion_condicion_jardin").hide();
+                $("#obligacion_condicion_chofer").hide();
+            }
+            else if($(this).val() == "jardin"){
+                $("#obligacion_condicion_aseo").hide();
+                $("#obligacion_condicion_jardin").show();
+                $("#obligacion_condicion_chofer").hide();
+            }
+            else if($(this).val() == "chofer"){
+                $("#obligacion_condicion_aseo").hide();
+                $("#obligacion_condicion_jardin").hide();
+                $("#obligacion_condicion_chofer").show();
+            }
+            else {
+                $("#obligacion_condicion_aseo").hide();
+                $("#obligacion_condicion_jardin").hide();
+                $("#obligacion_condicion_chofer").hide();
+            }
+        });
+        
+        $('input[name$="[obligacion_puertas_adentro]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#puertas_adentro_datos").show();
+            }
+            else {
+                $("#puertas_adentro_datos").hide();
+            }
+        });
+        
+        $('input[name$="[obligacion_condicion_otro]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#obligacion_condicion_otro").show();
+            }
+            else {
+                $("#obligacion_condicion_otro").hide();
+            }
+        });
+        
+        $('input[name$="[obligacion_requerimientos_especiales]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#obligacion_requerimientos_especiales").show();
+            }
+            else {
+                $("#obligacion_requerimientos_especiales").hide();
+            }
+        });
+        
+        $('input[name$="[sueldo_otra_remuneracion]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#sueldo_otra_remuneracion").show();
+            }
+            else {
+                $("#sueldo_otra_remuneracion").hide();
+            }
+        });
+        
+        $('input[name$="[sueldo_otra_beneficios]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#sueldo_otra_beneficios").show();
+            }
+            else {
+                $("#sueldo_otra_beneficios").hide();
+            }
+        });
+        
+        function onNext(parent, panel) {
+        hash = "#" + panel.id;
+            $(".acc-wizard-sidebar",$(parent))
+            .children("li")
+            .children("a[href='" + hash + "']")
+            .parent("li")
+            .removeClass("acc-wizard-todo")
+            .addClass("acc-wizard-completed");
+        }
+        
+        $(window).load(function() {
+            $(".acc-wizard").accwizard({
+                backText: "Anterior",
+                nextText: "Siguiente",
+                onNext: onNext
+            });
+        })
+    
+    </script>
+{% endblock %}

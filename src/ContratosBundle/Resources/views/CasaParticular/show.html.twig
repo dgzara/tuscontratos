@@ -1,0 +1,139 @@
+{% extends '::word.html.twig' %}
+
+{% set listado = ["PRIMERO", "SEGUNDO", "TERCERO", "CUARTO", "QUINTO", "SEXTO", "SEPTIMO", "OCTAVO", "NOVENO", "DECIMO", "DECIMO PRIMERO", "DECIMO SEGUNDO", "DECIMO TERCERO", "DECIMO CUARTO", "DECIMO QUINTO", "DECIMO SEXTO", "DECIMO SEPTIMO"] %}
+{% set letras = ["a","b","c","d","e","f","g","h","i","j"] %}
+{% set contador = 6 %}
+{% set contador2 = 0 %}
+
+{% block body -%}
+{% spaceless %}
+    <h1>CONTRATO DE TRABAJO DE CASA PARTICULAR</h1><h1>ENTRE</h1><h1>{{ entity.empleador }}</h1><h1>y</h1><h1>{{ entity.trabajador }}</h1>
+    <p></p>
+    <p>En {{ entity.ciudad|upper }}, a {{ entity.fecha|date_in_words }},
+    entre {% if entity.empleadorsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.empleador }}
+    , cédula nacional de identidad o pasaporte número {{ entity.empleadorrut }}, domiciliado en {{ entity.empleadordomicilio }}, comuna de {{ entity.empleadorcomuna }}, Región {{ entity.empleadorregion }}, en adelante e indistintamente, <strong>“EMPLEADOR”</strong> o “<strong>EL EMPLEADOR</strong>”
+    , por una parte, y por la otra, {% if entity.trabajadorsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.trabajador }}
+    {% if entity.trabajadorextranjero == false %}, de nacionalidad chilena{% else %}, {{ entity.trabajadornacionalidad }}, procedente de {{ entity.trabajadorprocedencia }}{% endif %}
+    , {{ entity.trabajadorestadocivil }}, {{ entity.trabajadorprofesion }}, cédula nacional de identidad o pasaporte número {{ entity.trabajadorrut }}, nacido el {{ entity.trabajadornacimiento|date_in_words }}, domiciliado en {{ entity.trabajadordomicilio}} comuna de {{ entity.trabajadorcomuna }}, Región {{ entity.trabajadorregion }}, en adelante e indistintamente, 
+    <strong>“TRABAJADOR”</strong> o “<strong>EL TRABAJADOR</strong>” , han convenido en celebrar el siguiente contrato de trabajo, que se regirá por las normas establecidas en el Capítulo V del Código del Trabajo y las demás disposiciones pertinentes:
+    </p>
+    
+    <p>{{ listado[0] }}: {% if entity.empleadorsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.empleador }}
+        declara ser mayor de 18 años, no tener impedimento alguno para poder contratar y tener como domicilio {{ entity.empleadordomicilio }}, comuna de {{ entity.empleadorcomuna }}, Región {{ entity.empleadorregion }}.
+    </p>
+    
+    <p>{{ listado[1] }}: Por el presente instrumento, <strong>EL TRABAJADOR</strong> desempeñará la función de 
+    {% if entity.obligacionfuncion == "asesora" %}
+        asesora del hogar del domicilio
+    {% elseif entity.obligacionfuncion == "jardin" %}
+        jardinero del domicilio
+    {% elseif entity.obligacionfuncion == "chofer" %}
+        chofer en el vehículo
+    {% endif %}
+    del <strong>EMPLEADOR</strong>.
+    </p>
+    
+    <p>{{ listado[2] }}: En virtud de lo anterior, las principales obligaciones y responsabilidades del <strong>TRABAJADOR</strong> serán:</p>
+    {% if entity.obligacioncondicioncumplir %}<h3>- Cumplir con las instrucciones que le sean impartidas por su <strong>EMPLEADOR</strong>.</h3>{% endif %}
+    {% if entity.obligacioncondicionlealtad %}<h3>- Desarrollar de forma leal y correcta el trabajo que se le encomienda, con la mayor diligencia y dedicación, respetando siempre el presente contrato y las demás normas que rigen esta materia.</h3>{% endif %}
+    {% if entity.obligacioncondicionaseo %}<h3>- Realizar labores propias del mantenimiento del hogar, tales como limpieza de habitaciones, baños, y espacios comunes, así como también preparar alimentos, y lavar y planchar ropa".</h3>{% endif %}
+    {% if entity.obligacioncondicionjardin %}<h3>- Mantener limpios y en perfecto estado el cesped, y las plantas, flores, árboles y arbustos, y dem ás áreas verdes y espacios comunes del exterior del domicilio del <strong>EMPLEADOR</strong>, así como también instalar y mantener en funcionamiento los sistemas de riego, y cualquier otra herramiento o mecanismo destinada a este propósito.</h3>{% endif %}
+    {% if entity.obligacioncondicionchofer %}<h3>- Transportar al <strong>EMPLEADOR</strong> o a las personas u bienes que el disponga, en el vehículo que le fuese facilitado, a los lugares que le sea requerido, y mantener este vehículo limpio, y en perfecto estado de funcionamiento.</h3>{% endif %}
+    {% if entity.obligacioncondicionotro %}<h3>- {{ entity.obligacioncondicionotrodescripcion }}</h3>{% endif %}
+    {% if entity.obligacionrequerimientosespeciales %}
+    <p>Asimismo, dentro de las funciones del <strong>TRABAJADOR</strong>, estará prestar cuidados especiales a {{ entity.obligacionrequerimientosespecialesnombre }}, 
+    {% if entity.obligacionrequerimientosespecialesmotivo == "salud" %}
+    por tener condiciones fisiológicas o de salud que exigen cuidados especiales.
+    {% elseif entity.obligacionrequerimientosespecialesmotivo == "mayor" %}
+    por ser mayor de edad.
+    {% elseif entity.obligacionrequerimientosespecialesmotivo == "menor" %}
+    por ser menor de edad.
+    {% endif %}
+    </p>
+    {% endif %}
+    
+    <p>{{ listado[3] }}:
+    {% if entity.obligacionpuertasadentro %}
+    Debido a la naturaleza de sus funciones, <strong>EL TRABAJADOR</strong> no estará sujeto a un horario determinado por el contrato, sin perjuicio que las partes convencionalmente puedan acordarlo. En cualquier caso, la jornada de trabajo del <strong>TRABAJADOR</strong> deberá enmarcarse dentro de los siguientes criterios:</p>
+    <h3>
+        a) <strong>EL TRABAJADOR</strong> realizará sus funciones de lunes a viernes. Tendrá derecho descanso los días sábados, domingos y los que la ley declare festivos. Sin perjuicio de lo anterior, de común acuerdo, el descanso de los días sábados podrá fraccionarse, acumularse o intercambiarse por cualquier otro día de trabajo, dentro del mismo mes calendario.
+        Asimismo, en el caso del descanso de los días festivos, las partes podrán pactar previamente que el descanso se realice en otro día de trabajo, que no podrá fijarse más allá de 90 días después del respectivo día festivo. El descanso del día domingo no será fraccionable ni intercambiable. Los días de descanso facultan al <strong>TRABAJADOR</strong> a no reiniciar sus funciones hasta el inicio de la jornada diaria siguiente.
+    </h3>
+    <h3>
+        b) <strong>EL TRABAJADOR</strong> deberá tener un descanso diario mínimo total de 12 horas. De ellas, 9 horas deberán ser ininterrumpidas, entre el término de una jornada y el inicio de la siguiente. Las restantes horas se distribuirán durante el día, e incluirán los tiempos que <strong>EL TRABAJADOR</strong> deberá destinar a colación.
+    </h3>
+    <h3>
+        c) Una vez cumplido 1 año de trabajo, <strong>EL TRABAJADOR</strong> tendrá derecho a 15 días hábiles de vacaciones. Eso significa que no cuentan cómo días de vacaciones los días sábados, domingos o festivos.
+    </h3>
+    {% else %}
+    La jornada laboral constará de {{ entity.obligacionpuertasadentrohoras }} horas semanales, distribuidas de la siguiente forma:</p>
+    <p><strong>EL TRABAJADOR</strong> tendrá derecho a {{ entity.obligacionpuertasadentrocolacion }} de colación diaria. Este tiempo no podrá utilizarse al iniciar o terminar la jornada laboral, y no se contabilizará al sumar el total de horas de la jornada diaria o semanal.</p>
+    <p>Las partes podrán acordar por  escrito hasta un máximo de 15 horas semanales adicionales de trabajo, no acumulables a otras semanas. El valor de la hora adicional corresponderá al mayor valor entre el valor equivalente a una hora de trabajo remunerado con el ingreso mínimo mensual, recargada en un 50%, y el valor equivalente a una hora de trabajo remunerado de acuerdo a lo señalado en la cláusula quinta del presente contrato, recargada en un 50%.</p>
+    <p>Una vez cumplido un año de trabajo, <strong>EL TRABAJADOR</strong> tendrá derecho a 15 días hábiles de vacaciones. Eso significa que no cuentan cómo días de vacaciones los días sábados, domingos y festivos.</p>
+    {% endif %}    
+    
+    <p>{{ listado[4] }}: <strong>EL TRABAJADOR</strong> recibirá una remuneración de {{ entity.sueldomonto|number_format(0, ',', '.') }} {{ entity.sueldounidad|lower }} brutos, que se liquidará y pagará {{ entity.sueldofrecuencia|lower }}, {{ entity.sueldoperiodo|lower }}, en efectivo, o a solicitud del <strong>TRABAJADOR</strong>, a través de cheque o depósito en cuenta corriente o a la vista, y en forma proporcional a los días efectivamente trabajados.</p>
+    
+    {% if entity.sueldootraremuneracion %}
+    <p>Además de la remuneración señalada en los párrafos anteriores, <strong>EL TRABAJADOR</strong> tendrá derecho a: {{ entity.sueldootraremuneraciondescripcion }}</p>
+    {% endif %}
+    
+    <p>{% if entity.sueldootraremuneracion %}
+    Del monto de las remuneraciones señaladas en los párrafos anteriores, 
+    {% else %}
+    Del monto de la remuneración señalada en el párrafo anterior, 
+    {% endif %}
+    <strong>EL TRABAJADOR</strong> deberá descontar y pagar ante las entidades correspondientes, las cotizaciones previsionales y de salud. Para estos efectos, <strong>EL TRABAJADOR</strong> declara que se encuentra afiliado a {{ entity.sueldoafp }} e {{ entity.sueldosalud }}.
+    </p>
+    <p>Además, <strong>EL EMPLEADOR</strong> deberá pagar mensualmente, a su costo, las cotizaciones del seguro de invalidez y sobrevivencia, las cotizaciones del seguro de accidentes del trabajo, y las cotizaciones para el fondo de indemnización por término de contrato.</p>
+    <p>Luego de haber hecho el pago, <strong>EL EMPLEADOR</strong> deberá entregar al <strong>TRABAJADOR</strong> una liquidación de sueldo, que contenga el detalle de los pagos realizados en su favor, la que deberá ser firmada por ambas partes.</p>
+    <p>Asimismo, <strong>EL EMPLEADOR</strong> deberá proveer al <strong>TRABAJADOR</strong> de 
+    {% if entity.obligacionpuertasadentro %}
+    un alojamiento digno, 
+    {% endif %}
+    alimentación suficiente y los materiales o herramientas para que esta pueda cumplir sus funciones, sin que por ninguno de estos elementos pueda descontársele parte de su remuneración.
+    </p>
+    
+    {% if entity.trabajadorextranjero %}
+    <p>Adicionalmente a lo señalado en los párrafos anteriores, <strong>EL EMPLEADOR</strong> se obliga a responder por el pago de impuesto a la renta correspondiente a la remuneración del <strong>TRABAJADOR</strong> extranjero, para rentas superiores a 13,5 UTM.</p>
+    {% endif %}
+    
+    {% if entity.sueldootrabeneficios %}
+    <p>Sin perjuicio de lo anterior, <strong>EL EMPLEADOR</strong> se compromete a otorgar al <strong>TRABAJADOR</strong> los siguientes beneficios, adicionales a su remuneración: {{ entity.sueldootrabeneficiosdescripcion }}.</p>
+    {% endif %}
+    
+    <p>{{ listado[5] }}: El presente contrato tendrá una duración indefinida, y sólo podrá ser finalizado cumpliendo los procedimientos y condiciones establecidos en los arts. 159 y ss. del Código del Trabajo.</p>
+    <p>En virtud de lo anterior, el contrato podrá ser terminado en cualquier momento, unilateralmente, tanto por <strong>EL TRABAJADOR</strong> como por <strong>EL EMPLEADOR</strong>, mediante un aviso a la contraparte, con a lo menos 30 días de anticipación a la fecha en que quisiese disolver el contrato.</p>
+    <p>Si fuese <strong>EL EMPLEADOR</strong> quien quisiese terminar unilateralmente el contrato, el aviso deberá ser dado por escrito, y una copia del mismo deberá enviarse a la Dirección del Trabajo. Sin perjuicio de ello, no será necesario ni la anticipación ni el aviso por parte del <strong>EMPLEADOR</strong> si al momento de la terminación del contrato, éste paga al <strong>TRABAJADOR</strong> una indemnización en dinero en efectivo equivalente a la última remuneración mensual.</p>
+    <p>Sin perjuicio de lo anterior, las dos primeras semanas de trabajo se estimarán como período de prueba y durante ese lapso podrá resolverse el contrato a voluntad de cualquiera de las partes, siempre que le dé un aviso con a lo menos 3 días de anticipación, a la otra, y se le pague al <strong>TRABAJADOR</strong> por el tiempo trabajado.</p>
+    <p>También podrá terminarse el contrato por mutuo acuerdo entre las partes, fuerza mayor, o por contraer alguna de las partes u otra persona que habite la casa, una enfermedad contagiosa clínicamente calificada.</p>
+    {% if entity.trabajadorextranjero %}
+    {% if entity.trabajadorsexo == "Mujer" %}
+    <p><strong>EL EMPLEADOR</strong> se compromete a pagar al <strong>TRABAJADOR</strong> y a los miembros de su familia, al término del contrato, el pasaje de regreso a su país de origen o al que acuerden las partes, según dispone la ley.</p>
+    {% endif %}
+    <p>{{ listado[contador] }}: En caso de enfermedad por parte del <strong>TRABAJADOR</strong>, <strong>EL EMPLEADOR</strong> deberá dar aviso inmediato al organismo de seguridad social pertinente, y estará obligado a conservarlo en el cargo, sin derecho a remuneración por 8 días, si lleva menos de 6 meses de trabajo, 15 días si hubiese trabajado entre 6 meses y 1 año, y hasta 30 días si hubiese trabajado más de 1 año.</p>
+    <p>Sin perjuicio de lo anterior, si al <strong>TRABAJADOR</strong> se le otorgase licencia médica por esta enfermedad o por cualquier otra causa, tendrá fuero por el tiempo en que dure la licencia, y no podrá ser despedido por <strong>EL EMPLEADOR</strong>.</p>
+    {% set contador = contador + 1 %}
+    {% endif %}
+    
+    <p>{{ listado[contador] }}: Está prohibido exigir al <strong>TRABAJADOR</strong> el uso de uniforme, delantal o cualquier otra vestimenta distintiva del servicio que presta, en espacios, lugares o establecimientos públicos, incluyendo la calle, plazas, parques, malls, restaurantes y otros similares.</p>
+    {% set contador = contador + 1 %}
+    <p>{{ listado[contador] }}:  Para todos los efectos, se deja constancia que <strong>EL TRABAJADOR</strong> presta servicios al <strong>EMPLEADOR</strong> desde el {{ entity.prestacionfecha|date_in_words }}</p>
+    {% set contador = contador + 1 %}
+    {% if entity.trabajadorextranjero %}
+    <p>Sin perjuicio de lo anterior, la obligación de prestar servicios emanada del presente contrato, sólo podrá cumplirse una vez que <strong>EL TRABAJADOR</strong> haya obtenido la visación de residencia correspondiente en Chile o el permiso especial de trabajo para extranjeros con visa en trámite.</p>
+    {% endif %}
+    
+    <p>{{ listado[contador] }}: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna de {{ entity.jurisdiccioncomuna }}, y se someten a la jurisdicción y competencia de sus tribunales de justicia.</p>
+    {% set contador = contador + 1 %}
+    
+    <p>{{ listado[contador] }}: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha, quedando uno en poder de cada parte contratante.</p>
+    {% set contador = contador + 1 %}
+    
+    <p></p>
+    
+    <h2>________________________</h2><h2>{{ entity.empleador }}</h2><h2>RUT: {{ entity.empleadorrut }}</h2><h2>EMPLEADOR</h2>
+    <p></p>
+    <h2>________________________</h2><h2>{{ entity.trabajador }}</h2><h2>RUT: {{ entity.trabajadorrut }}</h2><h2>TRABAJADOR</h2>
+{% endspaceless %}
+{% endblock %}

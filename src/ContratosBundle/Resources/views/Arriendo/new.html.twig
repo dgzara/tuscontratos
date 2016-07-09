@@ -73,6 +73,32 @@
                                     {{ form_row(form.arrendador_juridica_domicilio) }}
                                     {{ form_row(form.arrendador_juridica_region) }}
                                     {{ form_row(form.arrendador_juridica_comuna) }}
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#representanteArrendador">
+                                      Agregar representante legal
+                                    </button>
+
+                                    <div class="modal fade" id="representanteArrendador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Representante legal</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            {{ form_row(form.arrendador_juridica_representante_sexo) }}
+                                            {{ form_row(form.arrendador_juridica_representante_nombres) }}
+                                            {{ form_row(form.arrendador_juridica_representante_apellido_paterno) }}
+                                            {{ form_row(form.arrendador_juridica_representante_apellido_materno) }}
+                                            {{ form_row(form.arrendador_juridica_representante_nacionalidad) }}
+                                            {{ form_row(form.arrendador_juridica_representante_rut) }}
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -116,6 +142,32 @@
                                     {{ form_row(form.arrendatario_juridica_domicilio) }}
                                     {{ form_row(form.arrendatario_juridica_region) }}
                                     {{ form_row(form.arrendatario_juridica_comuna) }}
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#representanteArrendatario">
+                                      Agregar representante legal
+                                    </button>
+
+                                    <div class="modal fade" id="representanteArrendatario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Representante legal</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            {{ form_row(form.arrendatario_juridica_representante_sexo) }}
+                                            {{ form_row(form.arrendatario_juridica_representante_nombres) }}
+                                            {{ form_row(form.arrendatario_juridica_representante_apellido_paterno) }}
+                                            {{ form_row(form.arrendatario_juridica_representante_apellido_materno) }}
+                                            {{ form_row(form.arrendatario_juridica_representante_nacionalidad) }}
+                                            {{ form_row(form.arrendatario_juridica_representante_rut) }}
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

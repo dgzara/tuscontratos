@@ -1,0 +1,133 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>CasaParticular list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Ciudad</th>
+                <th>Empleador_sexo</th>
+                <th>Empleador_nombres</th>
+                <th>Empleador_apellido_paterno</th>
+                <th>Empleador_apellido_materno</th>
+                <th>Empleador_nacionalidad</th>
+                <th>Empleador_estado_civil</th>
+                <th>Empleador_profesion</th>
+                <th>Empleador_rut</th>
+                <th>Empleador_domicilio</th>
+                <th>Empleador_region</th>
+                <th>Trabajador_sexo</th>
+                <th>Trabajador_nombres</th>
+                <th>Trabajador_apellido_paterno</th>
+                <th>Trabajador_apellido_materno</th>
+                <th>Trabajador_nacionalidad</th>
+                <th>Trabajador_estado_civil</th>
+                <th>Trabajador_profesion</th>
+                <th>Trabajador_rut</th>
+                <th>Trabajador_domicilio</th>
+                <th>Trabajador_region</th>
+                <th>Obligacion_funcion</th>
+                <th>Obligacion_puertas_adentro</th>
+                <th>Obligacion_puertas_adentro_horas</th>
+                <th>Obligacion_puertas_adentro_colacion</th>
+                <th>Obligacion_condicion_cumplir</th>
+                <th>Obligacion_condicion_lealtad</th>
+                <th>Obligacion_condicion_aseo</th>
+                <th>Obligacion_condicion_jardin</th>
+                <th>Obligacion_condicion_chofer</th>
+                <th>Obligacion_condicion_otro</th>
+                <th>Obligacion_condicion_otro_descripcion</th>
+                <th>Obligacion_requerimientos_especiales</th>
+                <th>Obligacion_requerimientos_especiales_nombre</th>
+                <th>Obligacion_requerimientos_especiales_motivo</th>
+                <th>Sueldo_monto</th>
+                <th>Sueldo_unidad</th>
+                <th>Sueldo_frecuencia</th>
+                <th>Sueldo_periodo</th>
+                <th>Sueldo_afp</th>
+                <th>Sueldo_salud</th>
+                <th>Sueldo_otra_remuneracion</th>
+                <th>Sueldo_otra_remuneracion_descripcion</th>
+                <th>Sueldo_otra_beneficios</th>
+                <th>Sueldo_otra_beneficios_descripcion</th>
+                <th>Prestacion_fecha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('casaparticular_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.ciudad }}</td>
+                <td>{{ entity.empleadorsexo }}</td>
+                <td>{{ entity.empleadornombres }}</td>
+                <td>{{ entity.empleadorapellidopaterno }}</td>
+                <td>{{ entity.empleadorapellidomaterno }}</td>
+                <td>{{ entity.empleadornacionalidad }}</td>
+                <td>{{ entity.empleadorestadocivil }}</td>
+                <td>{{ entity.empleadorprofesion }}</td>
+                <td>{{ entity.empleadorrut }}</td>
+                <td>{{ entity.empleadordomicilio }}</td>
+                <td>{{ entity.empleadorregion }}</td>
+                <td>{{ entity.trabajadorsexo }}</td>
+                <td>{{ entity.trabajadornombres }}</td>
+                <td>{{ entity.trabajadorapellidopaterno }}</td>
+                <td>{{ entity.trabajadorapellidomaterno }}</td>
+                <td>{{ entity.trabajadornacionalidad }}</td>
+                <td>{{ entity.trabajadorestadocivil }}</td>
+                <td>{{ entity.trabajadorprofesion }}</td>
+                <td>{{ entity.trabajadorrut }}</td>
+                <td>{{ entity.trabajadordomicilio }}</td>
+                <td>{{ entity.trabajadorregion }}</td>
+                <td>{{ entity.obligacionfuncion }}</td>
+                <td>{{ entity.obligacionpuertasadentro }}</td>
+                <td>{{ entity.obligacionpuertasadentrohoras }}</td>
+                <td>{{ entity.obligacionpuertasadentrocolacion }}</td>
+                <td>{{ entity.obligacioncondicioncumplir }}</td>
+                <td>{{ entity.obligacioncondicionlealtad }}</td>
+                <td>{{ entity.obligacioncondicionaseo }}</td>
+                <td>{{ entity.obligacioncondicionjardin }}</td>
+                <td>{{ entity.obligacioncondicionchofer }}</td>
+                <td>{{ entity.obligacioncondicionotro }}</td>
+                <td>{{ entity.obligacioncondicionotrodescripcion }}</td>
+                <td>{{ entity.obligacionrequerimientosespeciales }}</td>
+                <td>{{ entity.obligacionrequerimientosespecialesnombre }}</td>
+                <td>{{ entity.obligacionrequerimientosespecialesmotivo }}</td>
+                <td>{{ entity.sueldomonto }}</td>
+                <td>{{ entity.sueldounidad }}</td>
+                <td>{{ entity.sueldofrecuencia }}</td>
+                <td>{{ entity.sueldoperiodo }}</td>
+                <td>{{ entity.sueldoafp }}</td>
+                <td>{{ entity.sueldosalud }}</td>
+                <td>{{ entity.sueldootraremuneracion }}</td>
+                <td>{{ entity.sueldootraremuneraciondescripcion }}</td>
+                <td>{{ entity.sueldootrabeneficios }}</td>
+                <td>{{ entity.sueldootrabeneficiosdescripcion }}</td>
+                <td>{% if entity.prestacionfecha %}{{ entity.prestacionfecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('casaparticular_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('casaparticular_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('casaparticular_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

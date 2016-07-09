@@ -159,6 +159,14 @@ class ArriendoController extends Controller
             'align' => 'center',
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(3),
         ));
+        $phpWord->addTitleStyle(3, array(
+            'name' => 'Times New Roman', 
+            'size' => 12, 
+            'bold' => false,
+        ), array(
+            'indent' => 0.8,
+            'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(3),
+        ));
         $phpWord->setDefaultParagraphStyle(array(
             'align'      => 'both',
             'spacing'    => 120,
