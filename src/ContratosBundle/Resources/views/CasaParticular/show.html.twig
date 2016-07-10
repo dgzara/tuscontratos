@@ -14,7 +14,7 @@
     , cédula nacional de identidad o pasaporte número {{ entity.empleadorrut }}, domiciliado en {{ entity.empleadordomicilio }}, comuna de {{ entity.empleadorcomuna }}, Región {{ entity.empleadorregion }}, en adelante e indistintamente, <strong>“EMPLEADOR”</strong> o “<strong>EL EMPLEADOR</strong>”
     , por una parte, y por la otra, {% if entity.trabajadorsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.trabajador }}
     {% if entity.trabajadorextranjero == false %}, de nacionalidad chilena{% else %}, {{ entity.trabajadornacionalidad }}, procedente de {{ entity.trabajadorprocedencia }}{% endif %}
-    , {{ entity.trabajadorestadocivil }}, {{ entity.trabajadorprofesion }}, cédula nacional de identidad o pasaporte número {{ entity.trabajadorrut }}, nacido el {{ entity.trabajadornacimiento|date_in_words }}, domiciliado en {{ entity.trabajadordomicilio}} comuna de {{ entity.trabajadorcomuna }}, Región {{ entity.trabajadorregion }}, en adelante e indistintamente, 
+    , {{ entity.trabajadorestadocivil|lower }}, {{ entity.trabajadorprofesion|lower }}, cédula nacional de identidad o pasaporte número {{ entity.trabajadorrut }}, nacido el {{ entity.trabajadornacimiento|date_in_words }}, domiciliado en {{ entity.trabajadordomicilio}} comuna de {{ entity.trabajadorcomuna }}, Región {{ entity.trabajadorregion }}, en adelante e indistintamente, 
     <strong>“TRABAJADOR”</strong> o “<strong>EL TRABAJADOR</strong>” , han convenido en celebrar el siguiente contrato de trabajo, que se regirá por las normas establecidas en el Capítulo V del Código del Trabajo y las demás disposiciones pertinentes:
     </p>
     
@@ -67,6 +67,28 @@
     </h3>
     {% else %}
     La jornada laboral constará de {{ entity.obligacionpuertasadentrohoras }} horas semanales, distribuidas de la siguiente forma:</p>
+    {% if entity.obligacionpuertasadentrohorariolunesinicio %}
+    <h3>- <strong>Lunes</strong>: de {{ entity.obligacionpuertasadentrohorariolunesinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorariolunesfin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    {% if entity.obligacionpuertasadentrohorariomartesinicio %}
+    <h3>- <strong>Martes</strong>: de {{ entity.obligacionpuertasadentrohorariomartesinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorariomartesfin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    {% if entity.obligacionpuertasadentrohorariomiercolesinicio %}
+    <h3>- <strong>Miércoles</strong>: de {{ entity.obligacionpuertasadentrohorariomiercolesinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorariomiercolesfin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    {% if entity.obligacionpuertasadentrohorariojuevesinicio %}
+    <h3>- <strong>Jueves</strong>: de {{ entity.obligacionpuertasadentrohorariojuevesinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorariojuevesfin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    {% if entity.obligacionpuertasadentrohorarioviernesinicio %}
+    <h3>- <strong>Viernes</strong>: de {{ entity.obligacionpuertasadentrohorarioviernesinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorarioviernesfin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    {% if entity.obligacionpuertasadentrohorariosabadoinicio %}
+    <h3>- <strong>Sábado</strong>: de {{ entity.obligacionpuertasadentrohorariosabadoinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorariosabadofin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    {% if entity.obligacionpuertasadentrohorariodomingoinicio %}
+    <h3>- <strong>Domingo</strong>: de {{ entity.obligacionpuertasadentrohorariodomingoinicio|date('H:i') }} hrs a {{ entity.obligacionpuertasadentrohorariodomingofin|date('H:i') }} hrs.</h3>
+    {% endif %}
+    
     <p><strong>EL TRABAJADOR</strong> tendrá derecho a {{ entity.obligacionpuertasadentrocolacion }} de colación diaria. Este tiempo no podrá utilizarse al iniciar o terminar la jornada laboral, y no se contabilizará al sumar el total de horas de la jornada diaria o semanal.</p>
     <p>Las partes podrán acordar por  escrito hasta un máximo de 15 horas semanales adicionales de trabajo, no acumulables a otras semanas. El valor de la hora adicional corresponderá al mayor valor entre el valor equivalente a una hora de trabajo remunerado con el ingreso mínimo mensual, recargada en un 50%, y el valor equivalente a una hora de trabajo remunerado de acuerdo a lo señalado en la cláusula quinta del presente contrato, recargada en un 50%.</p>
     <p>Una vez cumplido un año de trabajo, <strong>EL TRABAJADOR</strong> tendrá derecho a 15 días hábiles de vacaciones. Eso significa que no cuentan cómo días de vacaciones los días sábados, domingos y festivos.</p>

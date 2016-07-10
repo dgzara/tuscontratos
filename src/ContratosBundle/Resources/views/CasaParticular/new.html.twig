@@ -115,6 +115,51 @@
                         <div id="puertas_adentro_datos" style="display: none;">
                         {{ form_row(form.obligacion_puertas_adentro_horas) }}
                         {{ form_row(form.obligacion_puertas_adentro_colacion) }}
+                        
+                        <table class="table">
+                            <thead>
+                                <th>Día</th>
+                                <th>Hora de inicio</th>
+                                <th>Hora de término</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Lunes</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_lunes_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_lunes_fin) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Martes</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_martes_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_martes_fin) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Miércoles</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_miercoles_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_miercoles_fin) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jueves</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_jueves_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_jueves_fin) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Viernes</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_viernes_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_viernes_fin) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Sábado</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_sabado_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_sabado_fin) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Domingo</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_domingo_inicio) }}</td>
+                                    <td>{{ form_widget(form.obligacion_puertas_adentro_horario_domingo_fin) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         </div>
                         
                         Las principales obligaciones y responsabilidades del TRABAJADOR son:
@@ -260,7 +305,7 @@
         });
         
         $('input[name$="[obligacion_puertas_adentro]"]:radio').change(function(){
-            if($(this).val() == 1){
+            if($(this).val() == 0){
                 $("#puertas_adentro_datos").show();
             }
             else {

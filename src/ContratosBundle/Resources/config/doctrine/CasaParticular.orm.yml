@@ -98,6 +98,7 @@ ContratosBundle\Entity\CasaParticular:
             nullable: true
         trabajador_nacimiento:
             type: datetime
+            nullable: true
         trabajador_domicilio:
             type: string
             length: 100
@@ -118,9 +119,47 @@ ContratosBundle\Entity\CasaParticular:
             type: integer
             length: 11
             nullable: true
-        obligacion_puertas_adentro_colacion:
-            type: decimal
-            scale: 2
+        obligacion_puertas_adentro_horario_lunes_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_lunes_fin:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_martes_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_martes_fin:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_miercoles_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_miercoles_fin:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_jueves_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_jueves_fin:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_viernes_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_viernes_fin:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_sabado_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_sabado_fin:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_domingo_inicio:
+            type: datetime
+            nullable: true
+        obligacion_puertas_adentro_horario_domingo_fin:
+            type: datetime
             nullable: true
         obligacion_condicion_cumplir:
             type: boolean
@@ -204,6 +243,7 @@ ContratosBundle\Entity\CasaParticular:
             nullable: true
         prestacion_fecha:
             type: datetime
+            nullable: true
     manyToOne:
         empleador_comuna:
             targetEntity: Comuna

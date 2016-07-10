@@ -1528,4 +1528,396 @@ class CasaParticular
     {
         return $this->trabajador_nacimiento;
     }
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_lunes_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_lunes_fin;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_martes_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_martes_fin;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_miercoles_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_miercoles_fin;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_jueves_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_jueves_fin;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_viernes_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_viernes_fin;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_sabado_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_sabado_fin;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_domingo_inicio;
+
+    /**
+     * @var string
+     */
+    private $obligacion_puertas_adentro_horario_domingo_fin;
+
+
+    /**
+     * Set obligacion_puertas_adentro_horario_lunes_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioLunesInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioLunesInicio($obligacionPuertasAdentroHorarioLunesInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_lunes_inicio = $obligacionPuertasAdentroHorarioLunesInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_lunes_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioLunesInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_lunes_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_lunes_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioLunesFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioLunesFin($obligacionPuertasAdentroHorarioLunesFin)
+    {
+        $this->obligacion_puertas_adentro_horario_lunes_fin = $obligacionPuertasAdentroHorarioLunesFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_lunes_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioLunesFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_lunes_fin;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_martes_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioMartesInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioMartesInicio($obligacionPuertasAdentroHorarioMartesInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_martes_inicio = $obligacionPuertasAdentroHorarioMartesInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_martes_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioMartesInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_martes_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_martes_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioMartesFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioMartesFin($obligacionPuertasAdentroHorarioMartesFin)
+    {
+        $this->obligacion_puertas_adentro_horario_martes_fin = $obligacionPuertasAdentroHorarioMartesFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_martes_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioMartesFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_martes_fin;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_miercoles_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioMiercolesInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioMiercolesInicio($obligacionPuertasAdentroHorarioMiercolesInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_miercoles_inicio = $obligacionPuertasAdentroHorarioMiercolesInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_miercoles_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioMiercolesInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_miercoles_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_miercoles_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioMiercolesFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioMiercolesFin($obligacionPuertasAdentroHorarioMiercolesFin)
+    {
+        $this->obligacion_puertas_adentro_horario_miercoles_fin = $obligacionPuertasAdentroHorarioMiercolesFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_miercoles_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioMiercolesFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_miercoles_fin;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_jueves_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioJuevesInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioJuevesInicio($obligacionPuertasAdentroHorarioJuevesInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_jueves_inicio = $obligacionPuertasAdentroHorarioJuevesInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_jueves_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioJuevesInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_jueves_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_jueves_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioJuevesFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioJuevesFin($obligacionPuertasAdentroHorarioJuevesFin)
+    {
+        $this->obligacion_puertas_adentro_horario_jueves_fin = $obligacionPuertasAdentroHorarioJuevesFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_jueves_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioJuevesFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_jueves_fin;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_viernes_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioViernesInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioViernesInicio($obligacionPuertasAdentroHorarioViernesInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_viernes_inicio = $obligacionPuertasAdentroHorarioViernesInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_viernes_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioViernesInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_viernes_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_viernes_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioViernesFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioViernesFin($obligacionPuertasAdentroHorarioViernesFin)
+    {
+        $this->obligacion_puertas_adentro_horario_viernes_fin = $obligacionPuertasAdentroHorarioViernesFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_viernes_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioViernesFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_viernes_fin;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_sabado_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioSabadoInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioSabadoInicio($obligacionPuertasAdentroHorarioSabadoInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_sabado_inicio = $obligacionPuertasAdentroHorarioSabadoInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_sabado_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioSabadoInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_sabado_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_sabado_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioSabadoFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioSabadoFin($obligacionPuertasAdentroHorarioSabadoFin)
+    {
+        $this->obligacion_puertas_adentro_horario_sabado_fin = $obligacionPuertasAdentroHorarioSabadoFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_sabado_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioSabadoFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_sabado_fin;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_domingo_inicio
+     *
+     * @param string $obligacionPuertasAdentroHorarioDomingoInicio
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioDomingoInicio($obligacionPuertasAdentroHorarioDomingoInicio)
+    {
+        $this->obligacion_puertas_adentro_horario_domingo_inicio = $obligacionPuertasAdentroHorarioDomingoInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_domingo_inicio
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioDomingoInicio()
+    {
+        return $this->obligacion_puertas_adentro_horario_domingo_inicio;
+    }
+
+    /**
+     * Set obligacion_puertas_adentro_horario_domingo_fin
+     *
+     * @param string $obligacionPuertasAdentroHorarioDomingoFin
+     * @return CasaParticular
+     */
+    public function setObligacionPuertasAdentroHorarioDomingoFin($obligacionPuertasAdentroHorarioDomingoFin)
+    {
+        $this->obligacion_puertas_adentro_horario_domingo_fin = $obligacionPuertasAdentroHorarioDomingoFin;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_puertas_adentro_horario_domingo_fin
+     *
+     * @return string 
+     */
+    public function getObligacionPuertasAdentroHorarioDomingoFin()
+    {
+        return $this->obligacion_puertas_adentro_horario_domingo_fin;
+    }
 }

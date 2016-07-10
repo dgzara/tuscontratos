@@ -53,7 +53,7 @@ class CasaParticularType extends AbstractType
             ->add('trabajador_nombres', null, array('label' => 'Nombres'))
             ->add('trabajador_apellido_paterno', null, array('label' => 'Apellido Paterno'))
             ->add('trabajador_apellido_materno', null, array('label' => 'Apellido Materno'))
-            ->add('trabajador_nacimiento', 'collot_datetime', array('label' => 'Fecha de nacimiento','pickerOptions' => array(
+            ->add('trabajador_nacimiento', 'collot_datetime', array('label' => 'Fecha de nacimiento', 'required' => false, 'pickerOptions' => array(
                 'format' => 'dd/mm/yyyy',
                 'language' => 'es',
                 'minView' => 'month',
@@ -92,6 +92,132 @@ class CasaParticularType extends AbstractType
             ->add('obligacion_puertas_adentro', 'choice', array('label' => 'EL TRABAJADOR, ¿Trabajará en régimen puertas adentro?', 'expanded' => true, 'choices' => array(1 => 'Sí', 0 => 'No')))
             ->add('obligacion_puertas_adentro_horas', null, array('label' => 'Duración de la Jornada Laboral'))
             ->add('obligacion_puertas_adentro_colacion', null, array('label' => 'Duración  de la colación del TRABAJADOR'))
+            ->add('obligacion_puertas_adentro_horario_lunes_inicio', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_lunes_fin', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_martes_inicio', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_martes_fin', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_miercoles_inicio', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_miercoles_fin', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_jueves_inicio', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_jueves_fin', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_viernes_inicio', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_viernes_fin', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_sabado_inicio', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_sabado_fin', 'collot_datetime', array('label' => ' ', 'required' => false,'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_domingo_inicio', 'collot_datetime', array('label' => ' ', 'required' => false, 'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '09:00'
+            )))
+            ->add('obligacion_puertas_adentro_horario_domingo_fin', 'collot_datetime', array('label' => ' ', 'required' => false, 'pickerOptions' => array(
+                'format' => 'hh:ii',
+                'language' => 'es',
+                'minView' => 0,
+                'maxView' => 0,
+                'autoclose' => true,
+                'startView' => 0,
+                'initialDate' => '19:00'
+            )))
             ->add('obligacion_condicion_cumplir', 'checkbox', array('label' => 'Cumplir con las instrucciones que sean impartidas por su EMPLEADOR.', 'required' => false))
             ->add('obligacion_condicion_lealtad', 'checkbox', array('label' => 'Desarrollar de forma leal y correcta el trabajo que se le encomienda, con la mayor diligencia y dedicación, respetando siempre el presente contrato y las demás normas que rigen esta materia.', 'required' => false))
             ->add('obligacion_condicion_aseo', 'checkbox', array('label' => 'Realizar labores propias del mantenimiento del hogar, tales como limpieza de habitaciones, baños, y espacios comunes, así como también preparar alimentos, y lavar y planchar ropa."', 'required' => false))
@@ -116,7 +242,7 @@ class CasaParticularType extends AbstractType
             ->add('sueldo_otra_remuneracion_descripcion', null, array('label' => 'Mencione las otras remuneraciones', 'required' => false))
             ->add('sueldo_otra_beneficios', 'choice', array('label' => '¿Tendrá derecho el trabajador a beneficios adicionales, como viáticos, bonos de transporte, bono de colación u otros?', 'expanded' => true, 'choices' => array(1 => 'Sí', 0 => 'No')))
             ->add('sueldo_otra_beneficios_descripcion', null, array('label' => 'EL EMPLEADOR se compromete a:', 'required' => false))
-            ->add('prestacion_fecha', 'collot_datetime', array('label' => 'Fecha','pickerOptions' => array(
+            ->add('prestacion_fecha', 'collot_datetime', array('label' => 'Fecha', 'required' => false,'pickerOptions' => array(
                 'format' => 'dd/mm/yyyy',
                 'language' => 'es',
                 'minView' => 'month',
