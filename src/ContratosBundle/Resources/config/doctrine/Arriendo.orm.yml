@@ -341,7 +341,7 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         entrega_fecha:
-            type: string
+            type: datetime
             length: 100
             nullable: true
         entrega_inventario:
@@ -524,6 +524,7 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         personeria_arrendador_fecha:
             type: datetime
+            nullable: true
         personeria_arrendador_notaria:
             type: string
             length: 100
@@ -534,6 +535,7 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         personeria_arrendatario_fecha:
             type: datetime
+            nullable: true
         personeria_arrendatario_notaria:
             type: string
             length: 100

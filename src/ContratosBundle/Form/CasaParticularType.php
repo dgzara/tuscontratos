@@ -15,7 +15,13 @@ class CasaParticularType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha', null, array('label' => 'Fecha'))
+            ->add('fecha', 'collot_datetime', array('label' => 'Fecha','pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('ciudad', null, array('label' => 'Ciudad'))
             ->add('empleador_sexo', 'choice', array('label' => 'Sexo', 'expanded' => true, 'choices' => array('Hombre' => 'Hombre', 'Mujer' => 'Mujer')))
             ->add('empleador_nombres', null, array('label' => 'Nombres'))
@@ -47,7 +53,13 @@ class CasaParticularType extends AbstractType
             ->add('trabajador_nombres', null, array('label' => 'Nombres'))
             ->add('trabajador_apellido_paterno', null, array('label' => 'Apellido Paterno'))
             ->add('trabajador_apellido_materno', null, array('label' => 'Apellido Materno'))
-            ->add('trabajador_nacimiento', null, array('label' => 'Fecha de nacimiento'))
+            ->add('trabajador_nacimiento', 'collot_datetime', array('label' => 'Fecha de nacimiento','pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('trabajador_extranjero', 'choice', array('label' => 'Nacionalidad', 'expanded' => true, 'choices' => array(0 => 'Chilena', 1 => 'Extranjera')))
             ->add('trabajador_nacionalidad', null, array('label' => 'Nacionalidad'))
             ->add('trabajador_procedencia', null, array('label' => 'Procedencia'))
@@ -104,7 +116,13 @@ class CasaParticularType extends AbstractType
             ->add('sueldo_otra_remuneracion_descripcion', null, array('label' => 'Mencione las otras remuneraciones', 'required' => false))
             ->add('sueldo_otra_beneficios', 'choice', array('label' => '¿Tendrá derecho el trabajador a beneficios adicionales, como viáticos, bonos de transporte, bono de colación u otros?', 'expanded' => true, 'choices' => array(1 => 'Sí', 0 => 'No')))
             ->add('sueldo_otra_beneficios_descripcion', null, array('label' => 'EL EMPLEADOR se compromete a:', 'required' => false))
-            ->add('prestacion_fecha', null, array('label' => 'Fecha'))
+            ->add('prestacion_fecha', 'collot_datetime', array('label' => 'Fecha','pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('empleador_comuna', 'entity', array('label' => 'Comuna', 'class' => 'ContratosBundle:Comuna', 'required' => false, 'placeholder' => 'Seleccione una opción'))
             ->add('trabajador_comuna', 'entity', array('label' => 'Comuna', 'class' => 'ContratosBundle:Comuna', 'required' => false, 'placeholder' => 'Seleccione una opción'))
             ->add('jurisdiccion_comuna', 'entity', array('label' => 'Comuna', 'class' => 'ContratosBundle:Comuna', 'required' => false, 'placeholder' => 'Seleccione una opción'))

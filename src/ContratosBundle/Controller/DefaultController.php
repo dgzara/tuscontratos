@@ -17,7 +17,7 @@ class DefaultController extends Controller
     /**
      * Lists all Arriendo entities.
      *
-     * @Route("/", name="default")
+     * @Route("/", name="contratos_homepage")
      * @Method("GET")
      * @Template()
      */

@@ -70,7 +70,7 @@ Las multas u honorarios señalados en los párrafos anteriores deberán ser paga
     {% endif %}
     </p>
     
-    <p>{{ listado[4] }}: {% if entity.entregafecha %}La entrega material del inmueble arrendado se realiza el {{ entity.entregafecha }}.{% endif %} El ARRENDATARIO declara conocer y aceptar el estado de mantención y conservación del INMUEBLE ARRENDADO, obligándose a restituirlo al término del contrato de arrendamiento, en el mismo estado que lo recibió, con el desgaste natural por el uso normal y el paso del tiempo. {% if entity.entregainventario %}Junto al inmueble, se entregan los bienes que se detallan en el inventario que se acompaña al presente contrato, el que debidamente firmado por las partes forma parte del mismo. Dichos bienes deberán ser restituidos al momento en que el inmueble se restituya.{% endif %}</p>
+    <p>{{ listado[4] }}: {% if entity.entregafecha %}La entrega material del inmueble arrendado se realiza el {{ entity.entregafecha|date_in_words }}.{% endif %} El ARRENDATARIO declara conocer y aceptar el estado de mantención y conservación del INMUEBLE ARRENDADO, obligándose a restituirlo al término del contrato de arrendamiento, en el mismo estado que lo recibió, con el desgaste natural por el uso normal y el paso del tiempo. {% if entity.entregainventario %}Junto al inmueble, se entregan los bienes que se detallan en el inventario que se acompaña al presente contrato, el que debidamente firmado por las partes forma parte del mismo. Dichos bienes deberán ser restituidos al momento en que el inmueble se restituya.{% endif %}</p>
     
     <p>{{ listado[5] }}: En virtud del presente contrato, EL ARRENDATARIO se obliga a:</p>
     <h3>a) Pagar oportunamente los consumos de agua, energía eléctrica, y gas del inmueble.</h3>
@@ -169,10 +169,10 @@ Las multas u honorarios señalados en los párrafos anteriores deberán ser paga
     
     <p>{{ listado[contador] }}: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha; quedando uno en poder de cada parte contratante.
     {% if entity.arrendadorpersona == "Jurídica" %}
-    La personería de {{ entity.arrendadorjuridicarepresentante }} para representar a {{ entity.arrendadorjuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendadorfecha|date('Y-m-d') }} otorgada en la notaría de {{ entity.personeriaarrendadornotaria }} de {{ entity.personeriaarrendadorlugar }}.
+    La personería de {{ entity.arrendadorjuridicarepresentante }} para representar a {{ entity.arrendadorjuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendadorfecha|date_in_words }} otorgada en la notaría de {{ entity.personeriaarrendadornotaria }} de {{ entity.personeriaarrendadorlugar }}.
     {% endif %}
     {% if entity.arrendatariopersona == "Jurídica" %}
-    La personería de {{ entity.arrendadorjuridicaarrendatario }} para representar a {{ entity.arrendatariojuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendatariofecha|date('Y-m-d H:i:s') }} en la notaría de {{ entity.personeriaarrendatarionotaria }} de {{ entity.personeriaarrendatariolugar }}.
+    La personería de {{ entity.arrendadorjuridicarepresentante }} para representar a {{ entity.arrendatariojuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendatariofecha|date_in_words }} en la notaría de {{ entity.personeriaarrendatarionotaria }} de {{ entity.personeriaarrendatariolugar }}.
     {% endif %}
     </p>
 {% endspaceless %}

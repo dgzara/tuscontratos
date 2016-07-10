@@ -72,3 +72,7 @@ assetic:
             inputs:
                 - '%kernel.root_dir%/../web/acc-wizard/acc-wizard.js'
             filters: [yui_js]
+        validate_js:
+            inputs:
+                - '%kernel.root_dir%/../web/jquery-validate/jquery.validate.js'
+            filters: [yui_js]

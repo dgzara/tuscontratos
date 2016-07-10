@@ -34,12 +34,11 @@
                     <p>Arriendos, contratos de trabajo, y varias plantillas más están disponibles para ayudarte. No guardamos tu información, respetando tu privacidad.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a class="btn btn-default btn-lg" href="{{ path('arriendo_new') }}">
-                        <i class="fa fa-download"></i> Contrato de arriendo
-                    </a>
-                    <a class="btn btn-default btn-lg" href="{{ path('podersimple_new') }}">
-                        <i class="fa fa-download"></i> Poder simple
-                    </a>
+                    <div class="list-group">
+                        <a class="list-group-item" href="{{ path('podersimple_new') }}">Poder Simple</a>
+                        <a class="list-group-item" href="{{ path('casaparticular_new') }}">Contrato Trabajador de Casa Particular</a>
+                        <a class="list-group-item" href="{{ path('arriendo_new') }}">Contrato de arriendo</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block content -%}
-    <h1>Contrato Trabajadorde Casa Particular</h1>
-    <form name="contratosbundle_casaparticular" action="{{ path('casaparticular_create') }}" method="post" {{ form_enctype(form) }}>
+    <h1>Contrato Trabajador de Casa Particular</h1>
+    <form id="form" name="contratosbundle_casaparticular" action="{{ path('casaparticular_create') }}" method="post" {{ form_enctype(form) }}>
         <div class="row acc-wizard">
             <div style="padding-left: 2em;" class="col-md-2">
                 <p style="margin-bottom: 2em;">
@@ -202,7 +202,7 @@
                     </div>
                   </div>
                 <hr>
-                <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <button id="enviar" class="btn btn-primary pull-right" type="submit">Guardar</button>
                 <div class="hide">{{ form_rest(form) }}</div>
             </div>
         </div>
@@ -321,6 +321,30 @@
                 onNext: onNext
             });
         })
-    
+        
+        var validator = $("#form").bind("invalid-form.validate", function() {
+			//console.log("Your form contains " + validator.numberOfInvalids() + " errors, see details below.");
+		}).validate({
+            ignore: "",
+            lang: 'es',
+            errorPlacement: function(error, element) {
+			    // Append error within linked label
+			    $(element).closest('.panel-collapse').collapse('show');
+			    $(element).closest(".form-group").addClass("has-error");
+			    $(element).on("click", function() {
+                    $(this).closest(".form-group").removeClass("has-error");
+                }); 
+                var $span = $('<span class="label label-danger"></span>');
+                $span.append(error);
+			    $(element).closest(".form-group").find("label.control-label").append($span);
+		    },
+        });
+        
+        // only for demo purposes
+        $("#enviar").click(function() {
+            $('.panel-collapse.in').collapse('hide');
+            console.log($('.has-error').length);
+            $('.has-error').closest('.panel-collapse').collapse('show');
+        });
     </script>
 {% endblock %}

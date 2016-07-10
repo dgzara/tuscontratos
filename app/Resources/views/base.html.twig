@@ -19,6 +19,9 @@
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
+        {% if form is defined %}
+        {{ form_stylesheet(form) }}
+        {% endif %}
         {% endblock %}
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -45,7 +48,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#page-top">Tus Contratos!</a>
+                    <a class="navbar-brand" href="{{ path('contratos_homepage') }}">Tus Contratos!</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -141,9 +144,13 @@
             '@bootstrap_js'
             '@freelancer_js'
             '@acc_wizard_js'
+            '@validate_js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        {% if form is defined %}
+        {{ form_javascript(form) }}
+        {% endif %}
         {% endblock %}
     </body>
 </html>

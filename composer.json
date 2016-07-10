@@ -25,7 +25,8 @@
         "liip/imagine-bundle": "dev-master",
         "oyejorge/less.php": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "^2.2",
-        "phpoffice/phpword": "dev-master"
+        "phpoffice/phpword": "dev-master",
+        "stephanecollot/datetimepicker-bundle": "1.0.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

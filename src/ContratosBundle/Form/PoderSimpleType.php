@@ -15,7 +15,13 @@ class PoderSimpleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha', null, array('label' => 'Fecha'))
+            ->add('fecha', 'collot_datetime', array('label' => 'Fecha','pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('ciudad', null, array('label' => 'Ciudad'))
             ->add('otorgante_persona', 'choice', array('label' => 'Tipo de persona', 'expanded' => true, 'choices' => array('Natural' => 'Natural', 'Jurídica' => 'Jurídica')))
             ->add('otorgante_natural_sexo', 'choice', array('label' => 'Sexo', 'expanded' => true, 'choices' => array('Hombre' => 'Hombre', 'Mujer' => 'Mujer')))

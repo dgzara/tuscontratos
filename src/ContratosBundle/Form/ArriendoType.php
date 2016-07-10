@@ -182,7 +182,13 @@ class ArriendoType extends AbstractType
             ->add('renta_cobranza_plazo', null, array('label' => 'Plazo de gracia para cobranza'))
             ->add('renta_cobranza_notificacion', 'choice', array('label' => 'Forma de notificar acciones de cobranza judicial', 'required' => false, 'placeholder' => 'Seleccione una opción'))
             ->add('renta_cobranza_avaluo', 'choice', array('label' => 'Avaluación anticipada de la cobranza judicial', 'required' => false, 'placeholder' => 'Seleccione una opción'))
-            ->add('entrega_fecha', null, array('label' => 'Entrega del inmueble se realiza a la fecha del presente contrato'))
+            ->add('entrega_fecha', 'collot_datetime', array('label' => 'Entrega del inmueble se realiza a la fecha del presente contrato','pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('entrega_inventario', 'choice', array('label' => 'Se realizará inventario de los bienes', 'expanded' => true, 'choices' => array(1 => 'Sí', 0 => 'No'), 'empty_data'  => 'No'))
             ->add('restitucion_forma', null, array('label' => 'Forma de restitución del inmueble'))
             ->add('restitucion_acreditacion', 'choice', array('label' => 'Acreditación del pago del servicios básicos', 'expanded' => true, 'choices' => array(0 => 'No', 1 => 'Sí')))
@@ -243,10 +249,22 @@ class ArriendoType extends AbstractType
             ->add('correo', 'choice', array('label' => '¿Se incluye correo electrónico?', 'expanded' => true, 'choices' => array(1 => 'Sí', 0 => 'No')))
             ->add('correo_arrendador', null, array('label' => 'Correo electrónico del Arrendador'))
             ->add('correo_arrendatario', null, array('label' => 'Correo electrónico del Arrendatario'))
-            ->add('personeria_arrendador_fecha', null, array('label' => 'Fecha'))
+            ->add('personeria_arrendador_fecha', 'collot_datetime', array('label' => 'Fecha', 'required' => false, 'pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('personeria_arrendador_notaria', null, array('label' => 'Notaria'))
             ->add('personeria_arrendador_lugar', null, array('label' => 'Dirección'))
-            ->add('personeria_arrendatario_fecha', null, array('label' => 'Fecha'))
+            ->add('personeria_arrendatario_fecha', 'collot_datetime', array('label' => 'Fecha', 'required' => false, 'pickerOptions' => array(
+                'format' => 'dd/mm/yyyy',
+                'language' => 'es',
+                'minView' => 'month',
+                'autoclose' => true,
+                'todayHighlight' => true
+            )))
             ->add('personeria_arrendatario_notaria', null, array('label' => 'Notaria'))
             ->add('personeria_arrendatario_lugar', null, array('label' => 'Dirección'))
         ;
