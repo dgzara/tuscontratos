@@ -5,14 +5,21 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" style="width: 256px;" src="{{ asset('images/hiring-process-nanny.svg') }}" alt="">
+                <div class="col-lg-8">
+                    <img class="img-responsive" style="height: 200px;" src="{{ asset('images/hiring-process-nanny.svg') }}" alt="">
                     <div class="intro-text">
                         <span class="name">Tu vida más fácil</span>
                         <hr class="star-light">
                         <span class="skills">
                             Genera on line y de forma inmediata todo tipo de contratos personalizados para empresas, profesionales o particulares. 
                         </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="list-group">
+                        <a class="list-group-item" href="{{ path('podersimple_new') }}">Poder Simple</a>
+                        <a class="list-group-item" href="{{ path('casaparticular_new') }}">Contrato Trabajador de Casa Particular</a>
+                        <a class="list-group-item" href="{{ path('arriendo_new') }}">Contrato de arriendo</a>
                     </div>
                 </div>
             </div>
@@ -32,13 +39,6 @@
                 </div>
                 <div class="col-lg-4">
                     <p>Arriendos, contratos de trabajo, y varias plantillas más están disponibles para ayudarte. No guardamos tu información, respetando tu privacidad.</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <div class="list-group">
-                        <a class="list-group-item" href="{{ path('podersimple_new') }}">Poder Simple</a>
-                        <a class="list-group-item" href="{{ path('casaparticular_new') }}">Contrato Trabajador de Casa Particular</a>
-                        <a class="list-group-item" href="{{ path('arriendo_new') }}">Contrato de arriendo</a>
-                    </div>
                 </div>
             </div>
         </div>
