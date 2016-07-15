@@ -18,7 +18,7 @@
     {% else %}
     entre 
     {% for representante in entity.arrendadorjuridicarepresentante %}
-    {% if loop.index > 1 %}, y {% endif %}
+    {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}
     {% if representante.sexo == 'Hombre' %}don{% else %}doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }} 
     {% endfor %}
     en representación de {{ entity.arrendadorjuridicarazon }}, de giro de {{ entity.arrendadorjuridicagiro }}, rol único tributario número {{ entity.arrendadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.arrendadorjuridicadomicilio }}, comuna de {{ entity.arrendadorjuridicacomuna }}, Región {{ entity.arrendadorjuridicaregion }},
@@ -31,7 +31,7 @@
     en {{ entity.arrendatarionaturaldomicilio }}, comuna de {{ entity.arrendatarionaturalcomuna }}, Región {{ entity.arrendatarionaturalregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% else %}
     {% for representante in entity.arrendatariojuridicarepresentante %}
-    {% if loop.index > 1 %}, y {% endif %}
+    {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}
     {% if representante.sexo == "Hombre" %}don{% else %}doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }}
     {% endfor %}
     en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, Región {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
@@ -180,17 +180,34 @@ Las multas u honorarios señalados en los párrafos anteriores deberán ser paga
     {% if entity.arrendadorpersona == "Jurídica" %}
     La personería de
     {% for representante in entity.arrendadorjuridicarepresentante %}
-    {% if loop.index > 1 %}, y {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
+    {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
     {% endfor %}
     para representar a {{ entity.arrendadorjuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendadorfecha|date_in_words }} otorgada en la notaría de {{ entity.personeriaarrendadornotaria }} de {{ entity.personeriaarrendadorlugar }}.
     {% endif %}
     {% if entity.arrendatariopersona == "Jurídica" %}
     La personería de
     {% for representante in entity.arrendatariojuridicarepresentante %}
-    {% if loop.index > 1 %}, y {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
+    {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
     {% endfor %}
     para representar a {{ entity.arrendatariojuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendatariofecha|date_in_words }} en la notaría de {{ entity.personeriaarrendatarionotaria }} de {{ entity.personeriaarrendatariolugar }}.
     {% endif %}
     </p>
+    <p></p>
+    
+    {% if entity.arrendadorpersona == "Natural" %}
+    <h2>________________________</h2><h2>{{ entity.arrendadornatural }}</h2><h2>RUT: {{ entity.arrendadornaturalrut }}</h2>
+    {% else %}
+    {% for representante in entity.arrendadorjuridicarepresentante %}<h2>________________________</h2>
+    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.arrendadorjuridicarazon }}</h2>
+    {% endfor %}
+    {% endif %}
+    
+    {% if entity.arrendatariopersona == "Natural" %}
+    <h2>________________________</h2><h2>{{ entity.arrendatarionatural }}</h2><h2>RUT: {{ entity.arrendatarionaturalrut }}</h2>
+    {% else %}
+    {% for representante in entity.arrendatariojuridicarepresentante %}<h2>________________________</h2>
+    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.arrendatariojuridicarazon }}</h2>
+    {% endfor %}
+    {% endif %}
 {% endspaceless %}
 {% endblock %}
