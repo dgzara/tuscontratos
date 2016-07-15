@@ -1,0 +1,48 @@
+ContratosBundle\Entity\RepresentanteLegal:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sexo:
+            type: string
+            length: 20
+            options:
+                default: Hombre
+        nombres:
+            type: string
+            length: 100
+            nullable: true
+        apellido_paterno:
+            type: string
+            length: 100
+            nullable: true
+        apellido_materno:
+            type: string
+            length: 100
+            nullable: true
+        nacionalidad:
+            type: string
+            length: 100
+            nullable: true
+        profesion:
+            type: string
+            length: 100
+            nullable: true
+        cargo:
+            type: string
+            length: 100
+            nullable: true
+        estado_civil:
+            type: string
+            length: 100
+            nullable: true
+        rut:
+            type: string
+            length: 100
+            nullable: true    
+    lifecycleCallbacks: {  }

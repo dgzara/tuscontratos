@@ -73,13 +73,11 @@ class PoderSimpleType extends AbstractType
                 'Metropolitana de Santiago' => 'Metropolitana de Santiago',
             )))
             ->add('otorgante_juridica_comuna', 'entity', array('label' => 'Comuna', 'required' => false, 'class' => 'ContratosBundle:Comuna', 'placeholder' => 'Seleccione una opción'))
-            ->add('otorgante_juridica_sexo', 'choice', array('label' => 'Sexo', 'expanded' => true, 'choices' => array('Hombre' => 'Hombre', 'Mujer' => 'Mujer')))
-            ->add('otorgante_juridica_nombres', null, array('label' => 'Nombres'))
-            ->add('otorgante_juridica_apellido_paterno', null, array('label' => 'Apellido Paterno'))
-            ->add('otorgante_juridica_apellido_materno', null, array('label' => 'Apellido Materno'))
-            ->add('otorgante_juridica_nacionalidad', null, array('label' => 'Nacionalidad'))
-            ->add('otorgante_juridica_cargo', null, array('label' => 'Cargo'))
-            ->add('otorgante_juridica_persona_rut', null, array('label' => 'RUT'))
+            ->add('otorgante_representante', 'collection', array(
+                'type' => new RepresentanteLegalType(),
+                'allow_add'    => true,
+                'allow_delete' => true,
+            ))
             ->add('recibido_natural_sexo', 'choice', array('label' => 'Sexo', 'expanded' => true, 'choices' => array('Hombre' => 'Hombre', 'Mujer' => 'Mujer')))
             ->add('recibido_natural_nombres', null, array('label' => 'Nombres'))
             ->add('recibido_natural_apellido_paterno', null, array('label' => 'Apellido Paterno'))

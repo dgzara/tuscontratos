@@ -16,7 +16,12 @@
     {% if entity.arrendadornaturalsexo == 'Hombre' %}domiciliado{% else %}domiciliada{%endif %}
     en {{ entity.arrendadornaturaldomicilio }}, comuna de {{ entity.arrendadornaturalcomuna }}, Región {{ entity.arrendadornaturalregion }}
     {% else %}
-    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.arrendadornaturalnombres }} {{ entity.arrendadornaturalapellidopaterno }} {{ entity.arrendadornaturalapellidomaterno }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} en representación de {{ entity.arrendadorjuridicarazon }}, de giro de {{ entity.arrendadorjuridicagiro }}, rol único tributario número {{ entity.arrendadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.arrendadorjuridicadomicilio }}, comuna de {{ entity.arrendadorjuridicacomuna }}, Región {{ entity.arrendadorjuridicaregion }}, 
+    entre 
+    {% for representante in entity.arrendadorjuridicarepresentante %}
+    {% if loop.index > 1 %}, y {% endif %}
+    {% if representante.sexo == 'Hombre' %}don{% else %}doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }} 
+    {% endfor %}
+    en representación de {{ entity.arrendadorjuridicarazon }}, de giro de {{ entity.arrendadorjuridicagiro }}, rol único tributario número {{ entity.arrendadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.arrendadorjuridicadomicilio }}, comuna de {{ entity.arrendadorjuridicacomuna }}, Región {{ entity.arrendadorjuridicaregion }},
     {% endif %}
     en adelante e indistintamente, EL ARRENDADOR, por una parte, y por la otra,
     {% if entity.arrendatarionaturalsexo == 'Hombre' %}don{% else %}doña{%endif %}
@@ -25,7 +30,11 @@
     {% if entity.arrendatarionaturalsexo == 'Hombre' %}domiciliado{% else %}domiciliada{%endif %} 
     en {{ entity.arrendatarionaturaldomicilio }}, comuna de {{ entity.arrendatarionaturalcomuna }}, Región {{ entity.arrendatarionaturalregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% else %}
-    {% if entity.arrendatarionaturalsexo == "Hombre" %}Don{% else %}Doña{% endif %} {{ entity.arrendatarionaturalnombres }} {{ entity.arrendatarionaturalapellidopaterno }} {{ entity.arrendatarionaturalapellidomaterno }}, {{ entity.arrendatarionaturalnacionalidad }}, {{ entity.arrendatarionaturalestadocivil }}, {{ entity.arrendatarionaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendatarionaturalrut }} en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, Región {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
+    {% for representante in entity.arrendatariojuridicarepresentante %}
+    {% if loop.index > 1 %}, y {% endif %}
+    {% if representante.sexo == "Hombre" %}don{% else %}doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }}
+    {% endfor %}
+    en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, Región {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% endif %}
     </p>
         
@@ -169,10 +178,18 @@ Las multas u honorarios señalados en los párrafos anteriores deberán ser paga
     
     <p>{{ listado[contador] }}: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha; quedando uno en poder de cada parte contratante.
     {% if entity.arrendadorpersona == "Jurídica" %}
-    La personería de {{ entity.arrendadorjuridicarepresentante }} para representar a {{ entity.arrendadorjuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendadorfecha|date_in_words }} otorgada en la notaría de {{ entity.personeriaarrendadornotaria }} de {{ entity.personeriaarrendadorlugar }}.
+    La personería de
+    {% for representante in entity.arrendadorjuridicarepresentante %}
+    {% if loop.index > 1 %}, y {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
+    {% endfor %}
+    para representar a {{ entity.arrendadorjuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendadorfecha|date_in_words }} otorgada en la notaría de {{ entity.personeriaarrendadornotaria }} de {{ entity.personeriaarrendadorlugar }}.
     {% endif %}
     {% if entity.arrendatariopersona == "Jurídica" %}
-    La personería de {{ entity.arrendadorjuridicarepresentante }} para representar a {{ entity.arrendatariojuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendatariofecha|date_in_words }} en la notaría de {{ entity.personeriaarrendatarionotaria }} de {{ entity.personeriaarrendatariolugar }}.
+    La personería de
+    {% for representante in entity.arrendatariojuridicarepresentante %}
+    {% if loop.index > 1 %}, y {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
+    {% endfor %}
+    para representar a {{ entity.arrendatariojuridicarazon }} consta por escritura pública de fecha {{ entity.personeriaarrendatariofecha|date_in_words }} en la notaría de {{ entity.personeriaarrendatarionotaria }} de {{ entity.personeriaarrendatariolugar }}.
     {% endif %}
     </p>
 {% endspaceless %}

@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ContratosBundle\Entity\Arriendo;
+use ContratosBundle\Entity\RepresentanteLegal;
 use ContratosBundle\Form\ArriendoType;
 
 /**
@@ -47,6 +48,13 @@ class ArriendoController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Arriendo();
+        
+        $arrendadorRepresentanteLegal = new RepresentanteLegal();
+        $arrendatarioRepresentanteLegal = new RepresentanteLegal();
+        
+        $entity->addArrendadorJuridicaRepresentante($arrendadorRepresentanteLegal);
+        $entity->addArrendatarioJuridicaRepresentante($arrendatarioRepresentanteLegal);
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -93,6 +101,13 @@ class ArriendoController extends Controller
     public function newAction()
     {
         $entity = new Arriendo();
+        
+        $arrendadorRepresentanteLegal = new RepresentanteLegal();
+        $arrendatarioRepresentanteLegal = new RepresentanteLegal();
+        
+        $entity->addArrendadorJuridicaRepresentante($arrendadorRepresentanteLegal);
+        $entity->addArrendatarioJuridicaRepresentante($arrendatarioRepresentanteLegal);
+        
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -141,10 +156,10 @@ class ArriendoController extends Controller
         }
         
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $phpWord->setDefaultFontName('Times New Roman');
+        $phpWord->setDefaultFontName('Verdana');
         $phpWord->setDefaultFontSize(12);
         $phpWord->addTitleStyle(1, array(
-            'name' => 'Times New Roman', 
+            'name' => 'Verdana', 
             'size' => 18, 
             'bold' => true,
         ), array(
@@ -152,16 +167,16 @@ class ArriendoController extends Controller
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
         ));
         $phpWord->addTitleStyle(2, array(
-            'name' => 'Times New Roman', 
-            'size' => 12, 
+            'name' => 'Verdana', 
+            'size' => 11, 
             'bold' => false,
         ), array(
             'align' => 'center',
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(3),
         ));
         $phpWord->addTitleStyle(3, array(
-            'name' => 'Times New Roman', 
-            'size' => 12, 
+            'name' => 'Verdana', 
+            'size' => 11, 
             'bold' => false,
         ), array(
             'indent' => 0.8,
@@ -171,7 +186,7 @@ class ArriendoController extends Controller
             'align'      => 'both',
             'spacing'    => 120,
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
-            'lineHeight'     => 1.5
+            'lineHeight'     => 1
         ));
         
         // Adding an empty Section to the document...

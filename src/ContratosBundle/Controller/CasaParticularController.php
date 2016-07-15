@@ -143,10 +143,10 @@ class CasaParticularController extends Controller
         }
         
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $phpWord->setDefaultFontName('Times New Roman');
+        $phpWord->setDefaultFontName('Verdana');
         $phpWord->setDefaultFontSize(12);
         $phpWord->addTitleStyle(1, array(
-            'name' => 'Times New Roman', 
+            'name' => 'Verdana', 
             'size' => 18, 
             'bold' => true,
         ), array(
@@ -154,16 +154,16 @@ class CasaParticularController extends Controller
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
         ));
         $phpWord->addTitleStyle(2, array(
-            'name' => 'Times New Roman', 
-            'size' => 12, 
+            'name' => 'Verdana', 
+            'size' => 11, 
             'bold' => false,
         ), array(
             'align' => 'center',
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(3),
         ));
         $phpWord->addTitleStyle(3, array(
-            'name' => 'Times New Roman', 
-            'size' => 12, 
+            'name' => 'Verdana', 
+            'size' => 11, 
             'bold' => false,
         ), array(
             'indent' => 0.8,
@@ -173,7 +173,7 @@ class CasaParticularController extends Controller
             'align'      => 'both',
             'spacing'    => 120,
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
-            'lineHeight'     => 1.5
+            'lineHeight'     => 1
         ));
         
         // Adding an empty Section to the document...

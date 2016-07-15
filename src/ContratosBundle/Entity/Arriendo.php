@@ -710,6 +710,25 @@ class Arriendo
     private $arrendatario_juridica_representante_rut;
     
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $arrendador_juridica_representante;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $arrendatario_juridica_representante;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->arrendador_juridica_representante = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->arrendatario_juridica_representante = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -3592,367 +3611,68 @@ class Arriendo
     }
 
     /**
-     * Set arrendador_juridica_representante_sexo
+     * Get arrendador_juridica_representante
      *
-     * @param string $arrendadorJuridicaRepresentanteSexo
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteSexo($arrendadorJuridicaRepresentanteSexo)
-    {
-        $this->arrendador_juridica_representante_sexo = $arrendadorJuridicaRepresentanteSexo;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_sexo
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteSexo()
-    {
-        return $this->arrendador_juridica_representante_sexo;
-    }
-
-    /**
-     * Set arrendador_juridica_representante_nombres
-     *
-     * @param string $arrendadorJuridicaRepresentanteNombres
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteNombres($arrendadorJuridicaRepresentanteNombres)
-    {
-        $this->arrendador_juridica_representante_nombres = $arrendadorJuridicaRepresentanteNombres;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_nombres
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteNombres()
-    {
-        return $this->arrendador_juridica_representante_nombres;
-    }
-
-    /**
-     * Set arrendador_juridica_representante_apellido_paterno
-     *
-     * @param string $arrendadorJuridicaRepresentanteApellidoPaterno
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteApellidoPaterno($arrendadorJuridicaRepresentanteApellidoPaterno)
-    {
-        $this->arrendador_juridica_representante_apellido_paterno = $arrendadorJuridicaRepresentanteApellidoPaterno;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_apellido_paterno
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteApellidoPaterno()
-    {
-        return $this->arrendador_juridica_representante_apellido_paterno;
-    }
-
-    /**
-     * Set arrendador_juridica_representante_apellido_materno
-     *
-     * @param string $arrendadorJuridicaRepresentanteApellidoMaterno
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteApellidoMaterno($arrendadorJuridicaRepresentanteApellidoMaterno)
-    {
-        $this->arrendador_juridica_representante_apellido_materno = $arrendadorJuridicaRepresentanteApellidoMaterno;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_apellido_materno
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteApellidoMaterno()
-    {
-        return $this->arrendador_juridica_representante_apellido_materno;
-    }
-
-    /**
-     * Set arrendador_juridica_representante_nacionalidad
-     *
-     * @param string $arrendadorJuridicaRepresentanteNacionalidad
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteNacionalidad($arrendadorJuridicaRepresentanteNacionalidad)
-    {
-        $this->arrendador_juridica_representante_nacionalidad = $arrendadorJuridicaRepresentanteNacionalidad;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_nacionalidad
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteNacionalidad()
-    {
-        return $this->arrendador_juridica_representante_nacionalidad;
-    }
-
-    /**
-     * Set arrendador_juridica_representante_estado_civil
-     *
-     * @param string $arrendadorJuridicaRepresentanteEstadoCivil
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteEstadoCivil($arrendadorJuridicaRepresentanteEstadoCivil)
-    {
-        $this->arrendador_juridica_representante_estado_civil = $arrendadorJuridicaRepresentanteEstadoCivil;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_estado_civil
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteEstadoCivil()
-    {
-        return $this->arrendador_juridica_representante_estado_civil;
-    }
-
-    /**
-     * Set arrendador_juridica_representante_rut
-     *
-     * @param string $arrendadorJuridicaRepresentanteRut
-     * @return Arriendo
-     */
-    public function setArrendadorJuridicaRepresentanteRut($arrendadorJuridicaRepresentanteRut)
-    {
-        $this->arrendador_juridica_representante_rut = $arrendadorJuridicaRepresentanteRut;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_rut
-     *
-     * @return string 
-     */
-    public function getArrendadorJuridicaRepresentanteRut()
-    {
-        return $this->arrendador_juridica_representante_rut;
-    }
-
-    /**
-     * Get arrendador_juridica_representante_nombres
-     *
-     * @return string 
+     * @return \ContratosBundle\Entity\RepresentanteLegal $arrendadorJuridicaRepresentante
      */
     public function getArrendadorJuridicaRepresentante()
     {
-        return $this->arrendador_juridica_representante_nombres.' '.$this->arrendador_juridica_representante_apellido_paterno.' '.$this->arrendador_juridica_representante_apellido_materno;
+        return $this->arrendador_juridica_representante;
     }
     
     /**
-     * Set arrendatario_juridica_representante_sexo
+     * Add arrendador_juridica_representante
      *
-     * @param string $arrendatarioJuridicaRepresentanteSexo
+     * @param \ContratosBundle\Entity\RepresentanteLegal $arrendadorJuridicaRepresentante
      * @return Arriendo
      */
-    public function setArrendatarioJuridicaRepresentanteSexo($arrendatarioJuridicaRepresentanteSexo)
+    public function addArrendadorJuridicaRepresentante(\ContratosBundle\Entity\RepresentanteLegal $arrendadorJuridicaRepresentante)
     {
-        $this->arrendatario_juridica_representante_sexo = $arrendatarioJuridicaRepresentanteSexo;
+        $this->arrendador_juridica_representante[] = $arrendadorJuridicaRepresentante;
 
         return $this;
     }
 
     /**
-     * Get arrendatario_juridica_representante_sexo
+     * Remove arrendador_juridica_representante
      *
-     * @return string 
+     * @param \ContratosBundle\Entity\RepresentanteLegal $arrendadorJuridicaRepresentante
      */
-    public function getArrendatarioJuridicaRepresentanteSexo()
+    public function removeArrendadorJuridicaRepresentante(\ContratosBundle\Entity\RepresentanteLegal $arrendadorJuridicaRepresentante)
     {
-        return $this->arrendatario_juridica_representante_sexo;
+        $this->arrendador_juridica_representante->removeElement($arrendadorJuridicaRepresentante);
     }
 
     /**
-     * Set arrendatario_juridica_representante_nombres
+     * Get arrendatario_juridica_representante
      *
-     * @param string $arrendatarioJuridicaRepresentanteNombres
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteNombres($arrendatarioJuridicaRepresentanteNombres)
-    {
-        $this->arrendatario_juridica_representante_nombres = $arrendatarioJuridicaRepresentanteNombres;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_nombres
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteNombres()
-    {
-        return $this->arrendatario_juridica_representante_nombres;
-    }
-
-    /**
-     * Set arrendatario_juridica_representante_apellido_paterno
-     *
-     * @param string $arrendatarioJuridicaRepresentanteApellidoPaterno
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteApellidoPaterno($arrendatarioJuridicaRepresentanteApellidoPaterno)
-    {
-        $this->arrendatario_juridica_representante_apellido_paterno = $arrendatarioJuridicaRepresentanteApellidoPaterno;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_apellido_paterno
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteApellidoPaterno()
-    {
-        return $this->arrendatario_juridica_representante_apellido_paterno;
-    }
-
-    /**
-     * Set arrendatario_juridica_representante_apellido_materno
-     *
-     * @param string $arrendatarioJuridicaRepresentanteApellidoMaterno
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteApellidoMaterno($arrendatarioJuridicaRepresentanteApellidoMaterno)
-    {
-        $this->arrendatario_juridica_representante_apellido_materno = $arrendatarioJuridicaRepresentanteApellidoMaterno;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_apellido_materno
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteApellidoMaterno()
-    {
-        return $this->arrendatario_juridica_representante_apellido_materno;
-    }
-
-    /**
-     * Set arrendatario_juridica_representante_nacionalidad
-     *
-     * @param string $arrendatarioJuridicaRepresentanteNacionalidad
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteNacionalidad($arrendatarioJuridicaRepresentanteNacionalidad)
-    {
-        $this->arrendatario_juridica_representante_nacionalidad = $arrendatarioJuridicaRepresentanteNacionalidad;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_nacionalidad
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteNacionalidad()
-    {
-        return $this->arrendatario_juridica_representante_nacionalidad;
-    }
-
-    /**
-     * Set arrendatario_juridica_representante_estado_civil
-     *
-     * @param string $arrendatarioJuridicaRepresentanteEstadoCivil
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteEstadoCivil($arrendatarioJuridicaRepresentanteEstadoCivil)
-    {
-        $this->arrendatario_juridica_representante_estado_civil = $arrendatarioJuridicaRepresentanteEstadoCivil;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_estado_civil
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteEstadoCivil()
-    {
-        return $this->arrendatario_juridica_representante_estado_civil;
-    }
-
-    /**
-     * Set arrendatario_juridica_representante_profesion
-     *
-     * @param string $arrendatarioJuridicaRepresentanteProfesion
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteProfesion($arrendatarioJuridicaRepresentanteProfesion)
-    {
-        $this->arrendatario_juridica_representante_profesion = $arrendatarioJuridicaRepresentanteProfesion;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_profesion
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteProfesion()
-    {
-        return $this->arrendatario_juridica_representante_profesion;
-    }
-
-    /**
-     * Set arrendatario_juridica_representante_rut
-     *
-     * @param string $arrendatarioJuridicaRepresentanteRut
-     * @return Arriendo
-     */
-    public function setArrendatarioJuridicaRepresentanteRut($arrendatarioJuridicaRepresentanteRut)
-    {
-        $this->arrendatario_juridica_representante_rut = $arrendatarioJuridicaRepresentanteRut;
-
-        return $this;
-    }
-
-    /**
-     * Get arrendatario_juridica_representante_rut
-     *
-     * @return string 
-     */
-    public function getArrendatarioJuridicaRepresentanteRut()
-    {
-        return $this->arrendatario_juridica_representante_rut;
-    }
-    
-    /**
-     * Get arrendatario_juridica_representante_nombres
-     *
-     * @return string 
+     * @return \ContratosBundle\Entity\RepresentanteLegal $arrendatarioJuridicaRepresentante
      */
     public function getArrendatarioJuridicaRepresentante()
     {
-        return $this->arrendatario_juridica_representante_nombres.' '.$this->arrendatario_juridica_representante_apellido_paterno.' '.$this->arrendatario_juridica_representante_apellido_materno;
+        return $this->arrendatario_juridica_representante;
+    }
+    
+    /**
+     * Add arrendatario_juridica_representante
+     *
+     * @param \ContratosBundle\Entity\RepresentanteLegal $arrendatarioJuridicaRepresentante
+     * @return Arriendo
+     */
+    public function addArrendatarioJuridicaRepresentante(\ContratosBundle\Entity\RepresentanteLegal $arrendatarioJuridicaRepresentante)
+    {
+        $this->arrendatario_juridica_representante[] = $arrendatarioJuridicaRepresentante;
+
+        return $this;
+    }
+
+    /**
+     * Remove arrendatario_juridica_representante
+     *
+     * @param \ContratosBundle\Entity\RepresentanteLegal $arrendatarioJuridicaRepresentante
+     */
+    public function removeArrendatarioJuridicaRepresentante(\ContratosBundle\Entity\RepresentanteLegal $arrendatarioJuridicaRepresentante)
+    {
+        $this->arrendatario_juridica_representante->removeElement($arrendatarioJuridicaRepresentante);
     }
 }

@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ContratosBundle\Entity\PoderSimple;
+use ContratosBundle\Entity\RepresentanteLegal;
 use ContratosBundle\Form\PoderSimpleType;
 
 /**
@@ -46,6 +47,7 @@ class PoderSimpleController extends Controller
     public function createAction(Request $request)
     {
         $entity = new PoderSimple();
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -140,18 +142,18 @@ class PoderSimpleController extends Controller
         }
         
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $phpWord->setDefaultFontName('Times New Roman');
-        $phpWord->setDefaultFontSize(12);
+        $phpWord->setDefaultFontName('Verdana');
+        $phpWord->setDefaultFontSize(11);
         $phpWord->addTitleStyle(1, array(
-            'name' => 'Times New Roman', 
+            'name' => 'Verdana', 
             'size' => 18, 
             'bold' => true,
         ), array(
             'align' => 'center'
         ));
         $phpWord->addTitleStyle(2, array(
-            'name' => 'Times New Roman', 
-            'size' => 12, 
+            'name' => 'Verdana', 
+            'size' => 11, 
             'bold' => false,
         ), array(
             'align' => 'center',
@@ -161,12 +163,12 @@ class PoderSimpleController extends Controller
             'align'      => 'both',
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(12),
             'spacing'    => 120,
+            'lineHeight' => 1
         ));
         
         // Adding an empty Section to the document...
         $section = $phpWord->addSection();
         $section->addTitle('Poder Simple', 1);
-        
         
         // Obtenemos el documento hecho html
         $html = $this->renderView('ContratosBundle:PoderSimple:show.html.twig', array(

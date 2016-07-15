@@ -180,6 +180,19 @@ class PoderSimple
     private $otorgante_juridica_cargo;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $otorgante_representante;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->otorgante_representante = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -798,6 +811,39 @@ class PoderSimple
     }
 
     /**
+     * Add otorgante_representante
+     *
+     * @param \ContratosBundle\Entity\RepresentanteLegal $otorganteRepresentante
+     * @return PoderSimple
+     */
+    public function addOtorganteRepresentante(\ContratosBundle\Entity\RepresentanteLegal $otorganteRepresentante)
+    {
+        $this->otorgante_representante[] = $otorganteRepresentante;
+
+        return $this;
+    }
+
+    /**
+     * Remove otorgante_representante
+     *
+     * @param \ContratosBundle\Entity\RepresentanteLegal $otorganteRepresentante
+     */
+    public function removeOtorganteRepresentante(\ContratosBundle\Entity\RepresentanteLegal $otorganteRepresentante)
+    {
+        $this->otorgante_representante->removeElement($otorganteRepresentante);
+    }
+
+    /**
+     * Get otorgante_representante
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOtorganteRepresentante()
+    {
+        return $this->otorgante_representante;
+    }
+
+    /**
      * Set otorgante_juridica_sexo
      *
      * @param string $otorganteJuridicaSexo
@@ -818,143 +864,5 @@ class PoderSimple
     public function getOtorganteJuridicaSexo()
     {
         return $this->otorgante_juridica_sexo;
-    }
-
-    /**
-     * Set otorgante_juridica_nombres
-     *
-     * @param string $otorganteJuridicaNombres
-     * @return PoderSimple
-     */
-    public function setOtorganteJuridicaNombres($otorganteJuridicaNombres)
-    {
-        $this->otorgante_juridica_nombres = $otorganteJuridicaNombres;
-
-        return $this;
-    }
-
-    /**
-     * Get otorgante_juridica_nombres
-     *
-     * @return string 
-     */
-    public function getOtorganteJuridicaNombres()
-    {
-        return $this->otorgante_juridica_nombres;
-    }
-
-    /**
-     * Set otorgante_juridica_apellido_paterno
-     *
-     * @param string $otorganteJuridicaApellidoPaterno
-     * @return PoderSimple
-     */
-    public function setOtorganteJuridicaApellidoPaterno($otorganteJuridicaApellidoPaterno)
-    {
-        $this->otorgante_juridica_apellido_paterno = $otorganteJuridicaApellidoPaterno;
-
-        return $this;
-    }
-
-    /**
-     * Get otorgante_juridica_apellido_paterno
-     *
-     * @return string 
-     */
-    public function getOtorganteJuridicaApellidoPaterno()
-    {
-        return $this->otorgante_juridica_apellido_paterno;
-    }
-
-    /**
-     * Set otorgante_juridica_apellido_materno
-     *
-     * @param string $otorganteJuridicaApellidoMaterno
-     * @return PoderSimple
-     */
-    public function setOtorganteJuridicaApellidoMaterno($otorganteJuridicaApellidoMaterno)
-    {
-        $this->otorgante_juridica_apellido_materno = $otorganteJuridicaApellidoMaterno;
-
-        return $this;
-    }
-
-    /**
-     * Get otorgante_juridica_apellido_materno
-     *
-     * @return string 
-     */
-    public function getOtorganteJuridicaApellidoMaterno()
-    {
-        return $this->otorgante_juridica_apellido_materno;
-    }
-
-    /**
-     * Set otorgante_juridica_nacionalidad
-     *
-     * @param string $otorganteJuridicaNacionalidad
-     * @return PoderSimple
-     */
-    public function setOtorganteJuridicaNacionalidad($otorganteJuridicaNacionalidad)
-    {
-        $this->otorgante_juridica_nacionalidad = $otorganteJuridicaNacionalidad;
-
-        return $this;
-    }
-
-    /**
-     * Get otorgante_juridica_nacionalidad
-     *
-     * @return string 
-     */
-    public function getOtorganteJuridicaNacionalidad()
-    {
-        return $this->otorgante_juridica_nacionalidad;
-    }
-
-    /**
-     * Set otorgante_juridica_persona_rut
-     *
-     * @param string $otorganteJuridicaPersonaRut
-     * @return PoderSimple
-     */
-    public function setOtorganteJuridicaPersonaRut($otorganteJuridicaPersonaRut)
-    {
-        $this->otorgante_juridica_persona_rut = $otorganteJuridicaPersonaRut;
-
-        return $this;
-    }
-
-    /**
-     * Get otorgante_juridica_persona_rut
-     *
-     * @return string 
-     */
-    public function getOtorganteJuridicaPersonaRut()
-    {
-        return $this->otorgante_juridica_persona_rut;
-    }
-
-    /**
-     * Set otorgante_juridica_cargo
-     *
-     * @param string $otorganteJuridicaCargo
-     * @return PoderSimple
-     */
-    public function setOtorganteJuridicaCargo($otorganteJuridicaCargo)
-    {
-        $this->otorgante_juridica_cargo = $otorganteJuridicaCargo;
-
-        return $this;
-    }
-
-    /**
-     * Get otorgante_juridica_cargo
-     *
-     * @return string 
-     */
-    public function getOtorganteJuridicaCargo()
-    {
-        return $this->otorgante_juridica_cargo;
     }
 }

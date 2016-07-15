@@ -78,33 +78,8 @@
                                     {{ form_row(form.otorgante_juridica_domicilio) }}
                                     {{ form_row(form.otorgante_juridica_region) }}
                                     {{ form_row(form.otorgante_juridica_comuna) }}
-                                    
-                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                                      Agregar representante legal
-                                    </button>
-
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                      <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Representante legal</h4>
-                                          </div>
-                                          <div class="modal-body">
-                                            {{ form_row(form.otorgante_juridica_sexo) }}
-                                            {{ form_row(form.otorgante_juridica_nombres) }}
-                                            {{ form_row(form.otorgante_juridica_apellido_paterno) }}
-                                            {{ form_row(form.otorgante_juridica_apellido_materno) }}
-                                            {{ form_row(form.otorgante_juridica_nacionalidad) }}
-                                            {{ form_row(form.otorgante_juridica_persona_rut) }}
-                                            {{ form_row(form.otorgante_juridica_cargo) }}
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    <ul class="representantes" data-prototype="{% filter escape %}{% include 'ContratosBundle:RepresentanteLegal:prototype.html.twig' with {'form': form.otorgante_representante.vars.prototype} %}{% endfilter %}">
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -215,5 +190,75 @@
             console.log($('.has-error').length);
             $('.has-error').closest('.panel-collapse').collapse('show');
         });
+        
+        // Colección de Representantes
+        var $collectionHolder;
+
+        // setup an "add a tag" link
+        var $addTagLink = $('<button type="button" class="add_tag_link btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Agregar representante legal</button>');
+        var $newLinkLi = $('<li></li>').append($addTagLink);
+
+        jQuery(document).ready(function() {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.representantes');
+
+            // add the "add a tag" anchor and li to the tags ul
+            $collectionHolder.append($newLinkLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+            
+            // add a delete link to all of the existing tag form li elements
+            $collectionHolder.find('li.representante').each(function() {
+                addTagFormDeleteLink($(this));
+            });
+    
+            $addTagLink.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new tag form (see next code block)
+                addTagForm($collectionHolder, $newLinkLi);
+            });
+        });
+        
+        function addTagForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li class="representante"><a href="#" data-toggle="modal" data-target="#myModal'+index+'">Representante Legal '+index+'</a></li>').append(newForm);
+
+            // add a delete link to the new form
+            addTagFormDeleteLink($newFormLi);
+            $newLinkLi.before($newFormLi);
+            
+            // Mostramos el modal
+            $('#myModal'+index).modal('show');
+        }
+        
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $(' <a href="#">x</a>');
+            $tagFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $tagFormLi.remove();
+            });
+        }
     </script>
 {% endblock %}

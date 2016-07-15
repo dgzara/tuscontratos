@@ -84,30 +84,6 @@ ContratosBundle\Entity\PoderSimple:
             length: 20
             options:
                 default: Hombre
-        otorgante_juridica_nombres:
-            type: string
-            length: 100
-            nullable: true
-        otorgante_juridica_apellido_paterno:
-            type: string
-            length: 100
-            nullable: true
-        otorgante_juridica_apellido_materno:
-            type: string
-            length: 100
-            nullable: true
-        otorgante_juridica_nacionalidad:
-            type: string
-            length: 100
-            nullable: true
-        otorgante_juridica_persona_rut:
-            type: string
-            length: 100
-            nullable: true
-        otorgante_juridica_cargo:
-            type: string
-            length: 100
-            nullable: true
         recibido_natural_sexo:
             type: string
             length: 20
@@ -133,6 +109,19 @@ ContratosBundle\Entity\PoderSimple:
             type: string
             length: 255
             nullable: true
+    manyToMany:
+        otorgante_representante:
+          targetEntity: RepresentanteLegal
+          cascade: ["persist", "merge"]
+          joinTable:
+            name: poderes_representantes
+            joinColumns:
+              poder_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              representante_id:
+                referencedColumnName: id
+                unique: true
     manyToOne:
         otorgante_natural_comuna:
             targetEntity: Comuna

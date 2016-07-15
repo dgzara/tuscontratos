@@ -73,35 +73,6 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
-        arrendador_juridica_representante_sexo:
-            type: string
-            length: 20
-            options:
-                default: Hombre
-        arrendador_juridica_representante_nombres:
-            type: string
-            length: 100
-            nullable: true
-        arrendador_juridica_representante_apellido_paterno:
-            type: string
-            length: 100
-            nullable: true
-        arrendador_juridica_representante_apellido_materno:
-            type: string
-            length: 100
-            nullable: true
-        arrendador_juridica_representante_nacionalidad:
-            type: string
-            length: 100
-            nullable: true
-        arrendador_juridica_representante_estado_civil:
-            type: string
-            length: 100
-            nullable: true
-        arrendador_juridica_representante_rut:
-            type: string
-            length: 100
-            nullable: true    
         arrendatario_persona:
             type: string
             length: 20
@@ -164,35 +135,6 @@ ContratosBundle\Entity\Arriendo:
             length: 100
             nullable: true
         arrendatario_juridica_region:
-            type: string
-            length: 100
-            nullable: true
-        arrendatario_juridica_representante_sexo:
-            type: string
-            length: 20
-            options:
-                default: Hombre
-        arrendatario_juridica_representante_nombres:
-            type: string
-            length: 100
-            nullable: true
-        arrendatario_juridica_representante_apellido_paterno:
-            type: string
-            length: 100
-            nullable: true
-        arrendatario_juridica_representante_apellido_materno:
-            type: string
-            length: 100
-            nullable: true
-        arrendatario_juridica_representante_nacionalidad:
-            type: string
-            length: 100
-            nullable: true
-        arrendatario_juridica_representante_estado_civil:
-            type: string
-            length: 100
-            nullable: true
-        arrendatario_juridica_representante_rut:
             type: string
             length: 100
             nullable: true
@@ -544,6 +486,31 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
+    manyToMany:
+        arrendador_juridica_representante:
+          targetEntity: RepresentanteLegal
+          cascade: ["persist", "merge"]
+          joinTable:
+            name: arrendador_representantes
+            joinColumns:
+              arriendo_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              representante_id:
+                referencedColumnName: id
+                unique: true
+        arrendatario_juridica_representante:
+          targetEntity: RepresentanteLegal
+          cascade: ["persist", "merge"]
+          joinTable:
+            name: arrendatario_representantes
+            joinColumns:
+              arriendo_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              representante_id:
+                referencedColumnName: id
+                unique: true
     manyToOne:
         arrendador_natural_comuna:
             targetEntity: Comuna
