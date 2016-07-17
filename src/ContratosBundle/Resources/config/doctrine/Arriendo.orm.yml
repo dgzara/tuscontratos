@@ -10,6 +10,7 @@ ContratosBundle\Entity\Arriendo:
     fields:
         fecha:
             type: datetime
+            nullable: true
         ciudad:
             type: string
             length: 100

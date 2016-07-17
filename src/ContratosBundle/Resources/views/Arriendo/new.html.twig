@@ -555,14 +555,19 @@
                     </div>
                     <div id="collapsePersoneria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPersoneria">
                       <div class="panel-body">
-                        <div id="personeria_arrendador" style="display: none;">
-                            {{ form_row(form.personeria_arrendador_fecha) }}
-                            {{ form_row(form.personeria_arrendador_notaria) }}
-                            {{ form_row(form.personeria_arrendador_lugar) }}
-                        <div id="personeria_arrendatario" style="display: none;">
-                            {{ form_row(form.personeria_arrendatario_fecha) }}
-                            {{ form_row(form.personeria_arrendatario_notaria) }}
-                            {{ form_row(form.personeria_arrendatario_lugar) }}
+                        <div class="row">
+                            <div id="personeria_arrendador" class="col-md-6" style="display: none;">
+                                <h4>Personería arrendador</h4>
+                                {{ form_row(form.personeria_arrendador_fecha) }}
+                                {{ form_row(form.personeria_arrendador_notaria) }}
+                                {{ form_row(form.personeria_arrendador_lugar) }}
+                            </div>
+                            <div id="personeria_arrendatario" class="col-md-6" style="display: none;">
+                                <h4>Personería arrendatario</h4>
+                                {{ form_row(form.personeria_arrendatario_fecha) }}
+                                {{ form_row(form.personeria_arrendatario_notaria) }}
+                                {{ form_row(form.personeria_arrendatario_lugar) }}
+                            </div>
                         </div>
                       </div>
                     </div>

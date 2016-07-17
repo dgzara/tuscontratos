@@ -3,6 +3,12 @@ php app/console assets:install web --symlink
 php app/console assetic:dump --env=dev --no-debug
 php app/console assetic:dump --env=prod --no-debug
 
+# Creamos nuevamente la base de datos
+php app/console doctrine:database:drop --force
+php app/console doctrine:database:create
+php app/console doctrine:schema:update --force
+php app/console doctrine:fixtures:load --append
+
 # Limpiamos el cache
 php app/console cache:clear
 php app/console cache:clear --env=prod
