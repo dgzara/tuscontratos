@@ -1,0 +1,20 @@
+ContratosBundle\Entity\Jornada:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dia:
+            type: integer
+            length: 11
+        inicio:
+            type: datetime
+            nullable: true
+        fin:
+            type: datetime
+            nullable: true    
+    lifecycleCallbacks: {  }

@@ -1,0 +1,122 @@
+{% extends '::word.html.twig' %}
+
+{% set listado = ["PRIMERO", "SEGUNDO", "TERCERO", "CUARTO", "QUINTO", "SEXTO", "SEPTIMO", "OCTAVO", "NOVENO", "DECIMO", "DECIMO PRIMERO", "DECIMO SEGUNDO", "DECIMO TERCERO", "DECIMO CUARTO", "DECIMO QUINTO", "DECIMO SEXTO", "DECIMO SEPTIMO"] %}
+{% set letras = ["a","b","c","d","e","f","g","h","i","j"] %}
+{% set contador = 6 %}
+{% set contador2 = 0 %}
+
+{% block body -%}
+{% spaceless %}
+    <h1>CONTRATO DE TRABAJO</h1><h1>ENTRE</h1><h1>{{ entity.empleador|upper }}</h1><h1>y</h1><h1>{{ entity.trabajador|upper }}</h1>
+    <p></p>
+    <p>En {{ entity.ciudad|upper }}, a {{ entity.fecha|date_in_words }},
+    entre 
+    {% if entity.empleadorpersona == "Natural" %}
+    {% if entity.empleadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.empleadornatural }}
+    , cédula nacional de identidad o pasaporte número {{ entity.empleadornaturalrut }}, domiciliado en {{ entity.empleadornaturaldomicilio }}, comuna de {{ entity.empleadornaturalcomuna }}, Región {{ entity.empleadornaturalregion }}, 
+    {% else %}
+    {% for representante in entity.empleadorjuridicarepresentantes %}{% if loop.index > 1%}, {% if loop.last %}y{% endif %} {% endif %}{% if representante.sexo == 'Hombre' %}don{% else %}doña{%endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, cédula nacional de identidad número {{ representante.rut }}{% endfor %} en representación de {{ entity.empleadorjuridicarazon }}, de giro de {{ entity.empleadorjuridicagiro }}, rol único tributario número {{ entity.empleadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.empleadorjuridicadomicilio }}, comuna de {{ entity.empleadorjuridicacomuna }}, Región {{ entity.empleadorjuridicaregion }},
+    {% endif %}
+en adelante e indistintamente, <strong>“EMPLEADOR”</strong> o “<strong>EL EMPLEADOR</strong>”, por una parte, y por la otra, {% if entity.trabajadorsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.trabajador }}
+    {% if entity.trabajadorextranjero == false %}, de nacionalidad chilena{% else %}, {{ entity.trabajadornacionalidad }}, procedente de {{ entity.trabajadorprocedencia }}{% endif %}
+    , {{ entity.trabajadorestadocivil|lower }}, {{ entity.trabajadorprofesion|lower }}, cédula nacional de identidad o pasaporte número {{ entity.trabajadorrut }}, nacido el {{ entity.trabajadornacimiento|date_in_words }}, domiciliado en {{ entity.trabajadordomicilio}} comuna de {{ entity.trabajadorcomuna }}, Región {{ entity.trabajadorregion }}, en adelante e indistintamente, 
+    <strong>“TRABAJADOR”</strong> o “<strong>EL TRABAJADOR</strong>” , han convenido en celebrar el siguiente contrato de trabajo, que se regirá por las normas establecidas en el Código del Trabajo y las demás disposiciones pertinentes:
+    </p>
+    
+    <p>{{ listado[0] }}: {% if entity.empleadorpersona == "Natural" %}
+        {% if entity.empleadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.empleadornatural }}
+es una persona dedicada principalmente a {{ entity.actividadEmpresa }}.{% else %}{{ entity.empleadorjuridicarazon }} es una empresa dedicada principalmente a {{ entity.actividadEmpresa }}.{% endif %}
+    </p>
+    
+    <p>{{ listado[1] }}: Por el presente instrumento, <strong>EL TRABAJADOR</strong> desempeñará la función de {{ entity.actividadEmpleadoFunciones }}; siendo sus principales obligaciones y responsabilidades: {{ entity.actividadEmpleadoResponsabilidades }}.
+    </p>
+    
+    <p>{{ listado[2] }}: Dichas labores se prestarán en {% if entity.lugarTrabajo == "direccion" %}la dirección {{ entity.lugarDireccion }},{% elseif entity.lugarTrabajo == "ciudad" %}la ciudad o región {{ entity.lugarCiudad }},{% elseif entity.lugarTrabajo == "otro" %}{{ entity.lugarOtro }},{% endif %} sin perjuicio de la facultad del empleador de que, conforme a lo establecido en el art. 12 del Código del Trabajo, dicho domicilio pueda alterarse por razones justificadas, debiendo siempre el nuevo domicilio quedar dentro de la misma ciudad o localidad.</p>
+    
+    <p>{{ listado[3] }}: La jornada laboral constará de {% if entity.duracionjornadatipo == "parcial" %}{{ entity.duracionjornadacantidadparcial }}{% elseif entity.duracionjornadatipo == "completa" %}{{ entity.duracionjornadacantidadcompleta }}{% endif %} horas semanales, distribuidas de la siguiente forma:</p>
+    {% for jornada in entity.trabajoOficialJornadas %}
+    <h3>-{{ jornada.diaNombre }}, de {{ jornada.inicio|date('H:i') }} a {{ jornada.fin|date('H:i') }}</h3>
+    {% endfor %}
+    
+    {% if entity.duracionjornadaalternativa %}
+    <p>Asimismo, las partes establecen como alternativa de distribución de la jornada de trabajo, la siguiente:</p>
+    {% for jornada in entity.trabajoAlternativaJornadas %}
+    <h3>-{{ jornada.diaNombre }}, de {{ jornada.inicio|date('H:i') }} a {{ jornada.fin|date('H:i') }}</h3>
+    {% endfor %}
+    <p>En este caso, <strong>EL EMPLEADOR</strong>, con una antelación mínima de una semana, estará facultado para determinar entre una de las alternativas pactadas, la que regirá en la semana o período superior siguiente.</p>
+    {% endif %}
+    
+    <p>
+    <strong>EL TRABAJADOR</strong> tendrá derecho a {{ entity.duracionjornadacolacion }} de colación diaria, la que no se contabilizará al sumar el total de horas de la jornada diaria o semanal.
+    </p> 
+    
+    <p>{{ listado[4] }}: <strong>EL TRABAJADOR</strong> recibirá una remuneración de {% if entity.sueldounidad != "Unidades de Fomento" %}${% endif %}{{ entity.sueldomonto|number_format(0, ',', '.') }} {{ entity.sueldounidad|lower }} brutos, que se liquidará y pagará {{ entity.sueldofrecuencia|lower }}, {{ entity.sueldoperiodo|lower }}, en efectivo, o a solicitud del <strong>TRABAJADOR</strong>, a través de cheque o depósito en cuenta corriente o a la vista, y en forma proporcional a los días efectivamente trabajados.</p>
+    
+    <p>Del monto de la remuneración señalada en el párrafo anterior, <strong>EL TRABAJADOR</strong> deberá descontar y pagar ante las entidades correspondientes, las cotizaciones previsionales y de salud. Para estos efectos, <strong>EL TRABAJADOR</strong> declara que se encuentra afiliado a {{ entity.sueldoafp }} y {{ entity.sueldosalud }}.
+    </p>
+    <p>Además, <strong>EL EMPLEADOR</strong> deberá pagar mensualmente, a su costo, las cotizaciones del seguro de invalidez y sobrevivencia, las cotizaciones del seguro de invalidez y sobrevivencia, las cotizaciones del seguro de accidentes del trabajo.</p>
+    <p>Luego de haber hecho el pago, <strong>EL EMPLEADOR</strong> deberá entregar al <strong>TRABAJADOR</strong> una liquidación de sueldo, que contenga el detalle de los pagos realizados en su favor, la que deberá ser firmada por ambas partes.</p>
+    
+    {% if entity.trabajadorextranjero %}
+    <p>EL <strong>EMPLEADOR</strong> se compromete a efectuar las retenciones correspondientes y entregarlas a las instituciones de seguridad social, salvo que las partes se acojan a la Ley 18.156. (Cláusula de régimen previsional)</p>
+<p>Asimismo, <strong>EL EMPLEADOR</strong> se obliga a responder por el pago de impuesto a la renta correspondiente a la remuneración del <strong>TRABAJADOR</strong> extranjero, para rentas superiores a 13,5 UTM. (Cláusula de impuesto a la renta)</p>
+    {% endif %}
+    
+    {% if entity.sueldootraremuneracion %}
+    <p>Sin perjuicio del sueldo establecido en el párrafo anterior, <strong>EL TRABAJADOR</strong> tendrá derecho, además, a las siguientes remuneraciones:</p>
+    {% if entity.sueldoOtraRemuneracionComision %}
+    <h3>- Comisión: {{ entity.sueldoOtraRemuneracionComisionTexto }}</h3>
+    {% endif %}
+    {% if entity.sueldoOtraRemuneracionParticipacion %}
+    <h3>- Participación: {{ entity.sueldoOtraRemuneracionParticipacionTexto }}</h3>
+    {% endif %}
+    {% if entity.sueldoOtraRemuneracionOtro %}
+    <h3>- {{ entity.sueldoOtraRemuneracionOtroTexto }}</h3>
+    {% endif %}
+{% endif %}
+    
+    {% if entity.sueldootrabeneficios %}
+    <p>{{ listado[contador] }}: Adicionalmente a lo señalado en la cláusula anterior, <strong>EL EMPLEADOR</strong> se compromete a otorgar al <strong>TRABAJADOR</strong> los siguientes beneficios: {{ entity.sueldootrabeneficiosdescripcion }}.</p>
+    {% set contador = contador + 1 %}
+    {% endif %}
+    
+    <p>{{ listado[contador] }}: El presente contrato {% if entity.duracionContratoTipo == "indefinido" %}tendrá una duración indefinida{% elseif entity.duracionContratoTipo == "fijo" %}tendrá una duración de {{ entity.duracionContratoCantidad }} {{ entity.duracionContratoUnidad }}{% elseif entity.duracionContratoTipo  == "obra"%}subsistirá mientras {{ entity.duracionContratoObra }}{% endif %}.</p>
+    {% set contador = contador + 1 %}
+    
+    <p>Sin perjuicio de lo anterior, el presente contrato podrá ser terminado en cualquier momento por acuerdo entre las partes, o por cualquiera de ellas por separado, cumpliendo los procedimientos y condiciones establecidos en los arts. 159 y ss. del Código del Trabajo.</p>
+    
+    <p>En virtud de lo anterior, el contrato podrá ser terminado en cualquier momento, unilateralmente, tanto por <strong>EL TRABAJADOR</strong> como por <strong>EL EMPLEADOR</strong>, mediante un aviso a la contraparte, con a lo menos 30 días de anticipación a la fecha en que quisiese disolver el contrato.</p>
+
+<p>Si fuese <strong>EL EMPLEADOR</strong> quien quisiese terminar unilateralmente el contrato, el aviso deberá ser dado por escrito, y una copia del mismo deberá enviarse a la Dirección del Trabajo. Sin perjuicio de ello, no será necesario ni la anticipación ni el aviso por parte del <strong>EMPLEADOR</strong>, si al momento de la terminación, este paga al <strong>TRABAJADOR</strong> una indemnización en dinero en efectivo correspondiente equivalente a la última remuneración mensual devengada.</p>
+    
+    {% if entity.trabajadorextranjero %}
+    <p>En el caso en que <strong>EL TRABAJADOR</strong> sea extranjero, y tenga visa de trabajo en Chile, <strong>EL EMPLEADOR</strong> se compromete a pagar al <strong>TRABAJADOR</strong> y a los miembros de su familia, al término del contrato, el pasaje de regreso a su país de origen o al que acuerden las partes, según dispone la ley. (Cláusula de Viaje)</p>
+    {% endif %}
+    
+    <p>{{ listado[contador] }}: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna de {{ entity.jurisdiccioncomuna }}, y se someten a la jurisdicción y competencia de sus tribunales de justicia.</p>
+    {% set contador = contador + 1 %}
+    
+    <p>{{ listado[contador] }}: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha, quedando uno en poder de cada parte contratante.</p>
+    <p>{% if entity.empleadorpersona == "Jurídica" %}La personería de
+    {% for representante in entity.empleadorjuridicarepresentantes %}
+    {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}
+    {% endfor %}
+    para representar a {{ entity.empleadorjuridicarazon }} consta por escritura pública de fecha {{ entity.empleadorjuridicapersoneriafecha|date_in_words }} otorgada en la notaría de {{ entity.empleadorjuridicapersonerianotaria }} de {{ entity.empleadorjuridicapersonerialugar }}.
+    {% endif %}
+    </p>
+    
+    <p></p>
+    <p></p>
+    
+    {% if entity.empleadorpersona == "Natural" %}
+    <h2>________________________</h2><h2>{{ entity.empleadornatural }}</h2><h2>RUT: {{ entity.empleadornaturalrut }}</h2><h2>EMPLEADOR</h2>
+    {% else %}
+    {% for representante in entity.empleadorjuridicarepresentantes %}<h2>________________________</h2>
+    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.empleadorjuridicarazon }}</h2><h2>EMPLEADOR</h2>
+    {% endfor %}
+    {% endif %}
+    <p></p>
+    <p></p>
+    <h2>________________________</h2><h2>{{ entity.trabajador }}</h2><h2>RUT: {{ entity.trabajadorrut }}</h2><h2>TRABAJADOR</h2>
+{% endspaceless %}
+{% endblock %}

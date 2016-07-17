@@ -1,0 +1,799 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 
+        '@acc_wizard_css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content -%}
+    <h1>Contrato de Trabajo</h1>
+    <form id="form" name="contratosbundle_trabajo" action="{{ path('trabajo_create') }}" method="post" {{ form_enctype(form) }}>
+        <div class="row acc-wizard">
+            <div style="padding-left: 2em;" class="col-md-2">
+                <p style="margin-bottom: 2em;">
+                  Siga los siguientes pasos para completar el formulario.
+                </p>
+                <ol class="acc-wizard-sidebar">
+                    <li class="acc-wizard-todo acc-wizard-active"><a href="#collapseOne">Fecha y Ciudad</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseTwo">Datos del empleador</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseThree">Datos del trabajor</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseFour">Actividad de la empresa</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseFifth">Actividad del trabajador</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseSixth">Lugar donde se desempeñará el trabajador</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseSeventh">Duración de la jornada</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseEighth">Remuneración del trabajador</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseNinth">Duración del contrato</a></li>
+                    <li class="acc-wizard-todo"><a href="#collapseTenth">Jurisdicción</a></li>
+                </ol>
+            </div>
+            <div class="col-md-10" style="padding-right: 2em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Fecha y ciudad
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        {{ form_row(form.fecha) }}
+                        {{ form_row(form.ciudad) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseArrendatario">
+                          Datos del empleador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form_row(form.empleador_persona) }}
+                                </div>
+                                <div class="col-md-10">
+                                    <div id="empleador_natural" style="display: none;">
+                                        <h3>Persona natural</h3>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_sexo) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_rut) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_nombres) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_apellido_paterno) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_apellido_materno) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_nacionalidad) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_estado_civil) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_profesion) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_domicilio) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_region) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_natural_comuna) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="empleador_juridica" style="display: none;">
+                                        <h3>Persona jurídica</h3>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_razon) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_giro) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_rut) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_domicilio) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_region) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_comuna) }}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h4>Personería jurídica</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_personeria_fecha) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_personeria_notaria) }}
+                                            </div>
+                                            <div class="col-md-4">
+                                            {{ form_row(form.empleador_juridica_personeria_lugar) }}
+                                            </div>
+                                        </div>
+                                        <ul id="empleador_juridica" class="representantes" data-prototype="{% filter escape %}{% include 'ContratosBundle:RepresentanteLegal:prototype.html.twig' with {'form': form.empleador_juridica_representantes.vars.prototype} %}{% endfilter %}">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Datos del trabajador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_sexo) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_rut) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_extranjero) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_nombres) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_apellido_paterno) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_apellido_materno) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_nacimiento) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_estado_civil) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_profesion) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_domicilio) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_region) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_comuna) }}
+                                </div>
+                            </div>                  
+                            <div id="extranjero" class="row" style="display: none;">
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_nacionalidad) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_procedencia) }}
+                                </div>
+                                <div class="col-md-4">
+                                {{ form_row(form.trabajador_visa) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFourth">
+                          Actividad de la empresa
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                      <div class="panel-body">
+                        {{ form_row(form.actividad_empresa) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFifth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFifth" aria-expanded="true" aria-controls="collapseFifth">
+                          Actividad del trabajador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFifth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFifth">
+                      <div class="panel-body">
+                        {{ form_row(form.actividad_empleado_funciones) }}
+                        {{ form_row(form.actividad_empleado_responsabilidades) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSixth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSixth" aria-expanded="true" aria-controls="collapseSixth">
+                          Lugar donde se desempeñará el trabajador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSixth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSixth">
+                      <div class="panel-body">
+                        {{ form_row(form.lugar_trabajo) }}
+                        <div id="lugar_direccion" style="display: none;">
+                            {{ form_row(form.lugar_direccion) }}
+                        </div>
+                        <div id="lugar_ciudad" style="display: none;">
+                            {{ form_row(form.lugar_ciudad) }}
+                        </div>
+                        <div id="lugar_otro" style="display: none;">
+                            {{ form_row(form.lugar_otro) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSeventh">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeventh" aria-expanded="true" aria-controls="collapseSeventh">
+                          Duración de la jornada
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSeventh" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeventh">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                {{ form_row(form.duracion_jornada_tipo) }}
+                            </div>
+                            <div class="col-md-5">
+                                <div id="jornada_cantidad_completa" class="bg-warning" style="display: none; padding: 20px;">
+                                    {{ form_row(form.duracion_jornada_cantidad_completa) }}
+                                </div>
+                                <div id="jornada_cantidad_parcial" class="bg-warning" style="display: none; padding: 20px;">
+                                    {{ form_row(form.duracion_jornada_cantidad_parcial) }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_row(form.duracion_jornada_colacion) }}
+                        <table id="duracion_jornada_completa" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>Hora de inicio</th>
+                                    <th>Hora de término</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="oficial" class="jornadas" data-prototype="{% filter escape %}{% include 'ContratosBundle:Jornada:prototype.html.twig' with {'form': form.trabajo_oficial_jornadas.vars.prototype} %}{% endfilter %}">
+                            {% for jornada in form.trabajo_oficial_jornadas %}
+                                <tr class="jornada">
+                                    <td>{{ form_widget(jornada.dia) }}</td>
+                                    <td>{{ form_widget(jornada.inicio) }}</td>
+                                    <td>{{ form_widget(jornada.fin) }}
+                                        <div class="hide">{{ form_rest(jornada) }}</div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <hr>
+                        {{ form_row(form.duracion_jornada_alternativa) }}
+                        <table id="duracion_jornada_alternativa" class="table" style="display:none">
+                            <thead>
+                                <tr>
+                                    <th>Día</th>
+                                    <th>Hora de inicio</th>
+                                    <th>Hora de término</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="alternativa" class="jornadas" data-prototype="{% filter escape %}{% include 'ContratosBundle:Jornada:prototype.html.twig' with {'form': form.trabajo_alternativa_jornadas.vars.prototype} %}{% endfilter %}">
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingEighth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEighth" aria-expanded="true" aria-controls="collapseEighth">
+                          Remuneración del trabajador
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseEighth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEighth">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                            {{ form_row(form.sueldo_monto) }}
+                            </div>
+                            <div class="col-md-4">
+                            {{ form_row(form.sueldo_unidad) }}
+                            </div>
+                            <div class="col-md-4">
+                            {{ form_row(form.sueldo_frecuencia) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            {{ form_row(form.sueldo_periodo) }}
+                            </div>
+                            <div class="col-md-4">
+                            {{ form_row(form.sueldo_afp) }}
+                            </div>
+                            <div class="col-md-4">
+                            {{ form_row(form.sueldo_salud) }}
+                            </div>
+                        </div>
+                        <hr>
+                        {{ form_row(form.sueldo_otra_remuneracion) }}
+                        <div id="sueldo_otra_remuneracion" style="display: none;">
+                            <small>Seleccione las otras remuneraciones</small>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form_row(form.sueldo_otra_remuneracion_comision) }}
+                                </div>
+                                <div class="col-md-10">
+                                    <div id="sueldo_otra_remuneracion_comision" style="display: none;">
+                                        {{ form_widget(form.sueldo_otra_remuneracion_comision_texto) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form_row(form.sueldo_otra_remuneracion_participacion) }}
+                                </div>
+                                <div class="col-md-10">
+                                    <div id="sueldo_otra_remuneracion_participacion" style="display: none;">
+                                        {{ form_widget(form.sueldo_otra_remuneracion_participacion_texto) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form_row(form.sueldo_otra_remuneracion_otro) }}
+                                </div>
+                                <div class="col-md-10">
+                                    <div id="sueldo_otra_remuneracion_otro" style="display: none;">
+                                        {{ form_widget(form.sueldo_otra_remuneracion_otro_texto) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-5">
+                                {{ form_row(form.sueldo_otra_beneficios) }}
+                            </div>
+                            <div class="col-md-7">
+                                <div id="sueldo_otra_beneficios" class="bg-warning" style="display: none; padding: 20px;">
+                                    {{ form_row(form.sueldo_otra_beneficios_descripcion) }}
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingNineth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNineth" aria-expanded="true" aria-controls="collapseNineth">
+                          Duración del contrato
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseNineth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingNineth">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                {{ form_row(form.duracion_contrato_tipo) }}
+                            </div>
+                            <div class="col-md-7">
+                                <div id="contrato_fijo" class="bg-warning" style="display: none; padding: 20px;">
+                                    {{ form_row(form.duracion_contrato_cantidad) }}
+                                    {{ form_row(form.duracion_contrato_unidad) }}
+                                </div>
+                                <div id="contrato_obra" class="bg-warning" style="display: none; padding: 20px;">
+                                    {{ form_row(form.duracion_contrato_obra) }}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        {#{{ form_row(form.duracion_contrato_periodo) }}#}
+                        {{ form_row(form.duracion_contrato_fecha) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTenth">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTenth" aria-expanded="true" aria-controls="collapseTenth">
+                          Jurisidicción
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTenth" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTenth">
+                      <div class="panel-body">
+                        {{ form_row(form.jurisdiccion_comuna) }}
+                      </div>
+                    </div>
+                  </div>
+                <hr>
+                <button id="enviar" class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <div class="hide">{{ form_rest(form) }}</div>
+            </div>
+        </div>
+    </form>
+    {#{{ form(form) }}#}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts filter='yui_js' combine=true
+        '@acc_wizard_js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        $('input[name$="[empleador_persona]"]:radio').change(function(){
+            if($(this).val() == "Natural"){
+                $("#empleador_natural").show();
+                $("#empleador_juridica").hide();
+            }
+            else {
+                $("#empleador_natural").hide();
+                $("#empleador_juridica").show();
+            }
+        });
+        
+        $('input[name$="[trabajador_extranjero]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#extranjero").show();
+            }
+            else {
+                $("#extranjero").hide();
+            }
+        });
+        
+        $('select[name$="[lugar_trabajo]"]').on('change', function() {
+            if($(this).val() == "direccion"){
+                $("#lugar_direccion").show();
+                $("#lugar_ciudad").hide();
+                $("#lugar_otro").hide();
+            }
+            else if($(this).val() == "ciudad"){
+                $("#lugar_direccion").hide();
+                $("#lugar_ciudad").show();
+                $("#lugar_otro").hide();
+            }
+            else if($(this).val() == "otro"){
+                $("#lugar_direccion").hide();
+                $("#lugar_ciudad").hide();
+                $("#lugar_otro").show();
+            }
+            else {
+                $("#lugar_direccion").hide();
+                $("#lugar_ciudad").hide();
+                $("#lugar_otro").hide();
+            }
+        });
+        
+        $('select[name$="[duracion_jornada_tipo]"]').on('change', function() {
+            if($(this).val() == "completa"){
+                $("#jornada_cantidad_completa").show();
+                $("#jornada_cantidad_parcial").hide();
+            }
+            else if($(this).val() == "parcial"){
+                $("#jornada_cantidad_completa").hide();
+                $("#jornada_cantidad_parcial").show();
+            }
+            else {
+                $("#jornada_cantidad_completa").hide();
+                $("#jornada_cantidad_parcial").hide();
+            }
+        });
+        
+        $('input[name$="[duracion_jornada_alternativa]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#duracion_jornada_alternativa").show();
+            }
+            else {
+                $("#duracion_jornada_alternativa").hide();
+            }
+        });
+        
+        $('input[name$="[sueldo_otra_remuneracion]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#sueldo_otra_remuneracion").show();
+            }
+            else {
+                $("#sueldo_otra_remuneracion").hide();
+            }
+        });
+        
+        $('input[type=checkbox][name$="[sueldo_otra_remuneracion_comision]"]').change(function() {
+            if (this.value == 1) {
+                if(this.checked){$("#sueldo_otra_remuneracion_comision").show();}
+                else{$("#sueldo_otra_remuneracion_comision").hide();}
+            }
+	    });
+	    
+	    $('input[type=checkbox][name$="[sueldo_otra_remuneracion_participacion]"]').change(function() {
+            if (this.value == 1) {
+                if(this.checked){$("#sueldo_otra_remuneracion_participacion").show();}
+                else{$("#sueldo_otra_remuneracion_participacion").hide();}
+            }
+	    });
+	    
+	    $('input[type=checkbox][name$="[sueldo_otra_remuneracion_otro]"]').change(function() {
+            if (this.value == 1) {
+                if(this.checked){$("#sueldo_otra_remuneracion_otro").show();}
+                else{$("#sueldo_otra_remuneracion_otro").hide();}
+            }
+	    });
+        
+        $('input[name$="[sueldo_otra_beneficios]"]:radio').change(function(){
+            if($(this).val() == 1){
+                $("#sueldo_otra_beneficios").show();
+            }
+            else {
+                $("#sueldo_otra_beneficios").hide();
+            }
+        });
+        
+        $('select[name$="[duracion_contrato_tipo]"]').on('change', function() {
+            if($(this).val() == "fijo"){
+                $("#contrato_fijo").show();
+                $("#contrato_obra").hide();
+            }
+            else if($(this).val() == "obra"){
+                $("#contrato_fijo").hide();
+                $("#contrato_obra").show();
+            }
+            else {
+                $("#contrato_fijo").hide();
+                $("#contrato_obra").hide();
+            }
+        });
+        
+        function onNext(parent, panel) {
+        hash = "#" + panel.id;
+            $(".acc-wizard-sidebar",$(parent))
+            .children("li")
+            .children("a[href='" + hash + "']")
+            .parent("li")
+            .removeClass("acc-wizard-todo")
+            .addClass("acc-wizard-completed");
+        }
+        
+        $(window).load(function() {
+            $(".acc-wizard").accwizard({
+                backText: "Anterior",
+                nextText: "Siguiente",
+                onNext: onNext
+            });
+        })
+        
+        var validator = $("#form").bind("invalid-form.validate", function() {
+			//console.log("Your form contains " + validator.numberOfInvalids() + " errors, see details below.");
+		}).validate({
+            ignore: "",
+            lang: 'es',
+            errorPlacement: function(error, element) {
+			    // Append error within linked label
+			    $(element).closest('.panel-collapse').collapse('show');
+			    $(element).closest(".form-group").addClass("has-error");
+			    $(element).on("click", function() {
+                    $(this).closest(".form-group").removeClass("has-error");
+                }); 
+                var $span = $('<span class="label label-danger"></span>');
+                $span.append(error);
+			    $(element).closest(".form-group").find("label.control-label").append($span);
+		    },
+        });
+        
+        // only for demo purposes
+        $("#enviar").click(function() {
+            $('.panel-collapse.in').collapse('hide');
+            console.log($('.has-error').length);
+            $('.has-error').closest('.panel-collapse').collapse('show');
+        });
+        
+        // Colecciones
+        jQuery(document).ready(function() {
+            // Get the ul that holds the collection of jornadas
+            $('tbody.jornadas').each(function(index) {
+                // setup an "add a jornada" link
+                var $addJornadaLink = $('<td colspan="4"><button type="button" class="add_jornada_link btn btn-primary pull-right">Agregar día</button></td>');
+                var $newLinkLi = $('<tr></tr>').append($addJornadaLink);
+                var $collectionHolder = $(this);
+                 
+                // add the "add a jornada" anchor and li to the jornadas ul
+                $collectionHolder.append($newLinkLi);
+
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+                
+                // add a delete link to all of the existing jornada form li elements
+                $collectionHolder.find('tr.jornada').each(function() {
+                    addJornadaFormDeleteLink($(this));
+                });
+        
+                $addJornadaLink.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // add a new jornada form (see next code block)
+                    addJornadaForm($collectionHolder, $newLinkLi);
+                });
+            });
+            
+            // Get the ul that holds the collection of representantes
+            $('ul.representantes').each(function(index) {
+                // setup an "add a representante" link
+                var $addRepresentanteLink = $('<button type="button" class="add_representante_link btn btn-primary">Agregar representante legal</button>');
+                var $newLinkLi = $('<li></li>').append($addRepresentanteLink);
+                var $collectionHolder = $(this);
+                 
+                // add the "add a representante" anchor and li to the representantes ul
+                $collectionHolder.append($newLinkLi);
+
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+                
+                // add a delete link to all of the existing representante form li elements
+                $collectionHolder.find('li.representante').each(function() {
+                    addRepresentanteFormDeleteLink($(this));
+                });
+        
+                $addRepresentanteLink.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // add a new representante form (see next code block)
+                    addRepresentanteForm($collectionHolder, $newLinkLi);
+                });
+            });
+        });
+        
+        function addJornadaForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+            var id = $collectionHolder.attr('id');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, "_" + id + "_" + index);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add a jornada" link li
+            var $newFormLi = $('<tr class="jornada"></tr>').append(newForm);
+
+            // add a delete link to the new form
+            addJornadaFormDeleteLink($newFormLi);
+            $newLinkLi.before($newFormLi);
+            
+            // Agregamos el comportamiento
+            $('#contratosbundle_trabajo_trabajo_'+ id +'_jornadas__' + id + "_" + index +'_inicio').datetimepicker({
+                format: 'hh:ii',
+                language: 'es',
+                minView: 0,
+                maxView: 0,
+                autoclose: true,
+                startView: 0,
+                initialDate: '09:00'
+            });
+            
+            // Agregamos el comportamiento
+            $('#contratosbundle_trabajo_trabajo_'+ id +'_jornadas__' + id + "_" + index +'_fin').datetimepicker({
+                format: 'hh:ii',
+                language: 'es',
+                minView: 0,
+                maxView: 0,
+                autoclose: true,
+                startView: 0,
+                initialDate: '19:00'
+            });
+        }
+        
+        function addJornadaFormDeleteLink($jornadaFormLi) {
+            var $removeFormA = $('<td><a href="#">x</a></td>');
+            $jornadaFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the jornada form
+                $jornadaFormLi.remove();
+            });
+        }
+        
+        function addRepresentanteForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+            var id = $collectionHolder.attr('id');
+            var new_id = "_" + id + "_" + index;
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, new_id);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add a representante" link li
+            var $newFormLi = $('<li class="representante"><a href="#" data-toggle="modal" data-target="#myModal' + new_id + '">Representante Legal '+index+'</a></li>').append(newForm);
+
+            // add a delete link to the new form
+            addRepresentanteFormDeleteLink($newFormLi);
+            $newLinkLi.before($newFormLi);
+            
+            // Mostramos el modal
+            $('#myModal' + new_id).modal('show');
+        }
+        
+        function addRepresentanteFormDeleteLink($representanteFormLi) {
+            var $removeFormA = $(' <a href="#">x</a>');
+            $representanteFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the representante form
+                $representanteFormLi.remove();
+            });
+        }
+    </script>
+{% endblock %}

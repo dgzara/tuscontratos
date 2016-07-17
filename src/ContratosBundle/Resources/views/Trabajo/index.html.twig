@@ -1,0 +1,175 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Trabajo list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Ciudad</th>
+                <th>Empleador_persona</th>
+                <th>Empleador_natural_sexo</th>
+                <th>Empleador_natural_nombres</th>
+                <th>Empleador_natural_apellido_paterno</th>
+                <th>Empleador_natural_apellido_materno</th>
+                <th>Empleador_natural_nacionalidad</th>
+                <th>Empleador_natural_estado_civil</th>
+                <th>Empleador_natural_profesion</th>
+                <th>Empleador_natural_rut</th>
+                <th>Empleador_natural_domicilio</th>
+                <th>Empleador_natural_region</th>
+                <th>Empleador_juridica_razon</th>
+                <th>Empleador_juridica_giro</th>
+                <th>Empleador_juridica_rut</th>
+                <th>Empleador_juridica_domicilio</th>
+                <th>Empleador_juridica_region</th>
+                <th>Empleador_juridica_personeria_fecha</th>
+                <th>Empleador_juridica_personeria_notaria</th>
+                <th>Empleador_juridica_personeria_lugar</th>
+                <th>Trabajador_sexo</th>
+                <th>Trabajador_nombres</th>
+                <th>Trabajador_apellido_paterno</th>
+                <th>Trabajador_apellido_materno</th>
+                <th>Trabajador_extranjero</th>
+                <th>Trabajador_nacionalidad</th>
+                <th>Trabajador_procedencia</th>
+                <th>Trabajador_visa</th>
+                <th>Trabajador_estado_civil</th>
+                <th>Trabajador_profesion</th>
+                <th>Trabajador_rut</th>
+                <th>Trabajador_nacimiento</th>
+                <th>Trabajador_domicilio</th>
+                <th>Trabajador_region</th>
+                <th>Actividad_empresa</th>
+                <th>Actividad_empleado_funciones</th>
+                <th>Actividad_empleado_responsabilidades</th>
+                <th>Lugar_trabajo</th>
+                <th>Lugar_direccion</th>
+                <th>Lugar_ciudad</th>
+                <th>Lugar_otro</th>
+                <th>Duracion_jornada_tipo</th>
+                <th>Duracion_jornada_cantidad</th>
+                <th>Duracion_jornada_colacion</th>
+                <th>Duracion_jornada_alternativa</th>
+                <th>Sueldo_monto</th>
+                <th>Sueldo_unidad</th>
+                <th>Sueldo_frecuencia</th>
+                <th>Sueldo_periodo</th>
+                <th>Sueldo_afp</th>
+                <th>Sueldo_salud</th>
+                <th>Sueldo_otra_remuneracion</th>
+                <th>Sueldo_otra_remuneracion_comision</th>
+                <th>Sueldo_otra_remuneracion_comision_texto</th>
+                <th>Sueldo_otra_remuneracion_participacion</th>
+                <th>Sueldo_otra_remuneracion_participacion_texto</th>
+                <th>Sueldo_otra_remuneracion_otro</th>
+                <th>Sueldo_otra_remuneracion_otro_texto</th>
+                <th>Sueldo_otra_beneficios</th>
+                <th>Sueldo_otra_beneficios_descripcion</th>
+                <th>Duracion_contrato_tipo</th>
+                <th>Duracion_contrato_cantidad</th>
+                <th>Duracion_contrato_unidad</th>
+                <th>Duracion_contrato_obra</th>
+                <th>Duracion_contrato_periodo</th>
+                <th>Duracion_contrato_fecha</th>
+                <th>Prestacion_fecha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('trabajo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.ciudad }}</td>
+                <td>{{ entity.empleadorpersona }}</td>
+                <td>{{ entity.empleadornaturalsexo }}</td>
+                <td>{{ entity.empleadornaturalnombres }}</td>
+                <td>{{ entity.empleadornaturalapellidopaterno }}</td>
+                <td>{{ entity.empleadornaturalapellidomaterno }}</td>
+                <td>{{ entity.empleadornaturalnacionalidad }}</td>
+                <td>{{ entity.empleadornaturalestadocivil }}</td>
+                <td>{{ entity.empleadornaturalprofesion }}</td>
+                <td>{{ entity.empleadornaturalrut }}</td>
+                <td>{{ entity.empleadornaturaldomicilio }}</td>
+                <td>{{ entity.empleadornaturalregion }}</td>
+                <td>{{ entity.empleadorjuridicarazon }}</td>
+                <td>{{ entity.empleadorjuridicagiro }}</td>
+                <td>{{ entity.empleadorjuridicarut }}</td>
+                <td>{{ entity.empleadorjuridicadomicilio }}</td>
+                <td>{{ entity.empleadorjuridicaregion }}</td>
+                <td>{% if entity.empleadorjuridicapersoneriafecha %}{{ entity.empleadorjuridicapersoneriafecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.empleadorjuridicapersonerianotaria }}</td>
+                <td>{{ entity.empleadorjuridicapersonerialugar }}</td>
+                <td>{{ entity.trabajadorsexo }}</td>
+                <td>{{ entity.trabajadornombres }}</td>
+                <td>{{ entity.trabajadorapellidopaterno }}</td>
+                <td>{{ entity.trabajadorapellidomaterno }}</td>
+                <td>{{ entity.trabajadorextranjero }}</td>
+                <td>{{ entity.trabajadornacionalidad }}</td>
+                <td>{{ entity.trabajadorprocedencia }}</td>
+                <td>{{ entity.trabajadorvisa }}</td>
+                <td>{{ entity.trabajadorestadocivil }}</td>
+                <td>{{ entity.trabajadorprofesion }}</td>
+                <td>{{ entity.trabajadorrut }}</td>
+                <td>{% if entity.trabajadornacimiento %}{{ entity.trabajadornacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.trabajadordomicilio }}</td>
+                <td>{{ entity.trabajadorregion }}</td>
+                <td>{{ entity.actividadempresa }}</td>
+                <td>{{ entity.actividadempleadofunciones }}</td>
+                <td>{{ entity.actividadempleadoresponsabilidades }}</td>
+                <td>{{ entity.lugartrabajo }}</td>
+                <td>{{ entity.lugardireccion }}</td>
+                <td>{{ entity.lugarciudad }}</td>
+                <td>{{ entity.lugarotro }}</td>
+                <td>{{ entity.duracionjornadatipo }}</td>
+                <td>{{ entity.duracionjornadacantidad }}</td>
+                <td>{{ entity.duracionjornadacolacion }}</td>
+                <td>{{ entity.duracionjornadaalternativa }}</td>
+                <td>{{ entity.sueldomonto }}</td>
+                <td>{{ entity.sueldounidad }}</td>
+                <td>{{ entity.sueldofrecuencia }}</td>
+                <td>{{ entity.sueldoperiodo }}</td>
+                <td>{{ entity.sueldoafp }}</td>
+                <td>{{ entity.sueldosalud }}</td>
+                <td>{{ entity.sueldootraremuneracion }}</td>
+                <td>{{ entity.sueldootraremuneracioncomision }}</td>
+                <td>{{ entity.sueldootraremuneracioncomisiontexto }}</td>
+                <td>{{ entity.sueldootraremuneracionparticipacion }}</td>
+                <td>{{ entity.sueldootraremuneracionparticipaciontexto }}</td>
+                <td>{{ entity.sueldootraremuneracionotro }}</td>
+                <td>{{ entity.sueldootraremuneracionotrotexto }}</td>
+                <td>{{ entity.sueldootrabeneficios }}</td>
+                <td>{{ entity.sueldootrabeneficiosdescripcion }}</td>
+                <td>{{ entity.duracioncontratotipo }}</td>
+                <td>{{ entity.duracioncontratocantidad }}</td>
+                <td>{{ entity.duracioncontratounidad }}</td>
+                <td>{{ entity.duracioncontratoobra }}</td>
+                <td>{{ entity.duracioncontratoperiodo }}</td>
+                <td>{% if entity.duracioncontratofecha %}{{ entity.duracioncontratofecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.prestacionfecha %}{{ entity.prestacionfecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('trabajo_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('trabajo_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('trabajo_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
