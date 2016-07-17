@@ -8,6 +8,12 @@ ContratosBundle\Entity\Arriendo:
             generator:
                 strategy: AUTO
     fields:
+        fecha:
+            type: datetime
+        ciudad:
+            type: string
+            length: 100
+            nullable: true
         arrendador_persona:
             type: string
             length: 20
@@ -158,17 +164,27 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
+        propiedad_proposito:
+            type: string
+            length: 100
+            nullable: true
+        propiedad_proposito_otro:
+            type: string
+            length: 100
+            nullable: true
         plazo_cantidad:
             type: integer
             length: 11
             nullable: true
-        plazo_unidad:
-            type: string
-            length: 100
-            nullable: true
         plazo_momento:
             type: string
             length: 100
+            nullable: true
+        plazo_momento_fecha:
+            type: datetime
+            nullable: true
+        plazo_duracion_contrato:
+            type: datetime
             nullable: true
         plazo_prorroga:
             type: boolean
@@ -206,19 +222,29 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
-        renta_dias:
-            type: string
-            length: 100
+        renta_dias_inicio:
+            type: integer
+            nullable: true
+        renta_dias_fin:
+            type: integer
             nullable: true
         renta_medio_pago:
             type: string
             length: 100
             nullable: true
-        renta_medio_efectivo:
+        renta_medio_efectivo_entrega:
+            type: string
+            length: 100
+            nullable: true
+        renta_medio_efectivo_entrega_otro:
             type: string
             length: 100
             nullable: true
         renta_medio_cheque:
+            type: string
+            length: 100
+            nullable: true
+        renta_medio_cheque_otro:
             type: string
             length: 100
             nullable: true
@@ -242,6 +268,10 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
+        renta_medio_deposito_envio_otro:
+            type: string
+            length: 100
+            nullable: true
         renta_medio_reajuste:
             type: boolean
             options:
@@ -252,7 +282,11 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         renta_reajuste_forma:
             type: string
-            length: 100
+            length: 255
+            nullable: true
+        renta_reajuste_forma_otro:
+            type: string
+            length: 255
             nullable: true
         renta_mora_sancion:
             type: boolean
@@ -265,6 +299,10 @@ ContratosBundle\Entity\Arriendo:
         renta_mora_valor:
             type: string
             length: 100
+            nullable: true
+        renta_mora_valor_otro:
+            type: string
+            length: 255
             nullable: true
         renta_cobranza:
             type: boolean
@@ -284,104 +322,102 @@ ContratosBundle\Entity\Arriendo:
             nullable: true
         entrega_fecha:
             type: datetime
-            length: 100
             nullable: true
         entrega_inventario:
             type: boolean
             options:
                 default: 0
-        restitucion_forma:
-            type: string
-            length: 100
-            nullable: true
-        restitucion_acreditacion:
-            type: boolean
-            nullable: true
-            options:
-                default: 0
-        restitucion_visita_plazo:
-            type: string
-            length: 100
-            nullable: true
-        restitucion_visita_unidad:
-            type: string
-            length: 100
-            nullable: true
-        restitucion_inicio_plazo:
-            type: string
-            length: 100
-            nullable: true
-        restitucion_inicio_unidad:
-            type: string
-            length: 100
-            nullable: true
-        prohibicion_subarriendo:
+        obligacion_arrendador_pagar:
             type: boolean
             options:
-                default: 0
-        prohibicion_variaciones:
+                default: true
+        obligacion_arrendador_finalidad:
             type: boolean
             options:
-                default: 0
-        prohibicion_utilizacion:
+                default: true
+        obligacion_arrendador_estado:
             type: boolean
             options:
-                default: 0
-        prohibicion_retraso:
+                default: true
+        obligacion_arrendador_responder:
+            type: boolean
+            options:
+                default: true
+        obligacion_arrendador_agua:
+            type: boolean
+            options:
+                default: true
+        obligacion_arrendador_gastos:
+            type: boolean
+            options:
+                default: true
+        obligacion_arrendador_subarrendar:
+            type: boolean
+            options:
+                default: true
+        obligacion_arrendador_devolver:
+            type: boolean
+            options:
+                default: true
+        obligacion_arrendador_otro:
             type: boolean
             options:
                 default: 0
-        prohibicion_perturbacion:
+        obligacion_arrendador_otro_texto:
+            type: string
+            length: 255
+            nullable: true
+        obligacion_arrendatario_garantia:
             type: boolean
             options:
-                default: 0
-        prohibicion_agujeros:
+                default: true
+        obligacion_arrendatario_contribuciones:
             type: boolean
             options:
-                default: 0
-        prohibicion_normativa:
+                default: true
+        obligacion_arrendatario_reparacion:
             type: boolean
             options:
-                default: 0
-        prohibicion_accion_ilegal:
+                default: true
+        obligacion_arrendatario_otro:
             type: boolean
             options:
-                default: 0
-        recision_pago:
+                default: false
+        obligacion_arrendatario_otro_texto:
             type: string
-            length: 100
+            length: 255
             nullable: true
-        recision_unidad:
-            type: string
-            length: 100
-            nullable: true
-        recision_causal:
+        termino_arrendador_primero:
             type: boolean
             options:
-                default: 0
-        recision_causal_descripcion:
-            type: string
-            length: 100
-            nullable: true
-        recision_causal:
-            type: string
-            length: 100
-            nullable: true
-        recision_unilateral:
+                default: true
+        termino_arrendador_segundo:
             type: boolean
             options:
-                default: 0
-        recision_unilateral_anticipacion:
+                default: true
+        termino_arrendador_otro:
+            type: boolean
+            options:
+                default: false
+        termino_arrendador_otro_texto:
             type: string
-            length: 100
+            length: 255
             nullable: true
-        recision_unilateral_unidad:
+        termino_arrendatario_primero:
+            type: boolean
+            options:
+                default: true
+        termino_arrendatario_segundo:
+            type: boolean
+            options:
+                default: true
+        termino_arrendatario_otro:
+            type: boolean
+            options:
+                default: false
+        termino_arrendatario_otro_texto:
             type: string
-            length: 100
-            nullable: true
-        recision_unilateral_forma:
-            type: string
-            length: 100
+            length: 255
             nullable: true
         garantia_deposito:
             type: boolean
@@ -391,9 +427,17 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
+        garantia_forma_otro:
+            type: string
+            length: 255
+            nullable: true
         garantia_monto:
             type: string
             length: 100
+            nullable: true
+        garantia_monto_otro:
+            type: string
+            length: 255
             nullable: true
         garantia_dias_terminado:
             type: string
@@ -452,6 +496,18 @@ ContratosBundle\Entity\Arriendo:
             type: string
             length: 100
             nullable: true
+        aval_duracion:
+            type: string
+            length: 100
+            nullable: true
+        aval_duracion_otro:
+            type: string
+            length: 100
+            nullable: true
+        jurisdiccion:
+            type: boolean
+            options:
+                default: 0
         correo:
             type: boolean
             options:
@@ -541,5 +597,10 @@ ContratosBundle\Entity\Arriendo:
             targetEntity: Comuna
             joinColumn:
                 name: comuna_aval_id
+                referencedColumnName: id
+        jurisdiccion_comuna:
+            targetEntity: Comuna
+            joinColumn:
+                name: comuna_jurisdiccion_id
                 referencedColumnName: id
     lifecycleCallbacks: {  }

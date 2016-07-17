@@ -15,7 +15,7 @@ class RepresentanteLegalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sexo', 'choice', array('label' => 'Sexo', 'expanded' => true, 'choices' => array('Hombre' => 'Hombre', 'Mujer' => 'Mujer')))
+            ->add('sexo', 'choice', array('label' => 'Sexo', 'expanded' => true, 'attr' => array('class' => 'options_inline'), 'choices' => array('Hombre' => 'Hombre', 'Mujer' => 'Mujer')))
             ->add('nombres', null, array('label' => 'Nombres'))
             ->add('apellido_paterno', null, array('label' => 'Apellido Paterno'))
             ->add('apellido_materno', null, array('label' => 'Apellido Materno'))

@@ -395,46 +395,6 @@ class Arriendo
     private $restitucion_inicio_unidad;
 
     /**
-     * @var boolean
-     */
-    private $prohibicion_subarriendo;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_variaciones;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_utilizacion;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_retraso;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_perturbacion;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_agujeros;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_normativa;
-
-    /**
-     * @var boolean
-     */
-    private $prohibicion_accion_ilegal;
-
-    /**
      * @var string
      */
     private $recision_pago;
@@ -719,6 +679,171 @@ class Arriendo
      */
     private $arrendatario_juridica_representante;
 
+    /**
+     * @var \DateTime
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     */
+    private $ciudad;
+
+    /**
+     * @var string
+     */
+    private $aval_duracion;
+
+    /**
+     * @var string
+     */
+    private $aval_duracion_otro;
+
+    /**
+     * @var string
+     */
+    private $propiedad_proposito;
+
+    /**
+     * @var string
+     */
+    private $propiedad_proposito_otro;
+
+    /**
+     * @var \DateTime
+     */
+    private $plazo_momento_fecha;
+
+    /**
+     * @var \DateTime
+     */
+    private $plazo_duracion_contrato;
+
+    /**
+     * @var string
+     */
+    private $renta_medio_efectivo_entrega;
+
+    /**
+     * @var string
+     */
+    private $renta_medio_efectivo_entrega_otro;
+
+    /**
+     * @var string
+     */
+    private $renta_medio_cheque_otro;
+
+    /**
+     * @var string
+     */
+    private $renta_medio_deposito_envio_otro;
+
+    /**
+     * @var string
+     */
+    private $renta_reajuste_forma_otro;
+
+    /**
+     * @var string
+     */
+    private $renta_mora_valor_otro;
+    
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_pagar = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_finalidad = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_estado = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_responder = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_agua = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_gastos = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_subarrendar = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_devolver = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendador_otro = false;
+
+    /**
+     * @var string
+     */
+    private $obligacion_arrendador_otro_texto;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendatario_garantia = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendatario_contribuciones = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendatario_reparacion = true;
+
+    /**
+     * @var boolean
+     */
+    private $obligacion_arrendatario_otro = false;
+
+    /**
+     * @var string
+     */
+    private $obligacion_arrendatario_otro_texto;
+    
+    /**
+     * @var boolean
+     */
+    private $jurisdiccion = 0;
+
+    /**
+     * @var \ContratosBundle\Entity\Comuna
+     */
+    private $jurisdiccion_comuna;
+    
+    /**
+     * @var string
+     */
+    private $garantia_forma_otro;
+
+    /**
+     * @var string
+     */
+    private $garantia_monto_otro;
+    
     /**
      * Constructor
      */
@@ -2507,190 +2632,6 @@ class Arriendo
     }
 
     /**
-     * Set prohibicion_subarriendo
-     *
-     * @param boolean $prohibicionSubarriendo
-     * @return Arriendo
-     */
-    public function setProhibicionSubarriendo($prohibicionSubarriendo)
-    {
-        $this->prohibicion_subarriendo = $prohibicionSubarriendo;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_subarriendo
-     *
-     * @return boolean 
-     */
-    public function getProhibicionSubarriendo()
-    {
-        return $this->prohibicion_subarriendo;
-    }
-
-    /**
-     * Set prohibicion_variaciones
-     *
-     * @param boolean $prohibicionVariaciones
-     * @return Arriendo
-     */
-    public function setProhibicionVariaciones($prohibicionVariaciones)
-    {
-        $this->prohibicion_variaciones = $prohibicionVariaciones;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_variaciones
-     *
-     * @return boolean 
-     */
-    public function getProhibicionVariaciones()
-    {
-        return $this->prohibicion_variaciones;
-    }
-
-    /**
-     * Set prohibicion_utilizacion
-     *
-     * @param boolean $prohibicionUtilizacion
-     * @return Arriendo
-     */
-    public function setProhibicionUtilizacion($prohibicionUtilizacion)
-    {
-        $this->prohibicion_utilizacion = $prohibicionUtilizacion;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_utilizacion
-     *
-     * @return boolean 
-     */
-    public function getProhibicionUtilizacion()
-    {
-        return $this->prohibicion_utilizacion;
-    }
-
-    /**
-     * Set prohibicion_retraso
-     *
-     * @param boolean $prohibicionRetraso
-     * @return Arriendo
-     */
-    public function setProhibicionRetraso($prohibicionRetraso)
-    {
-        $this->prohibicion_retraso = $prohibicionRetraso;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_retraso
-     *
-     * @return boolean 
-     */
-    public function getProhibicionRetraso()
-    {
-        return $this->prohibicion_retraso;
-    }
-
-    /**
-     * Set prohibicion_perturbacion
-     *
-     * @param boolean $prohibicionPerturbacion
-     * @return Arriendo
-     */
-    public function setProhibicionPerturbacion($prohibicionPerturbacion)
-    {
-        $this->prohibicion_perturbacion = $prohibicionPerturbacion;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_perturbacion
-     *
-     * @return boolean 
-     */
-    public function getProhibicionPerturbacion()
-    {
-        return $this->prohibicion_perturbacion;
-    }
-
-    /**
-     * Set prohibicion_agujeros
-     *
-     * @param boolean $prohibicionAgujeros
-     * @return Arriendo
-     */
-    public function setProhibicionAgujeros($prohibicionAgujeros)
-    {
-        $this->prohibicion_agujeros = $prohibicionAgujeros;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_agujeros
-     *
-     * @return boolean 
-     */
-    public function getProhibicionAgujeros()
-    {
-        return $this->prohibicion_agujeros;
-    }
-
-    /**
-     * Set prohibicion_normativa
-     *
-     * @param boolean $prohibicionNormativa
-     * @return Arriendo
-     */
-    public function setProhibicionNormativa($prohibicionNormativa)
-    {
-        $this->prohibicion_normativa = $prohibicionNormativa;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_normativa
-     *
-     * @return boolean 
-     */
-    public function getProhibicionNormativa()
-    {
-        return $this->prohibicion_normativa;
-    }
-
-    /**
-     * Set prohibicion_accion_ilegal
-     *
-     * @param boolean $prohibicionAccionIlegal
-     * @return Arriendo
-     */
-    public function setProhibicionAccionIlegal($prohibicionAccionIlegal)
-    {
-        $this->prohibicion_accion_ilegal = $prohibicionAccionIlegal;
-
-        return $this;
-    }
-
-    /**
-     * Get prohibicion_accion_ilegal
-     *
-     * @return boolean 
-     */
-    public function getProhibicionAccionIlegal()
-    {
-        return $this->prohibicion_accion_ilegal;
-    }
-
-    /**
      * Set recision_pago
      *
      * @param string $recisionPago
@@ -3674,5 +3615,1057 @@ class Arriendo
     public function removeArrendatarioJuridicaRepresentante(\ContratosBundle\Entity\RepresentanteLegal $arrendatarioJuridicaRepresentante)
     {
         $this->arrendatario_juridica_representante->removeElement($arrendatarioJuridicaRepresentante);
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     * @return Arriendo
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set ciudad
+     *
+     * @param string $ciudad
+     * @return Arriendo
+     */
+    public function setCiudad($ciudad)
+    {
+        $this->ciudad = $ciudad;
+
+        return $this;
+    }
+
+    /**
+     * Get ciudad
+     *
+     * @return string 
+     */
+    public function getCiudad()
+    {
+        return $this->ciudad;
+    }
+    
+    /**
+     * Set aval_duracion
+     *
+     * @param string $avalDuracion
+     * @return Arriendo
+     */
+    public function setAvalDuracion($avalDuracion)
+    {
+        $this->aval_duracion = $avalDuracion;
+
+        return $this;
+    }
+
+    /**
+     * Get aval_duracion
+     *
+     * @return string 
+     */
+    public function getAvalDuracion()
+    {
+        return $this->aval_duracion;
+    }
+
+    /**
+     * Set aval_duracion_otro
+     *
+     * @param string $avalDuracionOtro
+     * @return Arriendo
+     */
+    public function setAvalDuracionOtro($avalDuracionOtro)
+    {
+        $this->aval_duracion_otro = $avalDuracionOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get aval_duracion_otro
+     *
+     * @return string 
+     */
+    public function getAvalDuracionOtro()
+    {
+        return $this->aval_duracion_otro;
+    }
+
+    /**
+     * Set propiedad_proposito
+     *
+     * @param string $propiedadProposito
+     * @return Arriendo
+     */
+    public function setPropiedadProposito($propiedadProposito)
+    {
+        $this->propiedad_proposito = $propiedadProposito;
+
+        return $this;
+    }
+
+    /**
+     * Get propiedad_proposito
+     *
+     * @return string 
+     */
+    public function getPropiedadProposito()
+    {
+        return $this->propiedad_proposito;
+    }
+
+    /**
+     * Set propiedad_proposito_otro
+     *
+     * @param string $propiedadPropositoOtro
+     * @return Arriendo
+     */
+    public function setPropiedadPropositoOtro($propiedadPropositoOtro)
+    {
+        $this->propiedad_proposito_otro = $propiedadPropositoOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get propiedad_proposito_otro
+     *
+     * @return string 
+     */
+    public function getPropiedadPropositoOtro()
+    {
+        return $this->propiedad_proposito_otro;
+    }
+
+    /**
+     * Set plazo_momento_fecha
+     *
+     * @param \DateTime $plazoMomentoFecha
+     * @return Arriendo
+     */
+    public function setPlazoMomentoFecha($plazoMomentoFecha)
+    {
+        $this->plazo_momento_fecha = $plazoMomentoFecha;
+
+        return $this;
+    }
+
+    /**
+     * Get plazo_momento_fecha
+     *
+     * @return \DateTime 
+     */
+    public function getPlazoMomentoFecha()
+    {
+        return $this->plazo_momento_fecha;
+    }
+
+    /**
+     * Set plazo_duracion_contrato
+     *
+     * @param \DateTime $plazoDuracionContrato
+     * @return Arriendo
+     */
+    public function setPlazoDuracionContrato($plazoDuracionContrato)
+    {
+        $this->plazo_duracion_contrato = $plazoDuracionContrato;
+
+        return $this;
+    }
+
+    /**
+     * Get plazo_duracion_contrato
+     *
+     * @return \DateTime 
+     */
+    public function getPlazoDuracionContrato()
+    {
+        return $this->plazo_duracion_contrato;
+    }
+    /**
+     * @var integer
+     */
+    private $renta_dias_inicio;
+
+    /**
+     * @var integer
+     */
+    private $renta_dias_fin;
+
+
+    /**
+     * Set renta_dias_inicio
+     *
+     * @param integer $rentaDiasInicio
+     * @return Arriendo
+     */
+    public function setRentaDiasInicio($rentaDiasInicio)
+    {
+        $this->renta_dias_inicio = $rentaDiasInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_dias_inicio
+     *
+     * @return integer 
+     */
+    public function getRentaDiasInicio()
+    {
+        return $this->renta_dias_inicio;
+    }
+
+    /**
+     * Set renta_dias_fin
+     *
+     * @param integer $rentaDiasFin
+     * @return Arriendo
+     */
+    public function setRentaDiasFin($rentaDiasFin)
+    {
+        $this->renta_dias_fin = $rentaDiasFin;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_dias_fin
+     *
+     * @return integer 
+     */
+    public function getRentaDiasFin()
+    {
+        return $this->renta_dias_fin;
+    }
+
+    /**
+     * Set renta_medio_efectivo_entrega
+     *
+     * @param string $rentaMedioEfectivoEntrega
+     * @return Arriendo
+     */
+    public function setRentaMedioEfectivoEntrega($rentaMedioEfectivoEntrega)
+    {
+        $this->renta_medio_efectivo_entrega = $rentaMedioEfectivoEntrega;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_medio_efectivo_entrega
+     *
+     * @return string 
+     */
+    public function getRentaMedioEfectivoEntrega()
+    {
+        return $this->renta_medio_efectivo_entrega;
+    }
+
+    /**
+     * Set renta_medio_efectivo_entrega_otro
+     *
+     * @param string $rentaMedioEfectivoEntregaOtro
+     * @return Arriendo
+     */
+    public function setRentaMedioEfectivoEntregaOtro($rentaMedioEfectivoEntregaOtro)
+    {
+        $this->renta_medio_efectivo_entrega_otro = $rentaMedioEfectivoEntregaOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_medio_efectivo_entrega_otro
+     *
+     * @return string 
+     */
+    public function getRentaMedioEfectivoEntregaOtro()
+    {
+        return $this->renta_medio_efectivo_entrega_otro;
+    }
+
+    /**
+     * Set renta_medio_cheque_otro
+     *
+     * @param string $rentaMedioChequeOtro
+     * @return Arriendo
+     */
+    public function setRentaMedioChequeOtro($rentaMedioChequeOtro)
+    {
+        $this->renta_medio_cheque_otro = $rentaMedioChequeOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_medio_cheque_otro
+     *
+     * @return string 
+     */
+    public function getRentaMedioChequeOtro()
+    {
+        return $this->renta_medio_cheque_otro;
+    }
+
+    /**
+     * Set renta_medio_deposito_envio_otro
+     *
+     * @param string $rentaMedioDepositoEnvioOtro
+     * @return Arriendo
+     */
+    public function setRentaMedioDepositoEnvioOtro($rentaMedioDepositoEnvioOtro)
+    {
+        $this->renta_medio_deposito_envio_otro = $rentaMedioDepositoEnvioOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_medio_deposito_envio_otro
+     *
+     * @return string 
+     */
+    public function getRentaMedioDepositoEnvioOtro()
+    {
+        return $this->renta_medio_deposito_envio_otro;
+    }
+
+    /**
+     * Set renta_reajuste_forma_otro
+     *
+     * @param string $rentaReajusteFormaOtro
+     * @return Arriendo
+     */
+    public function setRentaReajusteFormaOtra($rentaReajusteFormaOtro)
+    {
+        $this->renta_reajuste_forma_otro = $rentaReajusteFormaOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_reajuste_forma_otro
+     *
+     * @return string 
+     */
+    public function getRentaReajusteFormaOtro()
+    {
+        return $this->renta_reajuste_forma_otro;
+    }
+
+    /**
+     * Set renta_reajuste_forma_otro
+     *
+     * @param string $rentaReajusteFormaOtro
+     * @return Arriendo
+     */
+    public function setRentaReajusteFormaOtro($rentaReajusteFormaOtro)
+    {
+        $this->renta_reajuste_forma_otro = $rentaReajusteFormaOtro;
+
+        return $this;
+    }
+
+    /**
+     * Set renta_mora_valor_otro
+     *
+     * @param string $rentaMoraValorOtro
+     * @return Arriendo
+     */
+    public function setRentaMoraValorOtro($rentaMoraValorOtro)
+    {
+        $this->renta_mora_valor_otro = $rentaMoraValorOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get renta_mora_valor_otro
+     *
+     * @return string 
+     */
+    public function getRentaMoraValorOtro()
+    {
+        return $this->renta_mora_valor_otro;
+    }
+
+    /**
+     * Set obligacion_arrendador_pagar
+     *
+     * @param boolean $obligacionArrendadorPagar
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorPagar($obligacionArrendadorPagar)
+    {
+        $this->obligacion_arrendador_pagar = $obligacionArrendadorPagar;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_pagar
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorPagar()
+    {
+        return $this->obligacion_arrendador_pagar;
+    }
+
+    /**
+     * Set obligacion_arrendador_finalidad
+     *
+     * @param boolean $obligacionArrendadorFinalidad
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorFinalidad($obligacionArrendadorFinalidad)
+    {
+        $this->obligacion_arrendador_finalidad = $obligacionArrendadorFinalidad;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_finalidad
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorFinalidad()
+    {
+        return $this->obligacion_arrendador_finalidad;
+    }
+
+    /**
+     * Set obligacion_arrendador_estado
+     *
+     * @param boolean $obligacionArrendadorEstado
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorEstado($obligacionArrendadorEstado)
+    {
+        $this->obligacion_arrendador_estado = $obligacionArrendadorEstado;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_estado
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorEstado()
+    {
+        return $this->obligacion_arrendador_estado;
+    }
+
+    /**
+     * Set obligacion_arrendador_responder
+     *
+     * @param boolean $obligacionArrendadorResponder
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorResponder($obligacionArrendadorResponder)
+    {
+        $this->obligacion_arrendador_responder = $obligacionArrendadorResponder;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_responder
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorResponder()
+    {
+        return $this->obligacion_arrendador_responder;
+    }
+
+    /**
+     * Set obligacion_arrendador_agua
+     *
+     * @param boolean $obligacionArrendadorAgua
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorAgua($obligacionArrendadorAgua)
+    {
+        $this->obligacion_arrendador_agua = $obligacionArrendadorAgua;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_agua
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorAgua()
+    {
+        return $this->obligacion_arrendador_agua;
+    }
+
+    /**
+     * Set obligacion_arrendador_gastos
+     *
+     * @param boolean $obligacionArrendadorGastos
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorGastos($obligacionArrendadorGastos)
+    {
+        $this->obligacion_arrendador_gastos = $obligacionArrendadorGastos;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_gastos
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorGastos()
+    {
+        return $this->obligacion_arrendador_gastos;
+    }
+
+    /**
+     * Set obligacion_arrendador_subarrendar
+     *
+     * @param boolean $obligacionArrendadorSubarrendar
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorSubarrendar($obligacionArrendadorSubarrendar)
+    {
+        $this->obligacion_arrendador_subarrendar = $obligacionArrendadorSubarrendar;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_subarrendar
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorSubarrendar()
+    {
+        return $this->obligacion_arrendador_subarrendar;
+    }
+
+    /**
+     * Set obligacion_arrendador_devolver
+     *
+     * @param boolean $obligacionArrendadorDevolver
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorDevolver($obligacionArrendadorDevolver)
+    {
+        $this->obligacion_arrendador_devolver = $obligacionArrendadorDevolver;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_devolver
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorDevolver()
+    {
+        return $this->obligacion_arrendador_devolver;
+    }
+
+    /**
+     * Set obligacion_arrendador_otro
+     *
+     * @param boolean $obligacionArrendadorOtro
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorOtro($obligacionArrendadorOtro)
+    {
+        $this->obligacion_arrendador_otro = $obligacionArrendadorOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_otro
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendadorOtro()
+    {
+        return $this->obligacion_arrendador_otro;
+    }
+
+    /**
+     * Set obligacion_arrendador_otro_texto
+     *
+     * @param string $obligacionArrendadorOtroTexto
+     * @return Arriendo
+     */
+    public function setObligacionArrendadorOtroTexto($obligacionArrendadorOtroTexto)
+    {
+        $this->obligacion_arrendador_otro_texto = $obligacionArrendadorOtroTexto;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendador_otro_texto
+     *
+     * @return string 
+     */
+    public function getObligacionArrendadorOtroTexto()
+    {
+        return $this->obligacion_arrendador_otro_texto;
+    }
+
+    /**
+     * Set obligacion_arrendatario_garantia
+     *
+     * @param boolean $obligacionArrendatarioGarantia
+     * @return Arriendo
+     */
+    public function setObligacionArrendatarioGarantia($obligacionArrendatarioGarantia)
+    {
+        $this->obligacion_arrendatario_garantia = $obligacionArrendatarioGarantia;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendatario_garantia
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendatarioGarantia()
+    {
+        return $this->obligacion_arrendatario_garantia;
+    }
+
+    /**
+     * Set obligacion_arrendatario_contribuciones
+     *
+     * @param boolean $obligacionArrendatarioContribuciones
+     * @return Arriendo
+     */
+    public function setObligacionArrendatarioContribuciones($obligacionArrendatarioContribuciones)
+    {
+        $this->obligacion_arrendatario_contribuciones = $obligacionArrendatarioContribuciones;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendatario_contribuciones
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendatarioContribuciones()
+    {
+        return $this->obligacion_arrendatario_contribuciones;
+    }
+
+    /**
+     * Set obligacion_arrendatario_reparacion
+     *
+     * @param boolean $obligacionArrendatarioReparacion
+     * @return Arriendo
+     */
+    public function setObligacionArrendatarioReparacion($obligacionArrendatarioReparacion)
+    {
+        $this->obligacion_arrendatario_reparacion = $obligacionArrendatarioReparacion;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendatario_reparacion
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendatarioReparacion()
+    {
+        return $this->obligacion_arrendatario_reparacion;
+    }
+
+    /**
+     * Set obligacion_arrendatario_otro
+     *
+     * @param boolean $obligacionArrendatarioOtro
+     * @return Arriendo
+     */
+    public function setObligacionArrendatarioOtro($obligacionArrendatarioOtro)
+    {
+        $this->obligacion_arrendatario_otro = $obligacionArrendatarioOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendatario_otro
+     *
+     * @return boolean 
+     */
+    public function getObligacionArrendatarioOtro()
+    {
+        return $this->obligacion_arrendatario_otro;
+    }
+
+    /**
+     * Set obligacion_arrendatario_otro_texto
+     *
+     * @param string $obligacionArrendatarioOtroTexto
+     * @return Arriendo
+     */
+    public function setObligacionArrendatarioOtroTexto($obligacionArrendatarioOtroTexto)
+    {
+        $this->obligacion_arrendatario_otro_texto = $obligacionArrendatarioOtroTexto;
+
+        return $this;
+    }
+
+    /**
+     * Get obligacion_arrendatario_otro_texto
+     *
+     * @return string 
+     */
+    public function getObligacionArrendatarioOtroTexto()
+    {
+        return $this->obligacion_arrendatario_otro_texto;
+    }
+    /**
+     * @var boolean
+     */
+    private $termino_arrendador_primero = true;
+
+    /**
+     * @var boolean
+     */
+    private $termino_arrendador_segundo = true;
+
+    /**
+     * @var boolean
+     */
+    private $termino_arrendador_otro = false;
+
+    /**
+     * @var string
+     */
+    private $termino_arrendador_otro_texto;
+
+    /**
+     * @var boolean
+     */
+    private $termino_arrendatario_primero = true;
+
+    /**
+     * @var boolean
+     */
+    private $termino_arrendatario_segundo = true;
+
+    /**
+     * @var boolean
+     */
+    private $termino_arrendatario_otro = false;
+
+    /**
+     * @var string
+     */
+    private $termino_arrendatario_otro_texto;
+
+
+    /**
+     * Set termino_arrendador_primero
+     *
+     * @param boolean $terminoArrendadorPrimero
+     * @return Arriendo
+     */
+    public function setTerminoArrendadorPrimero($terminoArrendadorPrimero)
+    {
+        $this->termino_arrendador_primero = $terminoArrendadorPrimero;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendador_primero
+     *
+     * @return boolean 
+     */
+    public function getTerminoArrendadorPrimero()
+    {
+        return $this->termino_arrendador_primero;
+    }
+
+    /**
+     * Set termino_arrendador_segundo
+     *
+     * @param boolean $terminoArrendadorSegundo
+     * @return Arriendo
+     */
+    public function setTerminoArrendadorSegundo($terminoArrendadorSegundo)
+    {
+        $this->termino_arrendador_segundo = $terminoArrendadorSegundo;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendador_segundo
+     *
+     * @return boolean 
+     */
+    public function getTerminoArrendadorSegundo()
+    {
+        return $this->termino_arrendador_segundo;
+    }
+
+    /**
+     * Set termino_arrendador_otro
+     *
+     * @param boolean $terminoArrendadorOtro
+     * @return Arriendo
+     */
+    public function setTerminoArrendadorOtro($terminoArrendadorOtro)
+    {
+        $this->termino_arrendador_otro = $terminoArrendadorOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendador_otro
+     *
+     * @return boolean 
+     */
+    public function getTerminoArrendadorOtro()
+    {
+        return $this->termino_arrendador_otro;
+    }
+
+    /**
+     * Set termino_arrendador_otro_texto
+     *
+     * @param string $terminoArrendadorOtroTexto
+     * @return Arriendo
+     */
+    public function setTerminoArrendadorOtroTexto($terminoArrendadorOtroTexto)
+    {
+        $this->termino_arrendador_otro_texto = $terminoArrendadorOtroTexto;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendador_otro_texto
+     *
+     * @return string 
+     */
+    public function getTerminoArrendadorOtroTexto()
+    {
+        return $this->termino_arrendador_otro_texto;
+    }
+
+    /**
+     * Set termino_arrendatario_primero
+     *
+     * @param boolean $terminoArrendatarioPrimero
+     * @return Arriendo
+     */
+    public function setTerminoArrendatarioPrimero($terminoArrendatarioPrimero)
+    {
+        $this->termino_arrendatario_primero = $terminoArrendatarioPrimero;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendatario_primero
+     *
+     * @return boolean 
+     */
+    public function getTerminoArrendatarioPrimero()
+    {
+        return $this->termino_arrendatario_primero;
+    }
+
+    /**
+     * Set termino_arrendatario_segundo
+     *
+     * @param boolean $terminoArrendatarioSegundo
+     * @return Arriendo
+     */
+    public function setTerminoArrendatarioSegundo($terminoArrendatarioSegundo)
+    {
+        $this->termino_arrendatario_segundo = $terminoArrendatarioSegundo;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendatario_segundo
+     *
+     * @return boolean 
+     */
+    public function getTerminoArrendatarioSegundo()
+    {
+        return $this->termino_arrendatario_segundo;
+    }
+
+    /**
+     * Set termino_arrendatario_otro
+     *
+     * @param boolean $terminoArrendatarioOtro
+     * @return Arriendo
+     */
+    public function setTerminoArrendatarioOtro($terminoArrendatarioOtro)
+    {
+        $this->termino_arrendatario_otro = $terminoArrendatarioOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendatario_otro
+     *
+     * @return boolean 
+     */
+    public function getTerminoArrendatarioOtro()
+    {
+        return $this->termino_arrendatario_otro;
+    }
+
+    /**
+     * Set termino_arrendatario_otro_texto
+     *
+     * @param string $terminoArrendatarioOtroTexto
+     * @return Arriendo
+     */
+    public function setTerminoArrendatarioOtroTexto($terminoArrendatarioOtroTexto)
+    {
+        $this->termino_arrendatario_otro_texto = $terminoArrendatarioOtroTexto;
+
+        return $this;
+    }
+
+    /**
+     * Get termino_arrendatario_otro_texto
+     *
+     * @return string 
+     */
+    public function getTerminoArrendatarioOtroTexto()
+    {
+        return $this->termino_arrendatario_otro_texto;
+    }
+
+    /**
+     * Set jurisdiccion
+     *
+     * @param boolean $jurisdiccion
+     * @return Arriendo
+     */
+    public function setJurisdiccion($jurisdiccion)
+    {
+        $this->jurisdiccion = $jurisdiccion;
+
+        return $this;
+    }
+
+    /**
+     * Get jurisdiccion
+     *
+     * @return boolean 
+     */
+    public function getJurisdiccion()
+    {
+        return $this->jurisdiccion;
+    }
+
+    /**
+     * Set jurisdiccion_comuna
+     *
+     * @param \ContratosBundle\Entity\Comuna $jurisdiccionComuna
+     * @return Arriendo
+     */
+    public function setJurisdiccionComuna(\ContratosBundle\Entity\Comuna $jurisdiccionComuna = null)
+    {
+        $this->jurisdiccion_comuna = $jurisdiccionComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get jurisdiccion_comuna
+     *
+     * @return \ContratosBundle\Entity\Comuna 
+     */
+    public function getJurisdiccionComuna()
+    {
+        return $this->jurisdiccion_comuna;
+    }
+
+    /**
+     * Set garantia_forma_otro
+     *
+     * @param string $garantiaFormaOtro
+     * @return Arriendo
+     */
+    public function setGarantiaFormaOtro($garantiaFormaOtro)
+    {
+        $this->garantia_forma_otro = $garantiaFormaOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get garantia_forma_otro
+     *
+     * @return string 
+     */
+    public function getGarantiaFormaOtro()
+    {
+        return $this->garantia_forma_otro;
+    }
+
+    /**
+     * Set garantia_monto_otro
+     *
+     * @param string $garantiaMontoOtro
+     * @return Arriendo
+     */
+    public function setGarantiaMontoOtro($garantiaMontoOtro)
+    {
+        $this->garantia_monto_otro = $garantiaMontoOtro;
+
+        return $this;
+    }
+
+    /**
+     * Get garantia_monto_otro
+     *
+     * @return string 
+     */
+    public function getGarantiaMontoOtro()
+    {
+        return $this->garantia_monto_otro;
     }
 }

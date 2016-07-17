@@ -667,3 +667,7 @@ footer .footer-below {
 .panel-primary {
     border-color: #18bc9c;
 }
+
+.options_inline .radio, .options_inline .checkbox {
+    display: inline;
+}

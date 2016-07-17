@@ -10,171 +10,191 @@
     <h1>Contrato de Arrendamiento</h1><h1>Entre</h1><h1>{{ entity.arrendadornatural }}</h1><h1>y</h1><h1>{{ entity.arrendatarionatural }}</h1>
     <p></p>
     
-    <p>En Santiago, a 9 de abril de 2015 
+    <p>En {{ entity.ciudad }}, a {{ entity.fecha|date_in_words }}
     {% if entity.arrendadorpersona == "Natural" %}
-    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}don{% else %}doña{%endif %} {{ entity.arrendadornatural }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} 
+    entre {% if entity.arrendadornaturalsexo == 'Hombre' %}Don{% else %}Doña{%endif %} {{ entity.arrendadornatural }}, {{ entity.arrendadornaturalnacionalidad }}, {{ entity.arrendadornaturalestadocivil }}, {{ entity.arrendadornaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendadornaturalrut }} 
     {% if entity.arrendadornaturalsexo == 'Hombre' %}domiciliado{% else %}domiciliada{%endif %}
     en {{ entity.arrendadornaturaldomicilio }}, comuna de {{ entity.arrendadornaturalcomuna }}, Región {{ entity.arrendadornaturalregion }}
     {% else %}
     entre 
     {% for representante in entity.arrendadorjuridicarepresentante %}
     {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}
-    {% if representante.sexo == 'Hombre' %}don{% else %}doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }} 
+    {% if representante.sexo == 'Hombre' %}Don{% else %}Doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }} 
     {% endfor %}
     en representación de {{ entity.arrendadorjuridicarazon }}, de giro de {{ entity.arrendadorjuridicagiro }}, rol único tributario número {{ entity.arrendadorjuridicarut }}, todos domiciliados para estos efectos en {{ entity.arrendadorjuridicadomicilio }}, comuna de {{ entity.arrendadorjuridicacomuna }}, Región {{ entity.arrendadorjuridicaregion }},
     {% endif %}
-    en adelante e indistintamente, EL ARRENDADOR, por una parte, y por la otra,
-    {% if entity.arrendatarionaturalsexo == 'Hombre' %}don{% else %}doña{%endif %}
+    en adelante e indistintamente, <strong>EL ARRENDADOR</strong>, por una parte, y por la otra,
+    {% if entity.arrendatarionaturalsexo == 'Hombre' %}Don{% else %}Doña{%endif %}
     {% if entity.arrendatariopersona == "Natural" %}
     {{ entity.arrendatarionaturalnombres }} {{ entity.arrendatarionaturalapellidopaterno }} {{ entity.arrendatarionaturalapellidomaterno }}, {{ entity.arrendatarionaturalnacionalidad }}, {{ entity.arrendatarionaturalestadocivil }}, {{ entity.arrendatarionaturalprofesion }}, cédula nacional de identidad número {{ entity.arrendatarionaturalrut }} 
     {% if entity.arrendatarionaturalsexo == 'Hombre' %}domiciliado{% else %}domiciliada{%endif %} 
-    en {{ entity.arrendatarionaturaldomicilio }}, comuna de {{ entity.arrendatarionaturalcomuna }}, Región {{ entity.arrendatarionaturalregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
+    en {{ entity.arrendatarionaturaldomicilio }}, comuna de {{ entity.arrendatarionaturalcomuna }}, Región {{ entity.arrendatarionaturalregion }}, en adelante e indistintamente, <strong>EL ARRENDATARIO</strong>, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% else %}
     {% for representante in entity.arrendatariojuridicarepresentante %}
     {% if loop.index > 1 %}, {% if loop.last %}y{% endif %} {% endif %}
-    {% if representante.sexo == "Hombre" %}don{% else %}doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }}
+    {% if representante.sexo == "Hombre" %}Don{% else %}Doña{% endif %} {{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}, {{ representante.nacionalidad }}, {{ representante.estadocivil }}, {{ representante.profesion }}, cédula nacional de identidad número {{ representante.rut }}
     {% endfor %}
-    en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, Región {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, EL ARRENDATARIO, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
+    en representación de {{ entity.arrendatariojuridicarazon }}, del giro {{ entity.arrendatariojuridicagiro }}, rol único tributario número {{ entity.arrendatariojuridicarut }}, todos domiciliados en {{ entity.arrendatariojuridicadomicilio }}, comuna de {{ entity.arrendatariojuridicacomuna }}, Región {{ entity.arrendatariojuridicaregion }}, en adelante e indistintamente, <strong>EL ARRENDATARIO</strong>, han convenido en celebrar el siguiente contrato de arrendamiento, el cual se regirá la Ley N° 18.101 sobre arrendamiento de predios urbanos, y por disposiciones pertinentes del Código Civil.
     {% endif %}
     </p>
         
-    <p>{{ listado[0] }}: {% if entity.arrendadornaturalsexo == 'Hombre' %}Don{% else %}Doña{%endif %} {{ entity.arrendadornatural }} declara bajo juramento que es dueño de la propiedad raíz ubicada en {{ entity.propiedadcalle }} {{ entity.propiedadnumero }} {{ entity.propiedaddepartamento is empty ? '' : entity.propiedaddepartamento }}, {% if entity.propiedadvilla %}{{ entity.propiedadvilla }}, {%endif %}comuna de {{ entity.propiedadcomuna }}, Región {{ entity.propiedadregion }}., el adelante, el BIEN ARRENDADO.</p>
+    <p>{{ listado[0] }}: {% if entity.arrendadornaturalsexo == 'Hombre' %}Don{% else %}Doña{%endif %} {{ entity.arrendadornatural }} declara bajo juramento que es dueño de la propiedad raíz ubicada en {{ entity.propiedadcalle }} {{ entity.propiedadnumero }} {{ entity.propiedaddepartamento is empty ? '' : entity.propiedaddepartamento }}, {% if entity.propiedadvilla %}{{ entity.propiedadvilla }}, {%endif %}comuna de {{ entity.propiedadcomuna }}, Región {{ entity.propiedadregion }}., en adelante e indistintamente <strong>“BIEN ARRENDADO”</strong>, <strong>“EL BIEN ARRENDADO”</strong> o <strong>“INMUEBLE”</strong>.</p>
     
-    <p>{{ listado[1] }}: Por el presente instrumento EL ARRENDADOR, entrega en arriendo a EL ARRENDATARIO, quien acepta, el inmueble singularizado en la cláusula precedente por los plazos y en las condiciones que en el presente contrato se establecen.</p>
-    
-    <p>{{ listado[2] }}: El plazo de duración del presente contrato de arrendamiento será de {{ entity.plazocantidad }} {{ entity.plazounidad }} contados desde la fecha del presente contrato.
-    {% if entity.plazoprorroga %}
-    Sin perjuicio de lo anterior, el contrato se entenderá prorrogado automáticamente por períodos de {{ entity.plazoprorrogatiempo }} si ninguna de las partes manifiesta su intención de terminar el contrato con a lo menos {{ entity.plazoaviso }} de anticipación a la fecha de término del mismo o de alguna de sus prórrogas, mediante {% if entity.plazoforma %}{{ entity.plazoforma }}{% else %}{{ entity.plazocarta }}{% endif %} ARRENDADOR señalada en el presente contrato. 
+    <p>{{ listado[1] }}: Por el presente instrumento <strong>EL ARRENDADOR</strong>, entrega en arriendo a <strong>EL ARRENDATARIO</strong>, quien acepta, <strong>EL INMUEBLE</strong> singularizado en la cláusula precedente por los plazos y en las condiciones que en el presente contrato se establecen, para que <strong>EL ARRENDATARIO</strong> lo utilice como lugar para
+    {% if propiedad_proposito_otro == 'Otro' %}
+    {{ entity.propiedadproposito|lower }}.
+    {% else %}
+    {{ entity.propiedadpropositootro|lower }}.
     {% endif %}
     </p>
     
-    <p>{{ listado[3] }}: La renta de arrendamiento {{ entity.rentaperiodo }} será la suma de ${{ entity.rentamonto|number_format(0, ',', '.') }} {{ entity.rentaunidad|lower }}, que la arrendataria deberá pagar, {{ entity.rentatiempo }}, de manera anticipada, entre los días {{ entity.rentadias }} del mes en que corresponda hacer el pago, 
-    {% if entity.rentamediopago == "efectivo" %}
-    en efectivo entregado en el domicilio del arrendador señalado en la comparecencia{{ entity.rentamedioefectivo }}
-    {% elseif entity.rentamediopago == "cheque" %}
-    a través de un {{ entity.rentamediocheque }},
-    {% elseif entity.rentamediopago == "deposito" %}
-    depositando en la cuenta {{ entity.rentamediodepositotipo }} número {{ entity.rentamediodepositonumero }} del Banco {{ entity.rentamediodepositobanco }} a nombre de {{ entity.rentamediodepositotitular }}. Luego deberá enviar el comprobante de pago {{ entity.rentamediodepositoenvio }} señalado en la comparecencia. 
+    <p>{{ listado[2] }}: El plazo de duración del presente contrato de arrendamiento será de {{ entity.plazocantidad }} contados desde {% if entity.plazo_momento == 'Otro' %}el{{ entity.plazomomentofecha|date_in_words %}{% else %}la fecha del presente contrato, {% endif %}hasta el {{ entity.plazoduracioncontrato|date_in_words }}.
+    {% if entity.plazoprorroga %}
+    Sin perjuicio de lo anterior, el contrato se entenderá prorrogado automáticamente por períodos de {{ entity.plazoprorrogatiempo }} si ninguna de las partes manifiesta su intención de terminar el contrato con a lo menos {{ entity.plazoaviso }} de anticipación a la fecha de término del mismo o de alguna de sus prórrogas, mediante {% if entity.plazoforma != "Otro" %}{{ entity.plazoforma|lower }}{% else %}{{ entity.plazocarta|lower }}{% endif %} de la contraparte señalado en este contrato, o al <strong>INMUEBLE</strong> arrendado si se quiere notificar al <strong>ARRENDATARIO</strong>.
+    En todo caso las partes podrán, de común acuerdo, terminar el contrato en cualquier momento, sin importar cuánto tiempo quede de vigencia del mismo. Este acuerdo, deberá constar por escrito.
     {% endif %}
+    </p>
+    
+    <p>{{ listado[3] }}: La renta de arrendamiento {{ entity.rentaperiodo }} será la suma de ${{ entity.rentamonto|number_format(0, ',', '.') }} {{ entity.rentaunidad|lower }}, que <strong>EL ARRENDATARIO</strong> deberá pagar, {{ entity.rentaperiodo }}, {{ entity.rentatiempo }}, entre los días {{ entity.rentadiasinicio }} y {{ entity.rentadiasfin }} del mes en que corresponda hacer el pago, 
+    {% if entity.rentamediopago == "efectivo" %}
+    en efectivo entregado {% if entity.rentamedioefectivoentrega == "domicilio" %}en el domicilio del arrendador señalado en la comparecencia{% else %}{{ entity.rentamedioefectivoentregaotro }}{% endif%}
+    {% elseif entity.rentamediopago == "cheque" %}
+    a través de un cheque {% if entity.rentamediocheque == "Otro" %}{{ entity.rentamediochequeotro }}{% else %}{{ entity.rentamediocheque }}{% endif %},
+    {% elseif entity.rentamediopago == "deposito" %}
+    depositando en la cuenta {{ entity.rentamediodepositotipo }} número {{ entity.rentamediodepositonumero }} del Banco {{ entity.rentamediodepositobanco }} a nombre de {{ entity.rentamediodepositotitular }}.
+    {% endif %} Luego deberá enviar el comprobante de pago
+    {% if entity.rentamediodepositoenvio == "Otro" %}{{ entity.rentamediodepositoenviootro }}{% else %}{{ entity.rentamediodepositoenvio }}{% endif %} señalado en la comparecencia. 
     
     {% if entity.rentamedioreajuste %}
-    Dicha renta se reajustará {{ entity.rentareajusteperiodo }} por {{ entity.rentareajusteforma }}, durante dicho período.
+    Dicha renta se reajustará {{ entity.rentareajusteperiodo }} por {% if entity.rentareajusteforma == "Otro" %}{{ entity.rentareajusteformaotro|lower }}{% else %}{{ entity.rentareajusteforma|lower }}{% endif %}, durante dicho período.
 
-El período de reajuste se iniciará en el primer mes de contrato, o el mes en que se haya efectuado el último reajuste de la renta, y se hará efectivo en la renta que corresponda al mes siguiente a aquel en que hubiere expirado el período de reajuste señalado en el párrafo anterior.
-
+El período de reajuste se iniciará en el primer mes de contrato, o el mes siguiente al último que se haya contabilizado el reajuste anterior de la renta, y se hará efectivo en la renta que corresponda al mes siguiente a aquel en que hubiere expirado el período de reajuste señalado en el párrafo anterior. Es decir, si por ejemplo, el reajuste era cada 12 meses, para contar el período de reajuste se tomarán en cuenta el tiempo entre los meses 1 y 12, y el reajuste tendrá efecto en la renta del mes 13, que en este caso, que se pagará, los primeros días del mes 14. Para el siguiente reajuste, se contabilizará desde el mes 13.
     {% else %}
     Dicha renta no se reajustará.
     {% endif %}
     
     {% if entity.rentamorasancion %}
-    Luego de {{ entity.rentamoraperiodo }} desde que el ARRENDATARIO se hubiera constituido en mora en el pago de la renta de arrendamiento, este deberá pagar, como multa por dicho retraso, {{ entity.rentamoravalor }} por día de atraso. Estas multas deberán ser pagadas junto con la renta del mes siguiente a aquel en que se hubieren generado.
+    Sin perjuicio de lo anterior, si <strong>EL ARRENDATARIO</strong> se hubiera retrasado en el pago de la renta de arrendamiento más de {{ entity.rentamoraperiodo|lower }} este deberá pagar, como multa por dicho retraso, {% if entity.rentamoravalor == "Otro" %}{{ entity.rentamoravalorotro }}{% else %}{{ entity.rentamoravalor }}% del valor de la renta mensual {% endif %} por día de atraso. Estas multas deberán ser pagadas junto con la renta del mes siguiente a aquel en que se hubieren generado.
     {% endif %}
     
     {% if entity.rentacobranza %}
-    Asimismo, si luego de {{ entity.rentacobranzaplazo }} de mora EL ARRENDATARIO no pagare las rentas de arrendamiento, junto a las multas que correspondan, EL ARRENDATARIO podrá iniciar la cobranza judicial de las rentas de arrendamiento vencidas, lo que deberá ser notificado al ARRENDATARIO {{ entity.rentacobranzanotificacion }}.
+    Asimismo, si luego de {{ entity.rentacobranzaplazo }} de mora <strong>EL ARRENDATARIO</strong> no pagare las rentas de arrendamiento, junto a las multas que correspondan, <strong>EL ARRENDATARIO</strong> podrá iniciar la cobranza judicial de las rentas de arrendamiento vencidas, lo que deberá ser notificado al ARRENDATARIO {{ entity.rentacobranzanotificacion }}.
 
-El ARRENDADOR deberá costear los honorarios de los abogados que tramiten dichos cobros, que de forma anticipada se avalúan en {{ entity.rentacobranzaavaluo }}
+El <strong>ARRENDADOR</strong> deberá costear los honorarios de los abogados que tramiten dichos cobros, que de forma anticipada se avalúan en {{ entity.rentacobranzaavaluo }}
 
 Las multas u honorarios señalados en los párrafos anteriores deberán ser pagados por el ARRENDATARIO junto con la renta del mes siguiente a aquel en que dichas multas u honorarios se hubieren generado, y para todos los efectos, pasarán a formar parte de las rentas adeudadas por el ARRENDATARIO al ARRENDADOR.
     {% endif %}
     </p>
     
-    <p>{{ listado[4] }}: {% if entity.entregafecha %}La entrega material del inmueble arrendado se realiza el {{ entity.entregafecha|date_in_words }}.{% endif %} El ARRENDATARIO declara conocer y aceptar el estado de mantención y conservación del INMUEBLE ARRENDADO, obligándose a restituirlo al término del contrato de arrendamiento, en el mismo estado que lo recibió, con el desgaste natural por el uso normal y el paso del tiempo. {% if entity.entregainventario %}Junto al inmueble, se entregan los bienes que se detallan en el inventario que se acompaña al presente contrato, el que debidamente firmado por las partes forma parte del mismo. Dichos bienes deberán ser restituidos al momento en que el inmueble se restituya.{% endif %}</p>
+    <p>{{ listado[4] }}: La entrega material del inmueble arrendado se realiza en la fecha señalada en la cláusula tercera, al entrar en vigencia el presente contrato. <strong>El ARRENDATARIO</strong> declara conocer y aceptar el estado de mantención y conservación del inmueble arrendado, obligándose a restituirlo al término de este contrato de arrendamiento, en el mismo estado que lo recibió, considerando el tiempo y su uso normal o legítimo. {% if entity.entregainventario %}Junto al inmueble, se entregan los bienes que se detallan en el Inventario de Bienes que se acompaña al presente contrato, el que debidamente firmado por las partes forma parte de este contrato. 
+Dichos bienes deberán ser restituidos al momento en que el inmueble se restituya.{% endif %}</p>
     
-    <p>{{ listado[5] }}: En virtud del presente contrato, EL ARRENDATARIO se obliga a:</p>
-    <h3>a) Pagar oportunamente los consumos de agua, energía eléctrica, y gas del inmueble.</h3>
-    <h3>b) Mantener en buen estado de conservación las instalaciones eléctricas, paredes, cielos, pisos, y artefactos sanitarios, entre otros, debiendo repararlos o cambiarlos a su costo si estos se destruyen o deterioran por su uso.</h3>
-    <h3>c) En el caso que por acción del ARRENDATARIO o la de alguno de sus dependientes se produzcan daños en las propiedades vecinas o en los bienes comunes si existieren, deberá reparar a su cuenta el daño. </h3>
-    <h3>d) Dar todas las facilidades necesarias para que el ARRENDADOR pueda visitar el inmueble durante la vigencia del contrato para verificar su estado. </h3>
-    <h3>e) Permitir que el inmueble sea visitado por interesados en habitar el inmueble durante los últimos {{ entity.restitucionvisitaplazo }} {{ entity.restitucionvisitaunidad }} de vigencia del contrato, coordinándose previamente con el ARRENDADOR.</h3>
-    <h3>f) Avisar al ARRENDADOR cuando se produzcan desperfectos en el inmueble que, según lo establecido en el presente contrato o en las leyes que regulan esta materia, deban ser reparados por el, dentro de las 72 horas siguientes al momento en que ARRENDATARIO se hubiese dado cuenta de esos desperfectos. Si el ARRENDATARIO o sus representantes no inician dentro los {{ entity.restitucioninicioplazo }} {{ entity.restitucioniniciounidad }} siguientes al aviso señalado en el párrafo anterior, las acciones destinadas a reparar dichos desperfectos, el ARRENDATARIO podrá realizarlas, descontando el costo de ellas de la renta de arrendamiento siguiente a la fecha en que se hubieren realizado dichos gastos.</h3>
-    <h3>g) Avisar al ARRENDADOR y/o reenviarle a la dirección señalada en el primer párrafo de este contrato cualquier notificación o comunicación de la Tesorería General de la República, el Servicio de Impuestos Internos, cualquier organismo de la administración del estado o un tercero que hubiese sido remitida, a su nombre, al INMUEBLE ARRENDADO, dentro de las 72 horas siguientes al momento en que hubiese recibido esa comunicación.</h3>
-    
-    <p>{{ listado[6] }}: Las mejoras que ejecutare el ARRENDATARIO, quedarán a beneficio de la propiedad, salvo que pueda retirarlas del inmueble arrendado sin detrimento o daño en el mismo.</p>    
-    
-    {% if entity.prohibicionsubarriendo or entity.prohibicionvariaciones or entity.prohibicionutilizacion %}
-    <p>{{ listado[contador] }}: Queda prohibida a al ARRENDATARIO lo siguiente:</p>
-    {% if entity.prohibicionsubarriendo %}
-    <h3>{{ letras[contador2] }}) Subarrendar o transferir a cualquier título el inmueble arrendado.</h3>
-    {% set contador2 = contador2 + 1 %}
+    <p>{{ listado[5] }}: <strong>EL ARRENDATARIO</strong> se obliga a:</p>
+    {% if entity.obligacionarrendadorpagar %}
+    <h3>Pagar oportunamente la renta de arrendamiento</h3>
     {% endif %}
-    
-    {% if entity.prohibicionvariaciones %}
-    <h3>{{ letras[contador2] }})Hacer variaciones o transformaciones que afecten la estructura interna o externa del inmueble arrendado sin autorización por escrito del ARRENDADOR.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadorfinalidad %}
+    <h3>Usar el inmueble de acuerdo a la finalidad por la que fue arrendado</h3>
     {% endif %}
-    
-    {% if entity.prohibicionutilizacion %}
-    <h3>{{ letras[contador2] }})Utilizar el inmueble con un fin distinto al que fue establecido en la cláusula primera del presente contrato.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadorestado %}
+    <h3>Mantener el inmueble en buen estado</h3>
     {% endif %}
-    
-    {% if entity.prohibicionretraso %}
-    <h3>{{ letras[contador2] }})Retrasarse en el pago de las cuentas de servicios básicos (luz, agua potable, gas), o en los gastos comunes.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadorresponder %}
+    <h3>Responder al <strong>ARRENDADOR</strong> en caso de daños</h3>
     {% endif %}
-    
-    {% if entity.prohibicionperturbacion %}
-    <h3>{{ letras[contador2] }})Realizar cualquier acción que perturbe a los vecinos del inmueble, tales como ruidos molestos u obras en el inmueble a horas inadecuadas, entre otras.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadoragua %}
+    <h3>Pagar oportunamente las cuentas de agua potable, energía eléctrica, gas y telefonía</h3>
     {% endif %}
-    
-    {% if entity.prohibicionagujeros %}
-    <h3>{{ letras[contador2] }})Hacer agujeros en las paredes o puertas.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadorgastos %}
+    <h3>Pagar oportunamente los gastos comunes, si corresponde</h3>
     {% endif %}
-    
-    {% if entity.prohibicionnormativa %}
-    <h3>{{ letras[contador2] }})No cumplir con la normativa interna del condominio o edificio si corresponde.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadorsubarrendar %}
+    <h3>No subarrendar el inmueble</h3>
     {% endif %}
-    
-    {% if entity.prohibicionaccionilegal %}
-    <h3>{{ letras[contador2] }})Ejecutar cualquier acción ilegal, o contraria al orden público, en el interior del inmueble.</h3>
-    {% set contador2 = contador2 + 1 %}
+    {% if entity.obligacionarrendadordevolver %}
+    <h3>Devolver el inmueble al ARRENDADOR en la fecha que corresponda</h3>
     {% endif %}
-    
-    {% set contador = contador + 1 %}
+    {% if entity.obligacionarrendadorotro %}
+    <h3>{{ entity.obligacionarrendadorotrotexto }}</h3>
     {% endif %}
-    
-    <p>{{ listado[contador] }}: Por su parte, EL ARRENDADOR estará obligado a: 1) Pagar oportunamente las contribuciones de bienes raíces. 2) Garantizar al ARRENDATARIO el goce, libre de toda turbación, durante el tiempo que dure el presente contrato. 3) Realizar a su costo las reparaciones de los deterioros producidos en el INMUEBLE ARRENDADO por el paso del tiempo, o por fuerza mayor, tales como daños estructurales producidos por terremotos o inundaciones. También deberá costear las reparaciones en los ascensores, el reemplazo o la reparación de calefones, y la reparación o reemplazo de cañerías viejas o rotas, con el fin de que el INMUEBLE ARRENDADO siga siendo útil para el fin señalado en la clausula primera, sin que pueda a causa de estos gastos, subir la renta mensual de arriendo.</p>
+
+    <p>{{ listado[contador] }}: Por su parte, <strong>EL ARRENDADOR</strong> estará obligado a:</p>
+    {% if entity.obligacionarrendatariogarantia %}
+    <h3>Garantizar al <strong>ARRENDATARIO</strong> el goce, libre de toda turbación, durante el tiempo que dure el presente contrato.</h3>
+    {% endif %}
+    {% if entity.obligacionarrendatariocontribuciones %}
+    <h3>Pagar oportunamente las contribuciones de bienes raíces.</h3>
+    {% endif %}
+    {% if entity.obligacionarrendatarioreparacion %}
+    <h3>Realizar a su costo las reparaciones de los deterioros producidos en <strong>EL INMUEBLE ARRENDADO</strong> por el paso del tiempo, o por fuerza mayor.</h3>
+    {% endif %}
+    {% if entity.obligacionarrendadorotro %}
+    <h3>{{ entity.obligacionarrendadorotrotexto }}</h3>
+    {% endif %}
+    <p>Si se producen alguno de los desperfectos señalados en el párrafo anterior, o alguno de los que, en virtud de las leyes que regulan esta materia, deban ser reparados por <strong>EL ARRENDADOR</strong>, <strong>EL ARRENDATARIO</strong> deberá dar aviso inmediato al mismo.</p>
+<p>Si <strong>EL ARRENDADOR</strong> o sus representantes no inician dentro los 5 días siguientes al aviso señalado en el párrafo anterior, las acciones destinadas a reparar dichos desperfectos, <strong>EL ARRENDATARIO</strong> podrá realizarlas, descontando el costo de ellas de la renta de arrendamiento siguiente a la fecha en que se hubieren realizado dichos gastos.</p>
+<p>En todo caso, <strong>EL ARRENDADOR</strong> no podrá jamás, a pretexto de haber hecho alguna reparación o cualquier otro gasto que por esta cláusula le corresponda hacer, subir la renta de arrendamiento.</p>
     {% set contador = contador + 1 %}
     
-    <p>{{ listado[contador] }}: La ARRENDADORA estará facultada para poner término inmediato al presente contrato, sin necesidad de declaración judicial, si:</p>
-    <h3>a) La Arrendataria se atrasare más de {{ entity.recisionpago }} {{ entity.recisionunidad }} en el pago de la renta de arrendamiento establecida en la cláusula cuarta de este contrato.</h3>
-    <h3>b) La Arrendataria infringiere cualesquiera de las obligaciones contraídas por ella en este contrato, en especial las establecidas en la clausulas sexta, séptima o octava del mismo.</h3>
-    <h3>c) Las demás causas establecidas en la ley.</h3>
-    {% set contador = contador + 1 %}
-    
-    <p>{{ listado[contador] }}: A su vez, el ARRENDATARIO podrá poner término al presente contrato sin necesidad de declaración judicial, si:</p>
-    <h3>a) Se produce un daño o desperfecto en el INMUEBLE ARRENDADO que no permita seguir utilizándolo para el fin por el que fue arrendado, y que, debiendo ser reparado por el ARRENDADOR, este no hubiese iniciado las labores de reparación dentro de XXX</h3>
-    <h3>b) Se incumpla gravemente cualquiera de las obligaciones establecidas por el presente contrato al ARRENDADOR, en especial, las señaladas en la clausula novena.</h3> 
-    <h3>c) Las demás causales que señale la ley.</h3>
-    {% set contador = contador + 1 %}
-    
-    <p>{{ listado[contador] }}: Al término del presente contrato, EL ARRENDATARIO se obliga a restituir el inmueble arrendado al ARRENDADOR, con los gastos comunes al día, desocupado y limpio, poniendo a su disposición las llaves en un lugar previamente acordado, o en el domicilio que el hubiere señalado en el presente contrato. Asimismo, el ARRENDATARIO deberá entregar, junto con las llaves del inmueble, una copia de las cuentas y sus respectivos recibos de pago, que acrediten la cancelación de los servicios básicos (agua potable, luz y gas) del mes inmediatamente anterior al que hace abandono del inmueble.</p>
-    {% set contador = contador + 1 %}
-    
-    {% if entity.garantiadeposito %}
-    <p>{{ listado[contador] }}: Con el fin de garantizar la conservación del inmueble arrendado, el ARRENDATARIO entrega en garantía y contra el respectivo recibo, en este acto al ARRENDADOR, la suma {{ entity.garantiamonto }}, que éste se obliga a devolverle dentro de los {{ entity.garantiadiasterminado }} {{ entity.garantiaunidad }} siguientes a la restitución de la propiedad arrendada, quedando desde luego el ARRENDADOR, autorizado para descontar de la cantidad indicada, la suma de dinero que corresponda a los gastos en que incurra para realizar, una vez que se le haya restituido la propiedad, las mantenciones que se requieran para que la propiedad vuelva al estado en que se encontraba al momento de ser entregada al ARRENDATARIO, y que deban ser de cargo del mismo. 
-        Lo anterior incluye, por ejemplo, la pintura de muros interiores, el tapado de orificios, reparación de válvulas y baldosas, entre otros.  
-        El ARRENDATARIO no podrá en ningún caso imputar la garantía al pago de rentas impagas, ni al arriendo del último mes ni al valor de cuentas pendientes de agua y luz. 
-        Si existen gastos por reparaciones que fueren de cuenta del arrendatario que superen el monto de la garantía, o en el caso en que el arrendador no hubiere dejado un depósito en garantía, este se obliga a pagarlos dentro de los siguientes {{ entity.garantiadiaspagado }} {{ entity.garantiaunidad }} a la fecha en la que se le requiera.
-    </p>
-    {% set contador = contador + 1 %}
+    <p>{{ listado[contador] }}: <strong>EL ARRENDADOR</strong> estará facultado para poner término inmediato al presente contrato, sin necesidad de declaración judicial, si <strong>EL ARRENDATARIO</strong>:</p>
+    {% if entity.terminoarrendadorprimero %}
+    <h3>Usa el inmueble para un fin ilicito.</h3>
     {% endif %}
+    {% if entity.terminoarrendadorsegundo %}
+    <h3>Infringe cualquiera de las obligaciones contraídas por ella en este contrato, en especial, las señaladas en la clausula sexta, a excepción de la obligación de pagar oportunamente la renta de arrendamiento.</h3>
+    {% endif %}
+    {% if entity.terminoarrendadorotro }}
+    <h3>{{ entity.terminoarrendadorotrotexto }}</h3>
+    {% endif %}
+    <p>Si <strong>EL ARRENDADOR</strong> quisiera pedir la terminación del contrato de arriendo por falta de pago de la renta, una vez que haya pasado un período entero de pago, sin que <strong>EL ARRENDATARIO</strong> hubiese pagado el arriendo, deberá exigirle el pago de la deuda dos veces; la primera a través de una carta certificada enviada al <strong>INMUEBLE ARRENDADO</strong>, y la otra, luego de interpuesta la respectiva demanda de terminación de contrato de arrendamiento, en la audiencia de contestación de la demanda.</p>
+    
+    {% set contador = contador + 1 %}
+    
+    <p>{{ listado[contador] }}: Por su parte, <strong>EL ARRENDATARIO</strong> podrá poner término inmediato al contrato, sin necesidad de una declaración judicial, si:</p>
+    {% if entity.terminoarrendatarioprimero }}
+    <h3>EL ARRENDATARIO fuese molestado en el goce del inmueble, como por ejemplo, cuando fuese notificado de una orden judicial que lo obliga a abandonar el inmueble arrendado</h3>
+    {% endif %}
+    {% if entity.terminoarrendatariosegundo }}
+    <h3>Por culpa de reparaciones que EL ARRENDADOR no ha hecho, estando obligado a hacerlas, no puede usar el BIEN RAÍZ para el propósito que lo arrendó.</h3> 
+    {% endif %}
+    {% if entity.terminoarrendatariootro }}
+    <h3>{{ entity.terminoarrendatariootrotexto }}.</h3>
+    {% endif %}
+    {% set contador = contador + 1 %}
+    
+    <p>{{ listado[contador] }}: Para que cualquiera de las partes termine el contrato por alguna de las causas establecidas en las dos clausulas anteriores, deberá notificar a la otra, a través de una carta certificada enviada a su domicilio señalado en este contrato, o al inmueble arrendado, en el que caso de que sea dirigida al ARRENDATARIO, de su voluntad de dar por terminado el contrato, describiendo detalladamente las razones que tiene para ello.</p>
+<p>En cualquiera de estos casos, el ARRENDATARIO deberá abandonar el bien arrendado en el plazo de 1 período de arriendo, contado desde que cualquiera de las partes reciba la carta señalada en el párrafo anterior.
+Una vez vencido este plazo, el contrato terminará, debiendo las partes cumplir con las obligaciones señaladas en las clausulas décimo primera y siguientes.</p>
+<p>Sin perjuicio de lo anterior, si una vez terminado el contrato de arriendo, EL ARRENDATARIO continúa utilizando el inmueble, deberá pagar la renta de arrendamiento, los gastos comunes, las cuentas de servicios básicos y cualquier otro gasto que hubiese tenido que pagar mientras el contrato de arriendo estuvo vigente. Asimismo, deberá responder frente a cualquier daño en el inmueble, como si el contrato no hubiese expirado. Todo lo anterior deberá realizarlo, hasta que le devuelva el inmueble arrendado al ARRENDADOR.</p>
+{% set contador = contador + 1 %}
+
+<p>{{ listado[contador] }}: EL ARRENDATARIO se obliga a restituir el bien arrendado al término del presente contrato, en el mismo estado en que lo recibió, tomando en cuenta el paso del tiempo, junto con los demás objetos descritos en el inventario, si ello corresponde, y con las cuentas de servicios básicos y gastos comunes, si corresponde, pagados.</p>
+<p>Para ello, deberá entregar al ARRENDADOR las llaves en el lugar en que ambas partes acuerden, o a falta de acuerdo, las dejará en el domicilio del ARRENDADOR señalado en el presente contrato.</p>
+<p>Junto con la entrega de las llaves, EL ARRENDATARIO deberá acreditar que están pagados los servicios básicos (agua, energía eléctrica y gas), con las cuentas y los recibos que acrediten su pago, del mes inmediatamente anterior al que hace abandono del inmueble.</p>
+{% set contador = contador + 1 %}
+    
+{% if entity.garantiadeposito %}
+<p>{{ listado[contador] }}: Con el fin de garantizar la conservación del inmueble arrendado y el cumplimiento de este contrato, EL ARRENDATARIO entrega en garantía y contra el respectivo recibo, en este acto al ARRENDADOR, {% if entity.garantiaforma == "Otro" %}{{ entity.garantiaformaotro }}{% else %}{{ entity.garantiaforma }}{% endif %}, la suma {% if entity.garantiamonto == "Otro" %}{{ entity.garantiamontootro }}{% else %}{{ entity.garantiamonto }}{% endif %}, que EL ARRENDADOR, se obliga a devolverle {{ entity.garantiadiasterminado }} de terminar el contrato de arriendo.</p>
+<p>EL ARRENDATARIO no podrá en ningún caso imputar la garantía al pago de rentas impagas.</p>
+{% set contador = contador + 1 %}
+{% endif %}
     
     {% if entity.aval %}
-    <p>{{ listado[contador] }}: Como garantía de cumplimiento del contrato {% if entity.avalsexo == "Hombre" %}don{% else %}doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}, {{ entity.avalnacionalidad }}, {{ entity.avalestadocivil }}, de profesión {{ entity.avalprofesion }} cédula de identidad número {{ entity.avalrut }}, con domicilio en {{ entity.avaldomicilio }}, comuna de {{ entity.avalcomuna }}, Región {{ entity.avalregion }} se constituye como codeudor del arrendatario –en adelante en indistintamente, el AVAL-, obligándose solidariamente a asumir como propias todas las obligaciones de {{ entity.arrendadornatural }} que emanen del presente contrato de arrendamiento. El AVAL firma el presente instrumento en señal de aceptación. </p>
+    <p>{{ listado[contador] }}: Como garantía de cumplimiento del contrato {% if entity.avalsexo == "Hombre" %}Don{% else %}Doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}, {{ entity.avalnacionalidad }}, {{ entity.avalestadocivil }}, de profesión {{ entity.avalprofesion }} cédula de identidad número {{ entity.avalrut }}, con domicilio en {{ entity.avaldomicilio }}, comuna de {{ entity.avalcomuna }}, Región {{ entity.avalregion }} se constituye como codeudor del arrendatario en adelante en indistintamente, "CODEUDOR SOLIDARIO" o "EL CODEUDOR SOLIDARIO", obligándose solidariamente a asumir como propias todas las obligaciones a nombre del EL ARRENDATARIO que emanen del presente contrato de arrendamiento. {% if entity.avalsexo == "Hombre" %}Don{% else %}Doña{% endif %} {{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }} firma el presente instrumento en señal de aceptación.</p>
     {% set contador = contador + 1 %}
-    <p>{{ listado[contador] }}: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna de XXX, y se someten a la jurisdicción y competencia de sus tribunales de justicia.</p>
+    
+    <p>{{ listado[contador] }}: Las partes fijan domicilio para todos los efectos derivados de este contrato en la comuna {% if entity.jurisdiccion %}de {{ entity.jurisdiccioncomuna }}{% else %}en que se suscribe el contrato{% endif%}, y se someten a la jurisdicción y competencia de sus tribunales de justicia.</p>
     {% set contador = contador + 1 %}
     {% endif %}
     
     {% if entity.correo %}
-    <p>{{ listado[contador] }}: Para todos los efectos del presente contrato, el ARRENDADOR señala que su correo electrónico es {{ entity.correoarrendador }} y el ARRENDATARIO señala que su correo electrónico es {{ entity.correoarrendatario }}. Cualquier cambio de correo electrónico o de domicilio de las partes, deberá ser avisado a la contraparte por cualquiera de estos dos medios. Mientras ello no ocurra, seguirán siendo válidos para todos los efectos, los datos señalados en el presente contrato.</p>
+    <p>{{ listado[contador] }}: Para todos los efectos del presente contrato, el <strong>ARRENDADOR</strong> señala que su correo electrónico es  y el ARRENDATARIO señala que su correo electrónico es . Cualquier cambio de correo electrónico o de domicilio de las partes, deberá ser avisado a la contraparte por cualquiera de estos dos medios. Mientras ello no ocurra, seguirán siendo válidos para todos los efectos, los datos señalados en el presente contrato.</p>
     {% set contador = contador + 1 %}
+    
+    <p>{{ listado[contador] }}: Para que cualquiera de las partes comunique a la otra cualquier tema referido con la ejecución del presente contrato, sin perjuicio de las formas de notificación establecidas más arriba, EL ARRENDADOR señala que su correo electrónico es {{ entity.correoarrendador }}, y EL ARRENDATARIO señala que su correo electrónico es {{ entity.correoarrendatario }}.</p>
+<p>Cualquier cambio de correo electrónico o de domicilio de las partes, deberá ser avisado a la contraparte por cualquiera de estos dos medios. Mientras ello no ocurra, seguirán siendo válidos para todos los efectos, los datos señalados en el presente contrato.</p>
     {% endif %}
+    {% set contador = contador + 1 %}
     
     <p>{{ listado[contador] }}: El presente contrato se firma en dos ejemplares de un mismo valor, tenor y fecha; quedando uno en poder de cada parte contratante.
     {% if entity.arrendadorpersona == "Jurídica" %}
@@ -195,19 +215,21 @@ Las multas u honorarios señalados en los párrafos anteriores deberán ser paga
     <p></p>
     
     {% if entity.arrendadorpersona == "Natural" %}
-    <h2>________________________</h2><h2>{{ entity.arrendadornatural }}</h2><h2>RUT: {{ entity.arrendadornaturalrut }}</h2>
+    <h2>________________________</h2><h2>{{ entity.arrendadornatural }}</h2><h2>RUT: {{ entity.arrendadornaturalrut }}</h2><h2>ARRENDADOR</h2>
     {% else %}
     {% for representante in entity.arrendadorjuridicarepresentante %}<h2>________________________</h2>
-    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.arrendadorjuridicarazon }}</h2>
+    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.arrendadorjuridicarazon }}</h2><h2>ARRENDADOR</h2>
     {% endfor %}
     {% endif %}
     
     {% if entity.arrendatariopersona == "Natural" %}
-    <h2>________________________</h2><h2>{{ entity.arrendatarionatural }}</h2><h2>RUT: {{ entity.arrendatarionaturalrut }}</h2>
+    <h2>________________________</h2><h2>{{ entity.arrendatarionatural }}</h2><h2>RUT: {{ entity.arrendatarionaturalrut }}</h2><h2>ARRENDATARIO</h2>
     {% else %}
     {% for representante in entity.arrendatariojuridicarepresentante %}<h2>________________________</h2>
-    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.arrendatariojuridicarazon }}</h2>
+    <h2>{{ representante.nombres }} {{ representante.apellidopaterno }} {{ representante.apellidomaterno }}</h2><h2>RUT: {{ representante.rut }}</h2><h2>P.p. {{ entity.arrendatariojuridicarazon }}</h2><h2>ARRENDATARIO</h2>
     {% endfor %}
     {% endif %}
+    
+    <h2>________________________</h2><h2>{{ entity.avalnombres }} {{ entity.avalapellidopaterno }} {{ entity.avalapellidomaterno }}</h2><h2>RUT: {{ entity.avalrut }}</h2><h2>AVAL</h2>
 {% endspaceless %}
 {% endblock %}
